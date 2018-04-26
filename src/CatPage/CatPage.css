@@ -1,17 +1,22 @@
 .CatPage {
     background-color: antiquewhite;
+    display:flex;;
 }
 .catDiv{
     display:flex;
     margin:0;
     padding:0;
     justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border: red 1px solid;
+    width:30%;
 }
 
 .catDescription {
     display: inline-block;
     border: darkgreen 2px solid;
-    width: 50%;
+    width: 100%;
 }
 
 .catImage{
@@ -20,5 +25,4 @@
 }
 
 .catButtons{
-    width: 20%;
 }

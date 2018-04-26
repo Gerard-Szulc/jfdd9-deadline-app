@@ -6,11 +6,12 @@ import './CatPage.css';
 class CatPage extends Component {
   render() {
     return (
-      <div className="catDiv">
-        <div><img src={logo} className="App-logo catImage" alt="logo"/>
+      <div className="CatPage">
+        <div className="catDiv">
+          <img src={logo} className="App-logo catImage" alt="logo"/>
           <button className="catButtons">catFavorite</button>
         </div>
-        <div>
+        <div className="catDiv">
           <p className="catDescription">
             Opis kota Doggo ipsum i am bekom fat borking doggo long bois h*ck fat boi, many pats ur givin me a spook
             very jealous pupper. Much ruin diet super chub long woofer pupper sub woofer ruff very hand that feed shibe,
