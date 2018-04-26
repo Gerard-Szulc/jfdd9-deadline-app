@@ -24,6 +24,7 @@ class App extends Component {
             <Route path="/catpage" component={CatPage}/>
             <nav>
           <p><Link to="/catpage">Strona kota</Link></p>
+              <p><Link to="/">Intro</Link></p>
         </nav>
           </div>
         </Router>
