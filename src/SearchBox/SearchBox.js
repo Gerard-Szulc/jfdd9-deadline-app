@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Race from "./Race";
-import {ageOptions,colorOptions,sexOptions,raceOptions} from './options'
+import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatBase'
 const SearchBoxStyle = {
 
   width: '100%',
@@ -12,28 +12,34 @@ const SearchBoxStyle = {
 
 class SearchBox extends Component{
 
-  state = {
-    selectedRaceOption: null,
-    selectedSexOption: null,
-    selectedColorOption: null,
-    selectedAgeOption: null,
-  };
+  mapOptions = (options) => Object.entries(options).map((element)=>({value: element[0], label: element[1]}));
 
-  handleChange = (name, selectedOption) => {
-    this.setState(    {
-      [name]:selectedOption
 
-    });
-    console.log(selectedOption)
-  };
+
   render(){
     return(
 
       <div style={ SearchBoxStyle }>
-        <Race name="selectedRaceOption" options={raceOptions} handleChange={this.handleChange} selectedOption={this.state.selectedRaceOption}/>
-        <Race name="selectedSexOption" options={sexOptions} handleChange={this.handleChange} selectedOption={this.state.selectedSexOption}/>
-        <Race name="selectedColorOption" options={colorOptions} handleChange={this.handleChange} selectedOption={this.state.selectedColorOption}/>
-        <Race name="selectedAgeOption" options={ageOptions} handleChange={this.handleChange} selectedOption={this.state.selectedAgeOption}/>
+
+        <Race name="selectedRaceOption"
+              options={this.mapOptions(raceOptions)}
+              handleChange={this.props.handleChange}
+              selectedOption={this.props.search.selectedRaceOption}/>
+
+        <Race name="selectedSexOption"
+              options={this.mapOptions(sexOptions)}
+              handleChange={this.props.handleChange}
+              selectedOption={this.props.search.selectedSexOption}/>
+
+        <Race name="selectedColorOption"
+              options={this.mapOptions(colorOptions)}
+              handleChange={this.props.handleChange}
+              selectedOption={this.props.search.selectedColorOption}/>
+
+        <Race name="selectedAgeOption"
+              options={this.mapOptions(ageOptions)}
+              handleChange={this.props.handleChange}
+              selectedOption={this.props.search.selectedAgeOption}/>
       </div>
 
     )
