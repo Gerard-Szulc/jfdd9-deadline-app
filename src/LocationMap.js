@@ -12,7 +12,6 @@ export class MapContainer extends Component {
 
         <InfoWindow onClose={this.onInfoWindowClose}>
           <div>
-            <h1>{this.state.selectedPlace.name}</h1>
           </div>
         </InfoWindow>
       </Map>
@@ -21,5 +20,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: (YOUR_GOOGLE_API_KEY_GOES_HERE)
+  apiKey: ('AIzaSyBO9R2KyAzW0kSKuwEJoJifPpsqp0bftvU')
 })(MapContainer)
