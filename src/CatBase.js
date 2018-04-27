@@ -20,3 +20,22 @@ export const ageOptions = {
   young: 'poniżej roku',
   adult: 'powyżej roku'
 }
+
+
+const DataBase = [
+  {id: 1,
+    name :'Kicia',
+    race: raceOptions.european,
+    sex: '',
+    age: '',
+    ointment: '',
+    description: '',
+    image: 'url', }
+
+]
+
+
+
+
+
+export default DataBase
