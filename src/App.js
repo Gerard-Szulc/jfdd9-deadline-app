@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './NavBar';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Main from './Main'
+import FavoriteCats from './FavoriteCats'
+import Shelters from './Shelters'
+import Profil from './Profil'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <Router>
+        <div className="App">
+          <NavBar/>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/favorite-cats" component={FavoriteCats} />
+          <Route exact path="/shelters" component={Shelters} />
+          <Route exact path="/profil" component={Profil} />
+
       </div>
+      </Router>
     );
   }
 }
