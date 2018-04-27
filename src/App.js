@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './NavBar';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Main from './Main'
+import FavoriteCats from './FavoriteCats'
+import Shelters from './Shelters'
+import Profil from './Profil'
+import CatPage from './CatPage/CatPage'
 import LocationMap from './LocationMap'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <LocationMap></LocationMap>
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar/>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/favorite-cats" component={FavoriteCats} />
+          <Route exact path="/shelters" component={Shelters} />
+          <Route exact path="/profil" component={Profil} />
+          <Route path="/catpage" component={CatPage}/>
+          <Route path="/location" component={LocationMap}/>
+        <nav>
+          <p><Link to="/catpage">Strona kota</Link></p>
+          <p><Link to="/">Intro</Link></p>
+        </nav>
+        </div>
+      </Router>
     );
   }
 }
