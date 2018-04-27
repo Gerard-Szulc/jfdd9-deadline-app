@@ -6,6 +6,7 @@ import Main from './Main'
 import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profil from './Profil'
+import CatPage from './CatPage/CatPage'
 
 class App extends Component {
   render() {
@@ -17,8 +18,12 @@ class App extends Component {
           <Route exact path="/favorite-cats" component={FavoriteCats} />
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profil" component={Profil} />
-
+          <Route path="/catpage" component={CatPage}/>
       </div>
+        <nav>
+          <p><Link to="/catpage">Strona kota</Link></p>
+          <p><Link to="/">Intro</Link></p>
+        </nav>
       </Router>
     );
   }
