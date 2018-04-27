@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './NavBar';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Main from './Main'
 import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
@@ -19,11 +19,11 @@ class App extends Component {
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profil" component={Profil} />
           <Route path="/catpage" component={CatPage}/>
-      </div>
         <nav>
           <p><Link to="/catpage">Strona kota</Link></p>
           <p><Link to="/">Intro</Link></p>
         </nav>
+        </div>
       </Router>
     );
   }
