@@ -1,32 +1,50 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './CatPage.css';
 
 
 class CatPage extends Component {
+
+  state = {
+    cats: null,
+    fetching: false,
+    error: null
+  }
+
+  componentDidMount() {
+    this.setState({
+      fetching: true,
+      error: null
+    })
+    fetch(
+      process.env.PUBLIC_URL + '/cats.json'
+    ).then(
+      response => response.json()
+    ).then(
+      cats => this.setState({
+        cats,
+        fetching: false
+      })
+    ).catch(
+      error => this.setState({
+        error,
+        fetching: false
+      })
+    )
+  }
+
   render() {
     return (
       <div className="CatPage">
         <div className="catDiv">
-          <img src={logo} className="App-logo catImage" alt="logo"/>
           <button className="catButtons">catFavorite</button>
         </div>
         <div className="catDiv">
           <p className="catDescription">
-            Opis kota Doggo ipsum i am bekom fat borking doggo long bois h*ck fat boi, many pats ur givin me a spook
-            very jealous pupper. Much ruin diet super chub long woofer pupper sub woofer ruff very hand that feed shibe,
-            pupper thicc bork dat tungg tho woofer. Fat boi heckin angery woofer extremely cuuuuuute shooberino long
-            woofer, doggo very good spot doing me a frighten pupperino, yapper boofers wow such tempt. heckin good boys
-            you are doin me a concern very jealous pupper. Long bois shoob bork h*ck very hand that feed shibe much ruin
-            diet, wrinkler much ruin diet smol borking doggo with a long snoot for pats boofers you are doin me a
-            concern, long woofer he made many woofs dat tungg tho floofs. You are doing me the shock very good spot you
-            are doing me the shock many pats, dat tungg tho. Blop wrinkler ur givin me a spook waggy wags, long woofer.
+            {/*{this.state.cats.description}*/}
           </p>
           <button className="catButtons">adoptButton</button>
           <button className="catButtons">calendarButton</button>
         </div>
-
-
       </div>
     )
   }
