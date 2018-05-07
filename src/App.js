@@ -7,7 +7,6 @@ import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profil from './Profil'
 import CatPage from './CatPage/CatPage'
-import SearchBox from "./SearchBox/SearchBox";
 
 
 class App extends Component {

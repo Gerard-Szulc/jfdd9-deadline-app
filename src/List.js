@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import CatPage from "./CatPage/CatPage";
 
 class List extends Component{
@@ -8,13 +8,9 @@ class List extends Component{
 
   render(){
     return(
+      <div>
 
-      <ul>
-        <CatPage />
-      </ul>
-
-
-
+      </div>
     )
   }
 }

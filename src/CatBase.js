@@ -26,10 +26,10 @@ const DataBase = [
   {id: 1,
     name :'Kicia',
     race: raceOptions.alleycat,
-    sex: '',
-    age: '',
-    ointment: '',
-    description: '',
+    sex: sexOptions.female,
+    age: ageOptions.adult,
+    ointment: colorOptions.black,
+    description: "adfghadfh",
     image: 'url', }
 
 ]
