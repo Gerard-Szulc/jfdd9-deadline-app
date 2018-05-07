@@ -5,7 +5,7 @@ import './CatPage.css';
 class CatPage extends Component {
 
   state = {
-    cats: null,
+    cat: null,
     fetching: false,
     error: null
   }
@@ -21,7 +21,8 @@ class CatPage extends Component {
       response => response.json()
     ).then(
       cats => this.setState({
-        cats,
+        cat : cats.find(cat =>
+          cat.id.toString() === this.props.match.params.catId),
         fetching: false
       })
     ).catch(
@@ -40,7 +41,9 @@ class CatPage extends Component {
         </div>
         <div className="catDiv">
           <p className="catDescription">
-            {/*{this.state.cats.description}*/}
+            {this.state.cat !== null ?
+              this.state.cat.description : null
+            }
           </p>
           <button className="catButtons">adoptButton</button>
           <button className="catButtons">calendarButton</button>
