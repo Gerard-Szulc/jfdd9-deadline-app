@@ -14,7 +14,7 @@ export const colorOptions = {
   striped: 'Pręgowany',
   crossbred: 'Mieszany'
 
-}
+};
 export const ageOptions = {
   veryYoung:'poniżej 3 miesięcy',
   young: 'poniżej roku',
@@ -22,7 +22,7 @@ export const ageOptions = {
 }
 
 
-const DataBase = [
+export const DataBase = [
   {id: 1,
     name :'Kicia',
     race: raceOptions.alleycat,
