@@ -9,7 +9,11 @@ import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
 import LocationMap from './LocationMap'
 
+
 class App extends Component {
+
+
+
   render() {
     return (
       <Router>
@@ -27,6 +31,9 @@ class App extends Component {
         </nav>
         </div>
       </Router>
+
+
+
     );
   }
 }
