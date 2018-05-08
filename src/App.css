@@ -38,21 +38,15 @@
   font-family: "Lato Heavy", sans-serif;
   font-size: 1.2rem;
   color: antiquewhite;
-}
-
-.Navbar a{
-  color: antiquewhite;
+  z-index: 9999;
+  box-shadow: 0 3px 10px #000c;
 }
 
 .NavBar li {
   list-style: none;
   display:inline-flex;
   margin: 0 0.5rem;
-
-
 }
 
-.SearchBox {
 
-}
 
