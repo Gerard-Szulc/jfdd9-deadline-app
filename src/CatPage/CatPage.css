@@ -5,12 +5,12 @@
 .catDiv{
     display:flex;
     margin:0;
-    padding:0;
+    padding:0.5rem;
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
     border: red 1px solid;
-    width:30%;
+    width:48%;
 }
 
 .catDescription {
@@ -20,7 +20,7 @@
 }
 
 .catImage{
-    width: 40%;
+    width: 100%;
     height: auto;
 }
 

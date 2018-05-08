@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
-import Shelters from "./Shelters";
-
 
 
 class NavBar extends Component {
@@ -19,7 +17,10 @@ class NavBar extends Component {
               <Link to="/shelters">Shelters</Link>
             </li>
             <li>
-              <Link to="/profil">Your Profil</Link>
+              <Link to="/profile">Your Profile</Link>
+            </li>
+            <li>
+              <Link to="/location">Location</Link>
             </li>
           </ul>
         </div>
