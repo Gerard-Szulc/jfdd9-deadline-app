@@ -17,15 +17,15 @@ export class MapContainer extends Component {
         <Marker
           title={'Promyk'}
           name={'Promyk'}
-          position={{lat: 54.374698, lng: 18.449061}} />
+          position={{lat: 54.374760, lng: 18.449328}} />
         <Marker
           title={'Ciapkowo'}
           name={'Ciapkowo'}
-          position={{lat: 54.492495, lng: 18.528108}} />
+          position={{lat: 54.492730, lng: 18.527670}} />
         <Marker
           title={'Schronisko Sopot'}
           name={'Schronisko Sopot'}
-          position={{lat: 54.443741, lng: 18.552355}} />
+          position={{lat: 54.443741, lng: 18.552334}} />
 
 
         <InfoWindow onClose={this.onInfoWindowClose}>
