@@ -11,15 +11,15 @@ const getSearchOptions = search =>
 
         return {[option]: valueKeys}
 
-      })
+      });
 
 class Main extends Component {
   state = {
     search: {
-      selectedRaceOption: null,
-      selectedSexOption: null,
-      selectedColorOption: null,
-      selectedAgeOption: null,
+      selectedRaceOption: [],
+      selectedSexOption: [],
+      selectedColorOption: [],
+      selectedAgeOption: [],
     }
   };
 
