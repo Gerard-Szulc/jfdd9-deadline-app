@@ -12,7 +12,7 @@ const SearchBoxStyle = {
 
 class SearchBox extends Component{
 
-  mapOptions = (options) => Object.entries(options).map((element)=>({value: element[0], label: element[1]}));
+  mapOptions = (options) => Object.entries(options).map((element)=>({value: element[1], label: element[1]}));
 
 
 

@@ -25,7 +25,7 @@ export const ageOptions = {
 export const DataBase = [
   {id: 1,
     name :'Kicia',
-    race: raceOptions.alleycat,
+    race: 'Rasowy',
     sex: sexOptions.female,
     age: ageOptions.adult,
     ointment: colorOptions.black,

@@ -6,24 +6,50 @@ class List extends Component {
 
 
   render() {
-    const SearchCat = Cats =>
-    Cats.filter(cat => (
-      Object.values(cat))
-    );
 
-    return (
-      <div>
-        {console.log(SearchCat(DataBase))}
-        {console.log(this.props.search.map(element=>(
-          {
-            [Object.keys(element)] : (Object.values(element).join(","))
-          }
-          )
-        )
-        )
-        }
-      </div>
+    const search = this.props.search.reduce(
+      (result, next) => {
+        const key = Object.keys(next)[0]
+        result[key] = next[key]
+        return result
+      },
+          {}
+
     )
+    console.log(search)
+    return (
+      DataBase.filter(
+        cat => (
+          (search.selectedSexOption && search.selectedSexOption.includes(cat.sex)) ||
+          (search.selectedRaceOption && search.selectedRaceOption.includes(cat.race)) ||
+          (search.selectedAgeOption && search.selectedAgeOption.includes(cat.age)) ||
+          (search.selectedColorOption && search.selectedColorOption.includes(cat.ointment))
+
+        )
+      ).map(
+        cat => <p>{cat.name} : {cat.sex}</p>
+      )
+    )
+    // const pro = () => this.props.search.map(element=>(
+    //     {
+    //       [Object.keys(element)] : (Object.values(element).join(","))
+    //     }
+    //   )
+    // )
+    //
+    // const SearchCat = Cats =>
+    // Cats.map(cat => (
+    //   Object.values(cat))
+    // );
+    //
+    // return (
+    //   <div>
+    //     {console.log(SearchCat(DataBase))}
+    //     {console.log(pro()
+    //     )
+    //     }
+    //   </div>
+    // )
   }
 }
 
