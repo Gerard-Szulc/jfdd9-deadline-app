@@ -22,7 +22,7 @@ export const ageOptions = {
 }
 
 
-const DataBase = [
+export const DataBase = [
   {id: 1,
     name :'Migotka',
     race: raceOptions.alleycat,
@@ -34,7 +34,7 @@ const DataBase = [
   {id: 2,
     name :'Leon',
     race: raceOptions.purebred,
-    sex: sexOptions.female,
+    sex: sexOptions.male,
     age: ageOptions.adult,
     ointment: colorOptions.red,
     description: 'Dostojny kocur rasy Ragdoll o spokojnej osobowości. Doskonale dogaduje się z psami. Cierpliwy, nadaje się do domu z dziećmi.',
@@ -209,4 +209,3 @@ const DataBase = [
 
 
 
-export default DataBase
