@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import CatContainer from "./CatContainer";
 
 class List extends Component {
 
@@ -53,8 +54,7 @@ class List extends Component {
          (search.selectedColorOption.length !==0 ? search.selectedColorOption.includes(cat.ointment) : true)
        )
       ).map(
-       cat =>(<div>{cat.name} {cat.id} </div>)
-         //<CatContainer cat={cat}/>)
+       cat =>(<CatContainer cat={cat}/>)
       )
     )
 
