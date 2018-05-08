@@ -24,9 +24,9 @@ export const ageOptions = {
 
 export const DataBase = [
   {id: 1,
-    name :'Migotka',
+    name :'Trzpiotka',
     race: raceOptions.alleycat,
-    sex: sexOptions.male,
+    sex: sexOptions.female,
     age: ageOptions.young,
     ointment: colorOptions.striped,
     description: 'Kotka o bardzo żywej naturze. Łowna. Przeznaczona do utrzymywania na podwórku. Szybko przywiązuje się do ludzi.',
@@ -137,7 +137,7 @@ export const DataBase = [
     id: 14,
     name :'Akuda',
     race: raceOptions.alleycat,
-    sex: sexOptions.female,
+    sex: sexOptions.male,
     age: ageOptions.adult,
     ointment: colorOptions.red,
     description: '„Prawdziwa sesja! Miękki kocyk, profesjonalne tło i światło, i nawet asystentka fotografa! Wszystko nowe, wszystko nieznane, aż oczy ze zdumienia szeroko otwieram. Dziwicie się? Dla faceta, którego chorego i brudnego znaleziono w osiedlowym zsypie (tak, tak właśnie Wy, ludzie potraficie podziękować za miłość i przywiązanie …) wszystko to jest cudem, odmianą i zrządzeniem losu. Moja rekonwalescencja tu w schronisku trochę niestety trwała. Jak to mówi nasza pani doktor, długo nie mogłem się zdecydować, czy będę żył, czy nie. To wszystko, co złe, choroby, brud, głód, poniewierka – to już jednak całe szczęście za mną. A co przede mną? To już od Was zależy. Na pewno byłem domowym kotem – jestem spokojny i miły, lgnę do człowieka, daję sie głaskać, i to nawet po puchatym brzuszku, a każdy, kto zna kocią naturę wie, że to zwykle nie jest ulubione miejsce do mizianek. Mnie to jednak odpowiada póki co, a smyrajcie sobie do woli, a najlepiej to już w nowym domu, w godnych warunkach. Bo upokorzeń śmietnikowego kota, którego los nikogo nie obchodzi, przeganianego z miejsca na miejsce to ja już ponownie zaznać nie chcę. Jak możesz dać mi nowy, odpowiedzialny dom, taki do końca świata, żeby nie wiem co, to zapraszam, przyjedź, pogadamy, poznamy się. Z utęsknieniem czekam tu na Opiekuna i Przyjaciela z prawdziwego zdarzenia.” Pozdrawiam, Akuda.',

@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Migotka",
+    "name": "Trzpiotka",
     "race": "Dachowiec",
-    "sex": "Kocur",
+    "sex": "Kotka",
     "age": "poniżej roku",
     "ointment": "Pręgowany",
     "shelter": "Promyk",
@@ -146,7 +146,7 @@
     "id": 14,
     "name": "Akuda",
     "race": "Dachowiec",
-    "sex": "Kotka",
+    "sex": "Kocur",
     "age": "powyżej roku",
     "ointment": "Rudy",
     "shelter": "Promyk",
