@@ -2,7 +2,25 @@ import React, { Component } from 'react'
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-export class MapContainer extends Component {
+const markers = {
+  'Promyk':  <Marker
+    key={'Promyk'}
+    title={'Promyk'}
+    name={'Promyk'}
+    position={{lat: 54.374760, lng: 18.449328}} />,
+  'Ciapkowo': <Marker
+    key={'Ciapkowo'}
+    title={'Ciapkowo'}
+    name={'Ciapkowo'}
+    position={{lat: 54.492730, lng: 18.527670}} />,
+  'Schronisko Sopot': <Marker
+    key={'Schronisko Sopot'}
+    title={'Schronisko Sopot'}
+    name={'Schronisko Sopot'}
+    position={{lat: 54.443741, lng: 18.552334}} />
+}
+
+class Shelters extends Component {
   render() {
     return (
       <Map google={this.props.google}
@@ -14,19 +32,9 @@ export class MapContainer extends Component {
            onClick={this.onMapClicked}
       >
 
-        <Marker
-          title={'Promyk'}
-          name={'Promyk'}
-          position={{lat: 54.374760, lng: 18.449328}} />
-        <Marker
-          title={'Ciapkowo'}
-          name={'Ciapkowo'}
-          position={{lat: 54.492730, lng: 18.527670}} />
-        <Marker
-          title={'Schronisko Sopot'}
-          name={'Schronisko Sopot'}
-          position={{lat: 54.443741, lng: 18.552334}} />
-
+        {this.props.shelter ? markers[this.props.shelter] :
+          Object.values(markers)
+        }
 
         <InfoWindow onClose={this.onInfoWindowClose}>
           <div>
@@ -39,4 +47,4 @@ export class MapContainer extends Component {
 
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyBO9R2KyAzW0kSKuwEJoJifPpsqp0bftvU')
-})(MapContainer)
+})(Shelters)
