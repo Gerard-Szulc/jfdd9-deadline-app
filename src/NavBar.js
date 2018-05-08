@@ -19,9 +19,6 @@ class NavBar extends Component {
             <li>
               <Link to="/profile">Your Profile</Link>
             </li>
-            <li>
-              <Link to="/location">Location</Link>
-            </li>
           </ul>
         </div>
     )
