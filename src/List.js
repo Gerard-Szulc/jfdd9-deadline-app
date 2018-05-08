@@ -30,26 +30,7 @@ class List extends Component {
         cat => <p>{cat.name} : {cat.sex}</p>
       )
     )
-    // const pro = () => this.props.search.map(element=>(
-    //     {
-    //       [Object.keys(element)] : (Object.values(element).join(","))
-    //     }
-    //   )
-    // )
-    //
-    // const SearchCat = Cats =>
-    // Cats.map(cat => (
-    //   Object.values(cat))
-    // );
-    //
-    // return (
-    //   <div>
-    //     {console.log(SearchCat(DataBase))}
-    //     {console.log(pro()
-    //     )
-    //     }
-    //   </div>
-    // )
+
   }
 }
 
