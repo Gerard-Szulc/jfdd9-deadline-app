@@ -30,11 +30,29 @@
 
 .NavBar {
   background-color: cadetblue;
+  height: 2rem;
+  display:flex;
+  align-items: center;
+justify-content: flex-end;
+  width: 100vw;
+  font-family: "Lato Heavy", sans-serif;
+  font-size: 1.2rem;
+  color: antiquewhite;
+}
+
+.Navbar a{
+  color: antiquewhite;
 }
 
 .NavBar li {
   list-style: none;
-  display:inline-block;
-  margin: 0.5rem;
+  display:inline-flex;
+  margin: 0 0.5rem;
+
 
 }
+
+.SearchBox {
+
+}
+

@@ -5,7 +5,8 @@ const SearchBoxStyle = {
 
   width: '100%',
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  marginTop: '1.5rem'
 
 };
 
