@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.NavBar {
+  background-color: cadetblue;
+}
+
+.NavBar li {
+  list-style: none;
+  display:inline-block;
+  margin: 0.5rem;
+
+}

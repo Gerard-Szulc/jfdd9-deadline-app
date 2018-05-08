@@ -27,7 +27,7 @@ class List extends Component {
 
         )
       ).map(
-        cat => <p>{cat.name} : {cat.sex}</p>
+        cat => <p>{cat.name} : {cat.sex} id {cat.id}</p>
       )
     )
     // const pro = () => this.props.search.map(element=>(
