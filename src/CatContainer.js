@@ -11,7 +11,7 @@ class CatContainer extends Component{
         <div className="catDescription">
           <p>{this.props.cat.description}</p>
         </div>
-        <Link to="/catpage/"{this.props.cat.id}>
+        <Link to={`/catpage/${this.props.cat.id}`}>
           <button>więcej...</button>
         </Link>
       </div>
