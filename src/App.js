@@ -7,7 +7,7 @@ import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
-import LocationMap from './LocationMap'
+
 
 
 class App extends Component {
@@ -24,7 +24,6 @@ class App extends Component {
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/catpage/:catId" component={CatPage}/>
-          <Route path="/location" component={LocationMap}/>
         <nav>
           <p><Link to="/catpage">Strona kota</Link></p>
           <p><Link to="/">Intro</Link></p>

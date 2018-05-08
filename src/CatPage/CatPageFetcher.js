@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import  Shelters from "../Shelters";
 
 class CatPageFetcher extends Component {
 
@@ -35,21 +36,26 @@ class CatPageFetcher extends Component {
     return (
 
       this.state.cat !== null ? (
-        <div className="CatPage">
-          <div className="catDiv">
-            <img class="catImage" alt="cat" src={this.state.cat.image}/>
-            <button className="catButtons">catFavorite</button>
-          </div>
+        <Fragment>
+          <div className="CatPage">
+            <div className="catDiv">
+              <img class="catImage" alt="cat" src={this.state.cat.image}/>
+              <button className="catButtons">catFavorite</button>
+            </div>
 
-          <div className="catDiv">
-            <h2>{this.state.cat.name}</h2>
-            <p className="catDescription">
-              {this.state.cat.description}
-            </p>
-            <button className="catButtons">adoptButton</button>
-            <button className="catButtons">calendarButton</button>
+            <div className="catDiv">
+              <h2>{this.state.cat.name}</h2>
+              <p className="catDescription">
+                {this.state.cat.description}
+              </p>
+              <button className="catButtons">adoptButton</button>
+              <button className="catButtons">calendarButton</button>
+            </div>
+
           </div>
-        </div>
+          <Shelters shelter={this.state.cat.shelter}/>
+        </Fragment>
+
         ) : null
     )
   }
