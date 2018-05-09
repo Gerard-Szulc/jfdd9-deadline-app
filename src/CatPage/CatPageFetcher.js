@@ -13,7 +13,7 @@ class CatPageFetcher extends Component {
     this.setState({
       fetching: true,
       error: null
-    })
+    });
     fetch(
       process.env.PUBLIC_URL + '/cats.json'
     ).then(
@@ -40,16 +40,17 @@ class CatPageFetcher extends Component {
           <div className="CatPage">
             <div className="catDiv">
               <img class="catImage" alt="cat" src={this.state.cat.image}/>
-              <button className="catButtons">catFavorite</button>
+              <button className="catButtons" onClick={this.props.handleFavoriteClick}>Polub mnie!</button>
             </div>
 
             <div className="catDiv">
               <h2>{this.state.cat.name}</h2>
+              <p><strong>Płeć:</strong> {this.state.cat.sex}. <strong>Wiek:</strong> {this.state.cat.age}</p>
               <p className="catDescription">
                 {this.state.cat.description}
               </p>
-              <button className="catButtons">adoptButton</button>
-              <button className="catButtons">calendarButton</button>
+              {//<button className="catButtons">adoptButton</button>
+                 }
             </div>
 
           </div>
