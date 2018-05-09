@@ -9,9 +9,13 @@ export class CatPageProvider extends Component {
     favourite: [],
 
     makeCatFavorite: (cat) => {
-      this.setState( {favourite: this.state.favourite.concat(cat)})
+      this.setState( {favourite: !this.state.favourite.includes(cat) ? this.state.favourite.concat(cat) : this.state.favourite.concat() });
       console.log(this.state.favourite)
+    },
+    removeFavourite: (cat)=> {
 
+      this.setState({
+        favourite: (this.state.favourite.filter(element=> element !== cat))})
     }
 
   };
