@@ -1,26 +1,34 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
+import navBar from './navBar.css';
+import logo from './logo-white.png';
 
 
 class NavBar extends Component {
   render() {
     return(
-        <div className="NavBar">
+        <nav>
+          <div className="logo">
+            <Link to="/"><img src={logo} alt="logo" /></Link>
+          </div>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/favorite-cats">FavoriteCats</Link>
+              <Link to="/favorite-cats">Favorite Cats</Link>
             </li>
             <li>
               <Link to="/shelters">Shelters</Link>
             </li>
-            <li>
-              <Link to="/profile">Your Profile</Link>
-            </li>
+            <div className="menuRight">
+              <li>
+                <Link to="/profile">Your Profile</Link>
+              </li>
+            </div>
           </ul>
-        </div>
+          <div className="clear"></div>
+        </nav>
     )
   }
 }
