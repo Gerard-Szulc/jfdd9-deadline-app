@@ -33,5 +33,26 @@ body{
   to { transform: rotate(360deg); }
 }
 
+.catContainer {
+    width:70%;
+    height: 5rem;
+    display: flex;
+}
+.catContainer img {
+    height: 4rem;
+    width: auto;
+}
 
+.catContainer p{
+    display:inline-block;
+}
+
+.catContainer button{
+    display:inline-block;
+    height: 1.5rem;
+    background-color: red;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+}
 
