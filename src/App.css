@@ -1,11 +1,5 @@
-body{
-  font-family: "Lato Heavy", sans-serif;
-  width: 100vw;
-}
-
 .App {
   text-align: center;
-  margin-top: 5rem;
 }
 
 .App-logo {
@@ -33,26 +27,67 @@ body{
   to { transform: rotate(360deg); }
 }
 
+
+.NavBar {
+  background-color: #f04510;
+  height: 2rem;
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+  font-family: "Lato Heavy", sans-serif;
+  font-size: 1.2rem;
+  color: antiquewhite;
+  z-index: 9999;
+  box-shadow: 0 3px 10px #000c;
+}
+
+.NavBar li {
+  list-style: none;
+  display:inline-flex;
+  margin: 0 0.5rem;
+}
+
+.list{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:#e46140;
+}
 .catContainer {
-    width:70%;
-    height: 5rem;
-    display: flex;
+  width:60%;
+  height: 12rem;
+  margin:0;
+  background-color: #f1f1f1;
+  padding: 2rem;
+  display:flex;
 }
 .catContainer img {
-    height: 4rem;
-    width: auto;
+  height: 11rem;
+  width: auto;
+
+}
+.catContainerDescription {
+  align-self:center;
+  justify-content: space-between;
 }
 
 .catContainer p{
-    display:inline-block;
+  display:inline-block;
+  margin:0;
+  width:70%;
 }
 
 .catContainer button{
-    display:inline-block;
-    height: 1.5rem;
-    background-color: red;
-    font-size: 1rem;
-    color: white;
-    border-radius: 5px;
+  display:inline-block;
+  height: 1.5rem;
+  background-color: red;
+  font-size: 1rem;
+  color: white;
+  border-radius: 5px;
+  justify-self:right;
 }
+
+
 

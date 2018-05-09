@@ -7,17 +7,17 @@ class CatContainer extends Component{
       <div className="catContainer">
         <div className="catContainerImage">
           <img src={this.props.cat.image} alt={this.props.cat.name} />
+          <div> <p><strong>{this.props.cat.name}</strong> <em>- {this.props.cat.sex.toLowerCase()}</em></p></div>
         </div>
         <div className="catContainerDescription">
-          <p>{this.props.cat.description}</p>
-        <div className="catDescription">
-          <p>{this.props.cat.description.split(' ').slice(0,20).join(' ')}...
+
+          <p>{this.props.cat.description.split(' ').slice(0,20).join(' ')}...</p>
             <Link to={`/catpage/${this.props.cat.id}`}>
              <button>Pokaż więcej</button>
-             </Link></p>
+             </Link>
+
         </div>
 
-      </div>
       </div>
     )
   }
