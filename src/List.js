@@ -42,7 +42,7 @@ class List extends Component {
     console.log(search);
     return (
 
-<div class="list">{
+<div className="list">{
   // this.state.cats.map(cat=>(<div>{cat.name}</div>))
 
 
