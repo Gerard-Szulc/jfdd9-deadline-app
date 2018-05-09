@@ -48,18 +48,35 @@
   margin: 0 0.5rem;
 }
 
-.catContainer {
-  width:70%;
-  height: 5rem;
+.list{
+  width: 100vw;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color:#e46140;
+}
+.catContainer {
+  width:60%;
+  height: 12rem;
+  margin:0;
+  background-color: #f1f1f1;
+  padding: 2rem;
+  display:flex;
 }
 .catContainer img {
-  height: 4rem;
+  height: 11rem;
   width: auto;
+
+}
+.catContainerDescription {
+  align-self:center;
+  justify-content: space-between;
 }
 
 .catContainer p{
   display:inline-block;
+  margin:0;
+  width:70%;
 }
 
 .catContainer button{
@@ -69,6 +86,7 @@
   font-size: 1rem;
   color: white;
   border-radius: 5px;
+  justify-self:right;
 }
 
 
