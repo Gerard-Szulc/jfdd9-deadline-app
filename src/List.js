@@ -42,20 +42,21 @@ class List extends Component {
     console.log(search);
     return (
 
+<div className="list">{
+  // this.state.cats.map(cat=>(<div>{cat.name}</div>))
 
-      // this.state.cats.map(cat=>(<div>{cat.name}</div>))
 
-
-      this.state.cats.filter(
-       cat => (
-         (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
-         (search.selectedRaceOption.length !==0 ? search.selectedRaceOption.includes(cat.race) : true) &&
-         (search.selectedAgeOption.length !==0 ? search.selectedAgeOption.includes(cat.age) : true) &&
-         (search.selectedColorOption.length !==0 ? search.selectedColorOption.includes(cat.ointment) : true)
-       )
-      ).map(
-       cat =>(<CatContainer cat={cat}/>)
-      )
+  this.state.cats.filter(
+    cat => (
+      (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
+      (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
+      (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
+      (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true)
+    )
+  ).map(
+    cat => (<CatContainer cat={cat}/>)
+  )
+}</div>
     )
 
   }
