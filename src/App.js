@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import NavBar from './NavBar';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
+import {CatPageProvider} from "./CatPage/context/CatPageContext";
 
 
 
@@ -16,6 +17,8 @@ class App extends Component {
 
   render() {
     return (
+
+      <CatPageProvider>
       <Router>
         <div className="App">
           <NavBar/>
@@ -30,10 +33,10 @@ class App extends Component {
         </nav>
         </div>
       </Router>
+      </CatPageProvider>
 
 
-
-    );
+    )
   }
 }
 

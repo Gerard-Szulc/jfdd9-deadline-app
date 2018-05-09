@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import  Shelters from "../Shelters";
+import {withCatPage} from "./context/CatPageContext";
 
 class CatPageFetcher extends Component {
 
@@ -39,8 +40,8 @@ class CatPageFetcher extends Component {
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
-              <img class="catImage" alt="cat" src={this.state.cat.image}/>
-              <button className="catButtons" onClick={this.props.handleFavoriteClick}>Polub mnie!</button>
+              <img className="catImage" alt="cat" src={this.state.cat.image}/>
+              <button className="catButtons" onClick={()=>this.props.makeCatFavorite(this.state.cat)}>Polub mnie!</button>
             </div>
 
             <div className="catDiv">
@@ -62,4 +63,4 @@ class CatPageFetcher extends Component {
   }
 }
 
-export default CatPageFetcher;
+export default withCatPage(CatPageFetcher);
