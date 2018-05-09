@@ -13,7 +13,7 @@ export class CatPageProvider extends Component {
     adopted: [],
     favButtonName: "Polub mnie",
     adoptButtonName: "Adoptuj mnie",
-    makeCatFavorite: (cat) => {
+    toggleCatFavorite: (cat) => {
       this.setState( {
         favourite: this.state.favourite.every(element => {return (element.id !== cat.id)}) ? this.state.favourite.concat(cat) : this.state.favourite.filter(element => element.id !== cat.id) },
         this.setState(
@@ -29,7 +29,7 @@ export class CatPageProvider extends Component {
     //     }))
     // },
 
-    makeCatAdopted: (cat) => {
+    toggleCatAdopted: (cat) => {
       this.setState( {
         adopted: this.state.adopted.every(element => {return (element.id !== cat.id)}) ? this.state.adopted.concat(cat) : this.state.adopted.filter(element => element.id !== cat.id) },
         this.setState(

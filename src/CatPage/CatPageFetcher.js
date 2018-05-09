@@ -41,8 +41,12 @@ class CatPageFetcher extends Component {
           <div className="CatPage">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={this.state.cat.image}/>
-              <button className="catButtons" onClick={()=>this.props.makeCatFavorite(this.state.cat)}>{this.props.favButtonName}</button>
-              <button className="catButtons" onClick={()=>this.props.makeCatAdopted(this.state.cat)}>{this.props.adoptButtonName}</button>
+              <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>{this.props.favButtonName}</button>
+              <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>{this.props.adoptButtonName}</button>
+              {
+                //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>
+                //<button onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>Już Cię nie lubię</button>
+              }
             </div>
 
             <div className="catDiv">

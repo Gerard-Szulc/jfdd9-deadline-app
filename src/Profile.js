@@ -6,7 +6,7 @@ class Profile extends Component{
   render() {
     return(
       <div>
-        {this.props.adopted.map(element=><div><CatContainer cat={element}/><button onClick={()=>this.props.makeCatAdopted(element)}> Odadoptuj mnie </button></div>)}
+        {this.props.adopted.map(element=><CatContainer cat={element} key={element.id}/>)}
       </div>
     )
   }
