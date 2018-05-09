@@ -2,21 +2,52 @@ import React, { Component } from 'react'
 
 const CatPageContext = React.createContext();
 
-export const CatPageConsumer = CatPageContext.Consumer
+export const CatPageConsumer = CatPageContext.Consumer;
+
 
 export class CatPageProvider extends Component {
+
+
   state = {
     favourite: [],
-
+    adopted: [],
+    favButtonName: "Polub mnie",
+    adoptButtonName: "Adoptuj mnie",
     makeCatFavorite: (cat) => {
-      this.setState( {favourite: this.state.favourite.every(element => {return (element.id !== cat.id)})   ? this.state.favourite.concat(cat) : this.state.favourite.concat() });
-      console.log(this.state.favourite)
+      this.setState( {
+        favourite: this.state.favourite.every(element => {return (element.id !== cat.id)}) ? this.state.favourite.concat(cat) : this.state.favourite.filter(element => element.id !== cat.id) },
+        this.setState(
+         this.state.favourite.every(element =>{return(element.id !== cat.id)}) ? {favButtonName: "Polubiłeś mnie"} : {favButtonName: "Polub mnie"  }))
     },
-    removeFavourite: (cat)=> {
+    // removeFavourite: (cat) => {
+    // //
+    //   this.setState({
+    //     favourite: (this.state.favourite.filter(element => element.id !== cat.id))},
+    //     this.setState({
+    //       favButtonName: "Polub mnie"
+    // //
+    //     }))
+    // },
 
-      this.setState({
-        favourite: (this.state.favourite.filter(element => element !== cat))})
-    }
+    makeCatAdopted: (cat) => {
+      this.setState( {
+        adopted: this.state.adopted.every(element => {return (element.id !== cat.id)}) ? this.state.adopted.concat(cat) : this.state.adopted.filter(element => element.id !== cat.id) },
+        this.setState(
+          this.state.adopted.every(element => {return (element.id !== cat.id)})  ? {adoptButtonName: 'Adoptowałeś mnie'} : {adoptButtonName: 'Adoptuj mnie'}
+        )
+
+        );
+
+    },
+    // removeAdopted: (cat) => {
+    //
+    //   this.setState({
+    //     adopted: (this.state.adopted.filter(element => element.id !== cat.id))},
+    //     this.setState({
+    //       adoptButtonName: 'Adoptuj mnie'
+    //     })
+    //   )
+    // },
 
   };
 

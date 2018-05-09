@@ -1,10 +1,11 @@
 import React, { Component }from 'react';
 import { Link } from "react-router-dom";
+import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class CatContainer extends Component{
   render() {
     return (
-      <div className="catContainer">
+      <div className="catContainer" >
         <div className="catContainerImage">
           <img src={this.props.cat.image} alt={this.props.cat.name} />
         </div>
