@@ -6,6 +6,7 @@ import CatPageFetcher from "./CatPageFetcher";
 class CatPage extends Component {
 
   handleFavoriteClick = event => {
+
   }
 
   render() {
