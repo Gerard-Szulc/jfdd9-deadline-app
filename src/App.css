@@ -1,5 +1,11 @@
+body{
+  font-family: "Lato Heavy", sans-serif;
+  width: 100vw;
+}
+
 .App {
   text-align: center;
+  margin-top: 5rem;
 }
 
 .App-logo {
@@ -25,27 +31,6 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-
-.NavBar {
-  background-color: #f04510;
-  height: 2rem;
-  display:flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100vw;
-  font-family: "Lato Heavy", sans-serif;
-  font-size: 1.2rem;
-  color: antiquewhite;
-  z-index: 9999;
-  box-shadow: 0 3px 10px #000c;
-}
-
-.NavBar li {
-  list-style: none;
-  display:inline-flex;
-  margin: 0 0.5rem;
 }
 
 
