@@ -11,11 +11,13 @@ class CatContainer extends Component{
         <div className="catContainerDescription">
           <p>{this.props.cat.description}</p>
         <div className="catDescription">
-          <p>{this.props.cat.description.split(' ').slice(0,20).join(' ')}...<Link to={`/catpage/${this.props.cat.id}`}>
-                                                                                                 <button>Pokaż więcej</button>
-                                                                                               </Link></p>
+          <p>{this.props.cat.description.split(' ').slice(0,20).join(' ')}...
+            <Link to={`/catpage/${this.props.cat.id}`}>
+             <button>Pokaż więcej</button>
+             </Link></p>
         </div>
 
+      </div>
       </div>
     )
   }
