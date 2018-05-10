@@ -42,7 +42,6 @@ class Main extends Component {
       <div>
         <SearchBox search={this.state.search} handleChange={this.handleChange}/>
         <List search={getSearchOptions(this.state.search)}/>
-        Main
       </div>
 
     )
