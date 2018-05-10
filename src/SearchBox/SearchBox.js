@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Race from "./Race";
-import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatBase'
+import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatsBase'
 import searchbox from './searchbox.css';
 
 
