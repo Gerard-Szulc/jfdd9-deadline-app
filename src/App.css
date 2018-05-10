@@ -57,19 +57,18 @@
 }
 .catContainer {
   width:60%;
-  height: 12rem;
   margin:0;
   background-color: #f1f1f1;
   padding: 2rem;
   display:flex;
+  max-height:6.5rem;
 }
 .catContainer img {
-  height: 11rem;
-  width: auto;
+  max-width: 11rem;
+
 
 }
 .catContainerDescription {
-  align-self:center;
   justify-content: space-between;
 }
 
@@ -89,5 +88,13 @@
   justify-self:right;
 }
 
+.catContainerImage {
+  width: 11rem;
+}
+
+.catContainerName {
+  font-size:2rem;
+  justify-content: center;
+}
 
 
