@@ -16,11 +16,15 @@ class Race extends Component{
   render() {
     //console.log(this.props.selectedOption)
     return (
-      <Select style={{width: "150px"}} multi={true} removeSelected={false}
+      <Select
+        multi={true}
+        removeSelected={false}
         name="form-field-name"
         value={this.props.selectedOption}
         onChange={this.handleChange}
         options={this.props.options}
+        placeholder={this.props.title}
+        aria-label={this.props.title}
       />
     );
   }
