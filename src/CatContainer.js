@@ -1,6 +1,5 @@
 import React, { Component }from 'react';
 import { Link } from "react-router-dom";
-import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class CatContainer extends Component{
   render() {

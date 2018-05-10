@@ -9,16 +9,25 @@ export class CatPageProvider extends Component {
 
 
   state = {
+    cats: null,
+    fetching: false,
+    error: null,
     favourite: [],
     adopted: [],
     favButtonName: "Polub mnie",
     adoptButtonName: "Adoptuj mnie",
     toggleCatFavorite: (cat) => {
-      this.setState( {
-        favourite: this.state.favourite.every(element => {return (element.id !== cat.id)}) ? this.state.favourite.concat(cat) : this.state.favourite.filter(element => element.id !== cat.id) },
-        this.setState(
-         this.state.favourite.every(element =>{return(element.id !== cat.id)}) ? {favButtonName: "Polubiłeś mnie"} : {favButtonName: "Polub mnie"  }))
+      this.setState({
+        favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
+      })
     },
+
+        // this.setState(
+        //
+        //  this.state.favourite.every(
+        //    element =>{
+        //      return(element.id !== cat.id)}) ? {favButtonName: "Polubiłeś mnie"} : {favButtonName: "Polub mnie"  }))
+
     // removeFavourite: (cat) => {
     // //
     //   this.setState({
@@ -31,10 +40,10 @@ export class CatPageProvider extends Component {
 
     toggleCatAdopted: (cat) => {
       this.setState( {
-        adopted: this.state.adopted.every(element => {return (element.id !== cat.id)}) ? this.state.adopted.concat(cat) : this.state.adopted.filter(element => element.id !== cat.id) },
-        this.setState(
-          this.state.adopted.every(element => {return (element.id !== cat.id)})  ? {adoptButtonName: 'Adoptowałeś mnie'} : {adoptButtonName: 'Adoptuj mnie'}
-        )
+        adopted: this.state.adopted.includes(cat.id) ? this.state.adopted.filter(catId => catId !== cat.id) : this.state.adopted.concat(cat.id) }
+        // this.setState(
+        //   this.state.adopted.every(element => {return (element.id !== cat.id)})  ? {adoptButtonName: 'Adoptowałeś mnie'} : {adoptButtonName: 'Adoptuj mnie'}
+        // )
 
         );
 
@@ -50,6 +59,27 @@ export class CatPageProvider extends Component {
     // },
 
   };
+
+  componentDidMount() {
+    this.setState({
+      fetching: true,
+      error: null
+    });
+    fetch(
+      process.env.PUBLIC_URL + '/cats.json'
+    ).then(
+      response => response.json()
+    ).then(
+      cats => this.setState({
+        cats
+      })
+    ).catch(
+      error => this.setState({
+        error,
+        fetching: false
+      })
+    )
+  }
 
   render() {
     return (

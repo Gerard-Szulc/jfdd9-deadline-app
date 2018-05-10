@@ -6,7 +6,8 @@ class Profile extends Component{
   render() {
     return(
       <div>
-        {this.props.adopted.map(element=><CatContainer cat={element} key={element.id}/>)}
+        <h1>Twoje koty</h1>
+        {this.props.cats && this.props.cats.filter( cat => this.props.adopted.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}
       </div>
     )
   }

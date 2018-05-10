@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import './CatPage.css';
 import CatPageFetcher from "./CatPageFetcher";
+import {withCatPage} from "./context/CatPageContext";
 
 
 class CatPage extends Component {
@@ -17,4 +18,4 @@ class CatPage extends Component {
   }
 }
 
-export default CatPage;
+export default withCatPage(CatPage);
