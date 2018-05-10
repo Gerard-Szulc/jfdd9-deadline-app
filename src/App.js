@@ -7,6 +7,7 @@ import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
+import {CatPageProvider} from "./CatPage/context/CatPageContext";
 
 
 
@@ -16,6 +17,8 @@ class App extends Component {
 
   render() {
     return (
+
+      <CatPageProvider>
       <Router>
         <div className="App">
           <NavBar/>
@@ -26,7 +29,10 @@ class App extends Component {
           <Route path="/catpage/:catId" component={CatPage}/>
         </div>
       </Router>
-    );
+      </CatPageProvider>
+
+
+    )
   }
 }
 
