@@ -1,4 +1,4 @@
-export const raceOptions= {
+export const raceOptions = {
   alleycat: 'Dachowiec',
   purebred: 'Rasowy',
 }

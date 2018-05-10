@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import  Shelters from "../Shelters";
+import {withCatPage} from "./context/CatPageContext";
 
 class CatPageFetcher extends Component {
 
@@ -7,7 +8,7 @@ class CatPageFetcher extends Component {
     cat: null,
     fetching: false,
     error: null,
-  }
+  };
 
   componentDidMount() {
     this.setState({
@@ -39,8 +40,16 @@ class CatPageFetcher extends Component {
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
-              <img class="catImage" alt="cat" src={this.state.cat.image}/>
-              <button className="catButtons" onClick={this.props.handleFavoriteClick}>Polub mnie!</button>
+              <img className="catImage" alt="cat" src={this.state.cat.image}/>
+              <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>{
+                this.props.favourite.includes(this.state.cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
+
+              <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>{
+                this.props.adopted.includes(this.state.cat.id) ? 'Adoptowałeś mnie' : 'Adoptuj mnie'}</button>
+              {
+                //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>
+                //<button onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>Już Cię nie lubię</button>
+              }
             </div>
 
             <div className="catDiv">
@@ -62,4 +71,4 @@ class CatPageFetcher extends Component {
   }
 }
 
-export default CatPageFetcher;
+export default withCatPage(CatPageFetcher);

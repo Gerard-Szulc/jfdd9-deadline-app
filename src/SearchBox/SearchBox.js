@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import Race from "./Race";
-import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatBase'
+import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatsBase'
 const SearchBoxStyle = {
 
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
-  marginTop: '1.5rem'
+  marginTop: '5rem'
 
 };
 

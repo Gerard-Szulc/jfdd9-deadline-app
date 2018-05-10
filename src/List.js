@@ -54,7 +54,7 @@ class List extends Component {
       (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true)
     )
   ).map(
-    cat => (<CatContainer cat={cat}/>)
+    cat => (<CatContainer cat={cat} key={cat.id}/>)
   )
 }</div>
     )
