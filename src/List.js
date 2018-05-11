@@ -1,33 +1,34 @@
 import React, {Component} from 'react'
 import CatContainer from "./CatContainer";
+import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class List extends Component {
 
-  state = {
-    cats: [],
-    fetching: false,
-    error: null,
-  };
+  // state = {
+  //   cats: [],
+  //   fetching: false,
+  //   error: null,
+  // };
 
-  componentDidMount() {
-    this.setState({
-      fetching: true,
-      error: null
-    });
+  // componentDidMount() {
+  //   this.setState({
+  //     fetching: true,
+  //     error: null
+  //   });
 
-    fetch(
-      process.env.PUBLIC_URL + '/cats.json'
-    ).then(
-      response => response.json()
-    ).then(
-      cats => this.setState({cats})
-    ).catch(
-      error => this.setState({
-        error,
-        fetching: false
-      })
-    )
-  }
+  //   fetch(
+  //     process.env.PUBLIC_URL + '/cats.json'
+  //   ).then(
+  //     response => response.json()
+  //   ).then(
+  //     cats => this.setState({cats})
+  //   ).catch(
+  //     error => this.setState({
+  //       error,
+  //       fetching: false
+  //     })
+  //   )
+  // }
 
   render() {
 
@@ -46,7 +47,7 @@ class List extends Component {
   // this.state.cats.map(cat=>(<div>{cat.name}</div>))
 
 
-  this.state.cats.filter(
+  this.props.cats.filter(
     cat => (
       (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
       (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
@@ -62,4 +63,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default withCatPage(List)

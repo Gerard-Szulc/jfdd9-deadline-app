@@ -9,7 +9,7 @@ export class CatPageProvider extends Component {
 
 
   state = {
-    cats: null,
+    cats: [],
     fetching: false,
     error: null,
     favourite: [],
