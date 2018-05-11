@@ -32,11 +32,18 @@
 }
 
 .list{
-  width: 100vw;
+  width: 88vw;
+  margin-left:5vw;
+  margin-right:5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color:#e46140;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #dc5431;
+  border-radius: 8px;
+  box-shadow: 2px 3px 8px #aaa;
 }
 .catContainer {
   width:60%;
@@ -44,13 +51,10 @@
   background-color: #f1f1f1;
   padding: 2rem;
   display:flex;
-  max-height:6.5rem;
+  height:6.5rem;
+  box-shadow: 2px 3px 8px #aaa;
 }
-.catContainer img {
-  max-width: 11rem;
 
-
-}
 .catContainerDescription {
   justify-content: space-between;
   flex-grow: 1;
@@ -73,7 +77,9 @@
 }
 
 .catContainerImage {
-  width: 11rem;
+  min-width: 9rem;
+  height:6.5rem;
+
 }
 
 .catContainerName {
