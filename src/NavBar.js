@@ -13,17 +13,17 @@ class NavBar extends Component {
           </div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Wyszukiwanie</Link>
             </li>
             <li>
-              <Link to="/favorite-cats">Favorite Cats</Link>
+              <Link to="/favorite-cats">Ulubione Koty</Link>
             </li>
             <li>
-              <Link to="/shelters">Shelters</Link>
+              <Link to="/shelters">Schroniska</Link>
             </li>
             <div className="menuRight">
               <li>
-                <Link to="/profile">Your Profile</Link>
+                <Link to="/profile">Twój Profil</Link>
               </li>
             </div>
           </ul>
