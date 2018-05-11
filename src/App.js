@@ -13,8 +13,6 @@ import {CatPageProvider} from "./CatPage/context/CatPageContext";
 
 class App extends Component {
 
-
-
   render() {
     return (
 
