@@ -30,7 +30,7 @@ class Shelters extends Component {
              lat: 54.425545,
              lng: 18.528039
            }}
-           gestureHandling={this.props.gestureHandling || 'none'}
+           gestureHandling={this.props.gestureHandling || 'greedy'}
            zoom={12}
            onClick={this.onMapClicked}
       >
