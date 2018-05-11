@@ -63,7 +63,7 @@ class CatPageFetcher extends Component {
             </div>
 
           </div>
-          <Shelters shelter={this.state.cat.shelter}/>
+          <Shelters  gestureHandling={'cooperative'} shelter={this.state.cat.shelter}/>
         </Fragment>
 
         ) : null

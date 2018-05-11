@@ -21,13 +21,16 @@ const markers = {
 }
 
 class Shelters extends Component {
+
   render() {
     return (
+      <div>
       <Map google={this.props.google}
            initialCenter={{
              lat: 54.425545,
              lng: 18.528039
            }}
+           gestureHandling={this.props.gestureHandling || 'none'}
            zoom={12}
            onClick={this.onMapClicked}
       >
@@ -41,10 +44,11 @@ class Shelters extends Component {
           </div>
         </InfoWindow>
       </Map>
+      </div>
     );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyBO9R2KyAzW0kSKuwEJoJifPpsqp0bftvU')
+  apiKey: ('AIzaSyBO9R2KyAzW0kSKuwEJoJifPpsqp0bftvU'),
 })(Shelters)

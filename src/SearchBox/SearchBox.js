@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Race from "./Race";
 import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatsBase'
-import searchbox from './searchbox.css';
+import './searchbox.css';
 
 
 class SearchBox extends Component{
