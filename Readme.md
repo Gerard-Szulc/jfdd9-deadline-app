@@ -24,6 +24,13 @@ Do uruchomienia projektu potrzeba kilku rzeczy
 
 ### Instalacja
 
+W przypadku, gdy masz już zainstalowane node , npm, yarn oraz pakiet create-react-app wystarczy sklonować repozytorium i uzupełnić pakiety komendą:
+
+```
+yarn
+```
+W innym wypadku : 
+
 Najpierw potrzebujesz narzędzia do uruchomienia node.js, zainstalujesz je za pomocą node version manager ( * [NVM](https://github.com/creationix/nvm))
 
 ```
@@ -85,11 +92,7 @@ Po całej konfiguracji, aby uruchomić aplikację trzeba użyć komendy
 yarn start
 ```
 
-W przypadku, gdy masz już zainstalowane node , npm, yarn oraz pakiet create-react-app wystarczy sklonować repozytorium i uzupełnić pakiety komendą:
 
-```
-yarn
-```
 
 W przypadku problemów z wersjami paczek po klonowaniu można usunąć plik [yarn.lock](yarn.lock)
 
