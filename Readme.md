@@ -1,10 +1,10 @@
 # Cat Composer
 
-Projekt aplikacji do adopcji/najmu kotów, z pobliskich schronisk na terenie Gdańska/Trójmiasta
+Projekt aplikacji do adopcji oraz najmu kotów, ze schronisk na terenie Trójmiasta
 
 ## Zaczynamy
 
-Te instrukcje pozwolą Ci skopiować projekt i uruchomić go na Twoim komputerze w celu rozwoju,zmiany aplikacji lub do testów.
+Te instrukcje pozwolą Ci skopiować projekt i uruchomić go na Twoim komputerze w celu rozwoju bądź zmiany aplikacji, a także do testów.
 
 ### Wymagania
 
@@ -24,7 +24,7 @@ Do uruchomienia projektu potrzeba kilku rzeczy
 
 ### Instalacja
 
-Najpierw potrzebujesz narzędzia uruchomieniowego node.js, musimy je zainstalować za pomocą node version manager ( * [NVM](https://github.com/creationix/nvm))
+Najpierw potrzebujesz narzędzia do uruchomienia node.js, zainstalujesz je za pomocą node version manager ( * [NVM](https://github.com/creationix/nvm))
 
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -34,7 +34,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ```
 
-Zrestartuj terminal oraz sprawdz czy narzędzie zainstalowało się poprawnie
+Zrestartuj terminal i sprawdź, czy narzędzie zainstalowało się poprawnie:
 ```
 command -v nvm
 
@@ -45,7 +45,7 @@ nvm install node
 
 ```
 
-Następnie musimy pobrać narzędzie zarządzania paczkami Yarn, najpierw musimy dodać do Ubuntu klucz do repozytorium.
+Kolejnym krokiem jest pobranie narzędzia do zarządzania paczkami Yarn, w tym celu najpierw musisz dodać do Ubuntu klucz do repozytorium.
 * [yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
 
 ```
@@ -54,7 +54,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 ```
 
-Teraz wystarczy odświerzyć listę naszych repozytoriów i zainstalować Yarn'a: 
+Teraz wystarczy odświeżyć listę naszych repozytoriów i zainstalować Yarn'a: 
 ```
 sudo apt-get update && sudo apt-get install yarn
 
@@ -64,14 +64,14 @@ Kolejną rzeczą jest instalacja biblioteki React.js za pomocą create-react-app
 * [create-react-app](setup.md)
 
 
-Następnie potrzebujemy paczek:
+By obsługiwać te same metody, potrzebujesz następujących paczek:
 
 ```
 -React-Router-Dom
 -React-select
 -google-maps-react
 ```
-Intalujemy je kolejno:
+Intalujemy kolejno:
 
 ```
 yarn add react-router-dom
@@ -85,7 +85,7 @@ Po całej konfiguracji, aby uruchomić aplikację trzeba użyć komendy
 yarn start
 ```
 
-W przypadku, gdy mamy już zainstalowanie node , npm, yarn oraz pakiet create-react-app wystarczy zklonować repozytorium i uzupełnić pakiety komendą:
+W przypadku, gdy masz już zainstalowane node , npm, yarn oraz pakiet create-react-app wystarczy sklonować repozytorium i uzupełnić pakiety komendą:
 
 ```
 yarn
