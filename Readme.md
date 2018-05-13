@@ -59,6 +59,7 @@ Teraz wystarczy odświerzyć listę naszych repozytoriów i zainstalować Yarn'a
 sudo apt-get update && sudo apt-get install yarn
 
 ```
+
 Kolejną rzeczą jest instalacja biblioteki React.js za pomocą create-react-app. W linku dokładna intrukcja instalacji.
 * [create-react-app](setup.md)
 
@@ -70,25 +71,27 @@ Następnie potrzebujemy paczek:
 -React-select
 -google-maps-react
 ```
-Intalujemy je kolejno :
+Intalujemy je kolejno:
 
 ```
 yarn add react-router-dom
 yarn add react-select
-npm install google-maps-react
-
+yarn install google-maps-react
 ```
 
 Po całej konfiguracji, aby uruchomić aplikację trzeba użyć komendy 
+
 ```
 yarn start
 ```
 
-W przypadku, gdy mamy już zainstalowanie node , npm oraz yarn wystarczy zklonować repozytorium i uzupełnić pakiety komendą:
+W przypadku, gdy mamy już zainstalowanie node , npm, yarn oraz pakiet create-react-app wystarczy zklonować repozytorium i uzupełnić pakiety komendą:
 
 ```
 yarn
 ```
+
+W przypadku problemów z wersjami paczek po klonowaniu można usunąć plik [yarn.lock](yarn.lock)
 
 
 ## Zbudowano za pomocą:
@@ -99,6 +102,7 @@ yarn
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 * [google-maps-react](https://github.com/fullstackreact/google-maps-react) 
 * [react-select](https://github.com/JedWatson/react-select)
+
 
 ## Autorzy
 
