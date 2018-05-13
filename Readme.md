@@ -22,11 +22,8 @@ Do uruchomienia projektu potrzeba kilku rzeczy
 
 ```
 
-### Installing
+### Instalacja
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
 Najpierw potrzebujesz narzędzia uruchomieniowego node.js, musimy je zainstalować za pomocą node version manager ( * [NVM](https://github.com/creationix/nvm))
 
 ```
