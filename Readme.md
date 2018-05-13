@@ -79,7 +79,7 @@ npm install google-maps-react
 
 ```
 
-Po całej konfiguracji można użyć komendy 
+Po całej konfiguracji, aby uruchomić aplikację trzeba użyć komendy 
 ```
 yarn start
 ```
