@@ -6,6 +6,7 @@ class SignUpForm extends Component {
   state = {
     username: '',
     password: '',
+    error: null
   }
 
   handleChange = event => {
@@ -16,27 +17,38 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.signUp(this.state.username, this.state.password)
+    this.props.signUp(this.state.username, this.state.password).catch(
+      error => this.setState({error: error})
+    )
   }
 
   render() {
     return (
-      <div>
-        <h2>Sign up</h2>
+      <div className="form sigIn">
+        <h2>Utwórz konto</h2>
+        {this.state.error && <p>{this.state.error.message}</p>}
         <form onSubmit={this.handleSubmit}>
           <input
             value={this.state.username}
             name="username"
             type="text"
             onChange={this.handleChange}
+            placeholder='E-mail'
+            aria-label="Adres e-mail"
           />
+
+          <br />
           <input
             value={this.state.password}
             name="password"
             type="password"
             onChange={this.handleChange}
+            placeholder='E-mail'
+            aria-label="Adres e-mail"
           />
-          <button>Add</button>
+
+          <br />
+          <button>Utwórz konto</button>
         </form>
       </div>
     )
