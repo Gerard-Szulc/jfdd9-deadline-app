@@ -98,3 +98,11 @@
   margin:0;
 }
 
+@media (max-width: 400px){
+  .catContainerName {
+    font-size: 1rem;
+  }
+  .catContainerDescription {
+    font-size: 0.5rem
+  }
+}
