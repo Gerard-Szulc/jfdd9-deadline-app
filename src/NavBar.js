@@ -12,19 +12,11 @@ class NavBar extends Component {
             <Link to="/"><img src={logo} alt="logo" /></Link>
           </div>
           <ul>
-            <li>
-              <Link to="/">Wyszukiwanie</Link>
-            </li>
-            <li>
-              <Link to="/favorite-cats">Ulubione Koty</Link>
-            </li>
-            <li>
-              <Link to="/shelters">Schroniska</Link>
-            </li>
+            <Link to="/"><li>Wyszukiwanie</li></Link>
+            <Link to="/favorite-cats"><li>Ulubione Koty</li></Link>
+            <Link to="/shelters"><li>Schroniska</li></Link>
             <div className="menuRight">
-              <li>
-                <Link to="/profile">Twój Profil</Link>
-              </li>
+              <Link to="/profile"><li>Twój Profil</li></Link>
             </div>
           </ul>
           <div className="clear"></div>
