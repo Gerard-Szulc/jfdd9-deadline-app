@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import NavBar from './NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from './Main'
@@ -9,6 +8,7 @@ import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
 import {CatPageProvider} from "./CatPage/context/CatPageContext";
 
+import './App.css';
 
 
 class App extends Component {
