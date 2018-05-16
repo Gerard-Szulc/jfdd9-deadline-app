@@ -71,6 +71,7 @@
   color: white;
   border-radius: 5px;
   justify-self:right;
+  cursor: pointer;
 }
 
 .catContainerImage {
