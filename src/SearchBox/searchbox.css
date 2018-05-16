@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0.5rem auto;
     width: fit-content;
-    max-width: auto;
+    max-width: 100%;
     padding: 25px 60px;
     border: 1px solid #dc5431;
     border-radius: 8px;

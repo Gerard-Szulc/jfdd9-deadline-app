@@ -100,9 +100,34 @@
 
 @media (max-width: 400px){
   .catContainerName {
-    font-size: 1rem;
+
   }
   .catContainerDescription {
-    font-size: 0.5rem
+    width:100%;
   }
+    .catContainer p{
+        width:90%;
+        text-align: justify;
+    }
+    .catContainer{
+        width: 90%;
+        padding: 0.5rem 0 0.25rem 0;
+        flex-wrap: wrap;
+        height: auto;
+        justify-content:center;
+    }
+    .list {
+        border-radius: 0;
+        width: 100%;
+    }
+    .searchBox {
+        width:100%;
+        padding: 25px 10px;
+        margin-left:0;
+        margin-right:0;
+    }
+    .searchBox .Select {
+        min-width: 100px;
+        width: 100%;
+    }
 }
