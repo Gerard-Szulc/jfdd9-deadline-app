@@ -8,6 +8,7 @@ import CatContainer from "./../CatContainer";
 
 class UserProfil extends Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         {
@@ -19,7 +20,7 @@ class UserProfil extends Component {
 
           ) : (
             <div>
-              <button onClick={this.props.signOut()}>Wyloguj</button>
+              <button onClick={this.props.signOut}>Wyloguj</button>
               <h1>Twoje koty</h1>
               jest zalogowany
               {this.props.cats && this.props.cats.filter( cat => this.props.adopted.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}

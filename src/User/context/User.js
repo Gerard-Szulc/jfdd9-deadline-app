@@ -6,9 +6,11 @@ export const UserConsumer = UserContext.Consumer;
 
 export class UserProvider extends Component{
   state = {
+    signInError: null,
     user: null,
     signIn: (username, password) => {
-      firebase.auth().signInWithEmailAndPassword(username, password)
+      console.log(username)
+      firebase.auth().signInWithEmailAndPassword(username, password).catch(error=>this.setState({signInError: error}))
     },
 
     signOut: () => {
@@ -20,10 +22,16 @@ export class UserProvider extends Component{
     },
   }
 
-  componentDidMount(){
-    firebase.auth().onAuthStateChanged(
-      user => this.setState({user: user})
+  componentDidMount() {
+    this.unsubscribe = firebase.auth().onAuthStateChanged(
+      user => this.setState({ user: user })
     )
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) {
+      this.unsubscribe()
+    }
   }
 
   render() {
