@@ -14,6 +14,7 @@ export class CatPageProvider extends Component {
     error: null,
     favourite: [],
     adopted: [],
+    adoptionRequests: {},
     favButtonName: "Polub mnie",
     adoptButtonName: "Adoptuj mnie",
     toggleCatFavorite: (cat) => {
