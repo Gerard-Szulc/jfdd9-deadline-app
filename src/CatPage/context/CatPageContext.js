@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import firebase from 'firebase'
 const CatPageContext = React.createContext();
 
 export const CatPageConsumer = CatPageContext.Consumer;
@@ -32,26 +32,23 @@ export class CatPageProvider extends Component {
     },
 
   };
-
+  handleSnapshot = snapshot => {
+    const cats = [];
+    snapshot.forEach(
+      cat => {
+        cats.push(cat)
+      }
+    )
+    this.setState({
+      cats: cats
+    })
+  }
   componentDidMount() {
+    this.unsubscribe = firebase.database.ref('/cats/').on('value', this.handleSnapshot);
     this.setState({
       fetching: true,
       error: null
     });
-    fetch(
-      process.env.PUBLIC_URL + '/cats.json'
-    ).then(
-      response => response.json()
-    ).then(
-      cats => this.setState({
-        cats
-      })
-    ).catch(
-      error => this.setState({
-        error,
-        fetching: false
-      })
-    )
   }
 
   render() {

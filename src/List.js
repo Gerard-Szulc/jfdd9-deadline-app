@@ -44,8 +44,6 @@ class List extends Component {
     return (
 
 <div className="list">{
-  // this.state.cats.map(cat=>(<div>{cat.name}</div>))
-
 
   this.state.cats.filter(
     cat => (
