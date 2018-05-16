@@ -5,8 +5,8 @@ class CatContainer extends Component{
   render() {
     return (
       <div className="catContainer" >
-        <div className="catContainerImage">
-          <img src={this.props.cat.image} alt={this.props.cat.name} />
+        <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${this.props.cat.image})`}}>
+
         </div>
         <div className="catContainerDescription">
             <div className="catContainerName"> <p><strong>{this.props.cat.name}</strong> <em>- {this.props.cat.sex.toLowerCase()}</em></p></div>

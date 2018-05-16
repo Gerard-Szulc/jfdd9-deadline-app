@@ -3,12 +3,15 @@ import './CatPage.css';
 import CatPageFetcher from "./CatPageFetcher";
 import {withCatPage} from "./context/CatPageContext";
 
-
 class CatPage extends Component {
 
 
+  componentDidMount(){
+    window.scrollTo(0,0)
+  };
 
   render() {
+
     return (
 
       <Fragment>
