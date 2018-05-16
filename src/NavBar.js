@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import './navBar.css';
 import logo from './logo-white.png';
+import {withUser} from "./User/context/User";
+
 
 
 class NavBar extends Component {
@@ -23,8 +25,14 @@ class NavBar extends Component {
             </li>
             <div className="menuRight">
               <li>
-                <Link to="/profile">Twój Profil</Link>
+                <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
               </li>
+              {
+                this.props.user !== null ? (
+                  <li>
+                    <button onClick={this.props.signOut}>Wyloguj</button>
+                  </li>
+                ): ''}
             </div>
           </ul>
           <div className="clear"></div>
@@ -33,5 +41,5 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withUser(NavBar);
 

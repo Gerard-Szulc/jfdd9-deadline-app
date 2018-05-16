@@ -5,21 +5,20 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from './Main'
 import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
-import Profile from './Profile'
+import {UserProvider} from "./User/context/User";
+import Profile from './User/UserProfil'
 import CatPage from './CatPage/CatPageView'
 import {CatPageProvider} from "./CatPage/context/CatPageContext";
 
 
-
 class App extends Component {
-
   componentDidMount(){
     window.scrollTo(0,-20)
   };
 
   render() {
     return (
-
+      <UserProvider>
       <CatPageProvider>
       <Router>
         <div className="App">
@@ -32,8 +31,7 @@ class App extends Component {
         </div>
       </Router>
       </CatPageProvider>
-
-
+      </UserProvider>
     )
   }
 }
