@@ -39,7 +39,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div id='main'>
         <SearchBox search={this.state.search} handleChange={this.handleChange}/>
         <List search={getSearchOptions(this.state.search)}/>
       </div>

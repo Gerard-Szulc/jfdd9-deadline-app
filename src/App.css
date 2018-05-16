@@ -1,9 +1,9 @@
 .App {
   text-align: center;
   padding-top: 6rem;
-  width: 100vw;
   min-height: 100vh;
   font-family: "Lato", sans-serif;
+  margin: 0;
 }
 
 .App-logo {
@@ -32,9 +32,6 @@
 }
 
 .list{
-  width: 88vw;
-  margin-left:5vw;
-  margin-right:5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,6 +71,7 @@
   color: white;
   border-radius: 5px;
   justify-self:right;
+  cursor: pointer;
 }
 
 .catContainerImage {
@@ -87,4 +85,16 @@
   justify-content: center;
 }
 
+#main {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin:0;
+}
+
+#root {
+  width: 100%;
+  margin:0;
+}
 
