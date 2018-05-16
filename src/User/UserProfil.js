@@ -20,7 +20,6 @@ class UserProfil extends Component {
 
           ) : (
             <div>
-              <button onClick={this.props.signOut}>Wyloguj</button>
               <h1>Twoje koty</h1>
               jest zalogowany
               {this.props.cats && this.props.cats.filter( cat => this.props.adopted.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}

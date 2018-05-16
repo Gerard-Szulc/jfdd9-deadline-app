@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import './navBar.css';
 import logo from './logo-white.png';
+import {withUser} from "./User/context/User";
+
 
 
 class NavBar extends Component {
@@ -12,11 +14,25 @@ class NavBar extends Component {
             <Link to="/"><img src={logo} alt="logo" /></Link>
           </div>
           <ul>
-            <Link to="/"><li>Wyszukiwanie</li></Link>
-            <Link to="/favorite-cats"><li>Ulubione Koty</li></Link>
-            <Link to="/shelters"><li>Schroniska</li></Link>
+            <li>
+              <Link to="/">Wyszukiwanie</Link>
+            </li>
+            <li>
+              <Link to="/favorite-cats">Ulubione Koty</Link>
+            </li>
+            <li>
+              <Link to="/shelters">Schroniska</Link>
+            </li>
             <div className="menuRight">
-              <Link to="/profile"><li>Twój Profil</li></Link>
+              <li>
+                <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
+              </li>
+              {
+                this.props.user !== null ? (
+                  <li>
+                    <button onClick={this.props.signOut}>Wyloguj</button>
+                  </li>
+                ): ''}
             </div>
           </ul>
           <div className="clear"></div>
@@ -25,5 +41,5 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withUser(NavBar);
 
