@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import CatContainer from "./CatContainer";
+import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class List extends Component {
 
@@ -51,7 +52,8 @@ class List extends Component {
       (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
       (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
       (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
-      (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true)
+      (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
+      (!this.props.adopted.includes(cat.id))
     )
   ).map(
     cat => (<CatContainer cat={cat} key={cat.id}/>)
@@ -62,4 +64,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default withCatPage(List)
