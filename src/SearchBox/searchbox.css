@@ -27,3 +27,17 @@
     font-weight: 700;
     color: #fff;
 }
+
+@media(max-width: 1010px) {
+
+    .searchBox {
+        width:100%;
+        padding: 25px 10px;
+        margin-left:0;
+        margin-right:0;
+    }
+    .searchBox .Select {
+        min-width: 100px;
+        width: 100%;
+    }
+}
