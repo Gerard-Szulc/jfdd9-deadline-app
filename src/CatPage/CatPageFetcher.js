@@ -20,16 +20,20 @@ class CatPageFetcher extends Component {
 
   render() {
     return (
-      this.props.adoptionRequests && this.state.cat !== null ? (
+      this.props.fetching=== false && (this.state.cat !== null ? (
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={this.state.cat.image}/>
               <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>{
                 this.props.favourite.includes(this.state.cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
+              {this.props.fetching === false &&
+              (this.props.adoptionRequests.some((adoptedCat) =>
+                adoptedCat.catId === this.state.cat.id) ?
+                '' :
+                <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>'Adoptuj mnie'
+              </button>)}
 
-              <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>
-                {this.props.fetching === false && (this.props.adoptionRequests.some((adoptedCat) => adoptedCat.catId === this.state.cat.id) ? '' : 'Adoptuj mnie')}</button>
               {
                 //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>
                 //<button onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>Już Cię nie lubię</button>
@@ -50,7 +54,7 @@ class CatPageFetcher extends Component {
           <Shelters  gestureHandling={'cooperative'} shelter={this.state.cat.shelter}/>
         </Fragment>
 
-        ) : null
+        ) : null)
     )
   }
 }

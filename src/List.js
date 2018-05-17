@@ -41,7 +41,7 @@ componentDidUpdate(){
       (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
       (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
       (this.props.fetching === false) &&
-      (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id))
+      (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id && adoptedCat.accepted !== false ))
     )
   ).map(
     cat => (<CatContainer cat={cat} key={cat.id}/>)

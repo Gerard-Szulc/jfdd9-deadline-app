@@ -63,7 +63,7 @@ export class CatPageProvider extends Component {
         })
       }
     )
-    console.log(this.state.adoptionRequests)
+    console.log('koty adoptowane po updejcie stanu',this.state.adoptionRequests)
     this.setState({
       adoptionRequests: adopted,
       fetching: false
@@ -72,17 +72,21 @@ export class CatPageProvider extends Component {
   }
 
   componentDidMount() {
-    this.unsubscribeCats = firebase.database().ref('/cats').on('value', this.handleCatsSnapshot);
-    this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests').on('value',this.handleAdoptedSnapshot)
+    this.unsubscribeCats = firebase.database().ref('/cats')
+    this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests')
+    this.unsubscribeCats.on('value', this.handleCatsSnapshot);
+    this.unsubscribeAdoptionRequests.on('value',this.handleAdoptedSnapshot)
+
     this.setState({
       fetching: true,
       error: null
     });
   }
   componentWillUpdate(){
-    console.log(this.state)
+    console.log('komponent będzie się updejtował',this.state)
   }
   componentWillUnmount(){
+    this.unsubscribeCats.off('value', this.handleCatsSnapshot)
     this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
   }
 
