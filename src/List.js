@@ -16,7 +16,9 @@ class List extends Component {
     });
 
   }
+componentDidUpdate(){
 
+}
   render() {
 
     const search = this.props.search.reduce(
@@ -30,19 +32,20 @@ class List extends Component {
     console.log(search);
     return (
 
-<div className="list">{
+<div className={"list"}>{
 
-  this.props.cats ? this.props.cats.filter(
+  this.props.cats ? (this.props.cats.filter(
     cat => (
       (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
       (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
       (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
       (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
-      (!this.props.adoptionRequests.some((adoptedCat)=> adoptedCat.catId === cat.id))
+      (this.props.adoptionRequests) &&
+      (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id))
     )
   ).map(
     cat => (<CatContainer cat={cat} key={cat.id}/>)
-  ) : 'ŁADOWANIE KOTÓW'
+  )) : 'ŁADOWANIE KOTÓW'
 }</div>
     )
 

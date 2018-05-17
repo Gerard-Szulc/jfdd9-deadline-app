@@ -23,10 +23,10 @@ export class CatPageProvider extends Component {
 
     toggleCatAdopted: (cat) => {
       this.setState({
-
+        fetching: true,
         adoptionRequests: this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
-          this.state.adoptionRequests.filter(catId => catId !== cat.id) :
-          firebase.database().ref('/adoptionRequests').push({
+          firebase.database().ref('/adoptionRequests/'+cat.id).remove()  :
+          firebase.database().ref('/adoptionRequests').child(cat.id).set({
             catId: cat.id,
             accepted: false,
             //user: currentUser
@@ -49,23 +49,23 @@ export class CatPageProvider extends Component {
       }
     )
     this.setState({
-      cats: cats
-    },console.log(cats))
+      cats: cats,
+      fetching: false
+    },console.log(this.state.cats))
   }
 
   handleAdoptedSnapshot = snapshot => {
-    const adoptionRequests = [];
     snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
       ([id,value]) => {
-        adoptionRequests.push({
-          catId: value.catId,
+        this.state.adoptionRequests.push({
+          catId: id,
           accepted: value.accepted
         })
       }
     )
-    console.log(adoptionRequests)
+    console.log(this.state.adoptionRequests)
     this.setState({
-      adoptionRequests: adoptionRequests
+      fetching: false
     }
   )
   }
@@ -77,6 +77,9 @@ export class CatPageProvider extends Component {
       fetching: true,
       error: null
     });
+  }
+  componentWillUnmount(){
+    this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
   }
 
   render() {

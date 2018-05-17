@@ -7,11 +7,11 @@ class Profile extends Component{
     return(
       <div>
         <h1>Twoje koty</h1>
-        {this.props.cats && this.props.cats
-          .filter( cat => this.props.adoptionRequests.some((adoptedCat)=> adoptedCat.catId === cat.id))
+        { this.props.fetching === true ? (this.props.cats && this.props.cats
+          .filter( cat =>  this.props.adoptionRequests.some((adoptedCat)=> adoptedCat.catId === cat.id))
           .map(element =>
             <CatContainer key={element.id} cat={element}/>
-          )}
+          )): 'Loading'}
 
         {this.props.adoptionRequests.length === 0 ? <p>Nie adoptowałeś jeszcze żadnego kota. </p> : <p> </p>}
 
