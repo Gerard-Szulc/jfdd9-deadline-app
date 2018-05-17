@@ -110,12 +110,6 @@
     align-items: center;
   }
 
-    .left side{
-        display: block;
-        padding: 0px;
-
-    }
-
     .right-side{
         transition: 50ms;
         visibility: hidden;
