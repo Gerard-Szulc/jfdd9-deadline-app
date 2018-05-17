@@ -16,23 +16,25 @@ class CatPageFetcher extends Component {
 
   componentDidMount() {
     this.selectOneCat(this.props.cats)
+    console.log('ten konkretny kot'+this.state.cat,this.state.cat)
   }
 
   render() {
     return (
-      this.props.fetching=== false && (this.state.cat !== null ? (
+      this.props.fetching === false && (this.state.cat !== null ? (
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={this.state.cat.image}/>
               <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>{
                 this.props.favourite.includes(this.state.cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
-              {this.props.fetching === false &&
-              (this.props.adoptionRequests.some((adoptedCat) =>
+              {(this.props.adoptionRequests.some((adoptedCat) =>
                 adoptedCat.catId === this.state.cat.id) ?
                 '' :
-                <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>'Adoptuj mnie'
-              </button>)}
+                <button className="catButtons" onClick={
+                  ()=>this.props.toggleCatAdopted(this.state.cat)}>'Adoptuj mnie'
+              </button>)
+              }
 
               {
                 //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>

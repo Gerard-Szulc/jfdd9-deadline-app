@@ -7,7 +7,7 @@ import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
 import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
-import {CatPageProvider} from "./CatPage/context/CatPageContext";
+import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
 import firebase from 'firebase'
 import config from './firebase/config'
 
@@ -37,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCatPage(App);
