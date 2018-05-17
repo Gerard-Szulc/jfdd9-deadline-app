@@ -13,8 +13,6 @@ export class CatPageProvider extends Component {
     error: null,
     favourite: [],
     adoptionRequests: [],
-    favButtonName: "Polub mnie",
-    adoptButtonName: "Adoptuj mnie",
     toggleCatFavorite: (cat) => {
       this.setState({
         favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
@@ -23,8 +21,9 @@ export class CatPageProvider extends Component {
 
     toggleCatAdopted: (cat) => {
       this.setState({
-        fetching: true,
-        adoptionRequests: this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
+        fetching: true})
+
+         this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
           firebase.database().ref('/adoptionRequests/'+cat.id).remove()  :
           firebase.database().ref('/adoptionRequests').child(cat.id).set({
             catId: cat.id,
@@ -32,9 +31,9 @@ export class CatPageProvider extends Component {
             //user: currentUser
           })
 
-      });
+      }
 
-    },
+
 
   };
 
@@ -51,13 +50,14 @@ export class CatPageProvider extends Component {
     this.setState({
       cats: cats,
       fetching: false
-    },console.log(this.state.cats))
+    },)
   }
 
   handleAdoptedSnapshot = snapshot => {
+    const adopted = []
     snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
       ([id,value]) => {
-        this.state.adoptionRequests.push({
+        adopted.push({
           catId: id,
           accepted: value.accepted
         })
@@ -65,6 +65,7 @@ export class CatPageProvider extends Component {
     )
     console.log(this.state.adoptionRequests)
     this.setState({
+      adoptionRequests: adopted,
       fetching: false
     }
   )
@@ -77,6 +78,9 @@ export class CatPageProvider extends Component {
       fetching: true,
       error: null
     });
+  }
+  componentWillUpdate(){
+    console.log(this.state)
   }
   componentWillUnmount(){
     this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
@@ -97,7 +101,7 @@ export function withCatPage(Component) {
 
       <CatPageConsumer>
         {
-          state => <Component {...props} {...state}/>
+          ({...state}) => <Component {...props} {...state}/>
         }
       </CatPageConsumer>
     )

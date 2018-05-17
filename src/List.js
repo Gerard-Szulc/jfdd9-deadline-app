@@ -40,7 +40,7 @@ componentDidUpdate(){
       (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
       (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
       (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
-      (this.props.adoptionRequests) &&
+      (this.props.fetching === false) &&
       (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id))
     )
   ).map(
