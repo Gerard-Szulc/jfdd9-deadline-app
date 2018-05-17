@@ -26,21 +26,30 @@
     flex-grow: 1;
 }
 
-.catContainer p{
-    display:inline-block;
-    margin:0;
-    width:70%;
+.catContainer .description{
+    padding-right: 20px
+}
+
+.catContainer h3 {
+    margin: 1rem;
+    display: inline-block;
+    color: #1e262c;
 }
 
 .catContainer button{
-    display:inline-block;
-    height: 1.5rem;
-    background-color: red;
-    font-size: 1rem;
-    color: white;
-    border-radius: 5px;
-    justify-self:right;
     cursor: pointer;
+    margin: 1rem;
+    border: 1px solid #e46140;
+    border-radius: 5px;
+    padding: 0.7rem 3rem;
+    background: #e46140;
+    color: white;
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+.catContainer button:hover{
+    background: #f75a32;
 }
 
 .catContainerImage {
@@ -81,4 +90,12 @@
     .list {
         width: 100%;
     }
+}
+
+
+.iconVenus{
+    color: #fb89c2;
+}
+.iconMars{
+    color: dodgerblue;
 }
