@@ -22,7 +22,7 @@ class SignInForm extends Component {
   render(){
     return(
       <div>
-        <h2>Zaloguj się</h2>
+        <h2>Logowanie</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             name='username'

@@ -6,7 +6,7 @@ import {withCatPage} from "./../CatPage/context/CatPageContext";
 import CatContainer from "./../CatContainer";
 
 
-class UserProfil extends Component {
+class UserProfile extends Component {
   render() {
     console.log(this.props)
     return (
@@ -21,7 +21,7 @@ class UserProfil extends Component {
           ) : (
             <div>
               <h1>Twoje koty</h1>
-              jest zalogowany
+              jesteś zalogowany
               {this.props.cats && this.props.cats.filter( cat => this.props.adopted.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}
             </div>
             )
@@ -31,4 +31,4 @@ class UserProfil extends Component {
   }
 }
 
-export default withUser(withCatPage(UserProfil));
+export default withUser(withCatPage(UserProfile));

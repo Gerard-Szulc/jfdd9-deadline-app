@@ -22,7 +22,7 @@ class SignUpForm extends Component {
   render() {
     return (
       <div>
-        <h2>Sign up</h2>
+        <h2>Rejestracja</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             value={this.state.username}
@@ -36,7 +36,7 @@ class SignUpForm extends Component {
             type="password"
             onChange={this.handleChange}
           />
-          <button>Add</button>
+          <button>Zarejestruj</button>
         </form>
       </div>
     )
