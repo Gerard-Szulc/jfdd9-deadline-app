@@ -3,7 +3,7 @@ import {withUser} from "./context/User";
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
 import {withCatPage} from "./../CatPage/context/CatPageContext";
-import CatContainer from "./../CatContainer";
+import CatContainer from "./../List/CatContainer";
 
 
 class UserProfile extends Component {

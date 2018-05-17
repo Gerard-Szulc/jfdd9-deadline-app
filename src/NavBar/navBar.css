@@ -15,7 +15,6 @@ nav li{
     list-style: none;
     display: inline-block;
     margin: 5px 15px;
-    padding: 10px;
 }
 nav li:hover{
     background: #f59379;
@@ -29,7 +28,8 @@ nav ul {
 }
 
 nav a{
-    font-size: 20px;
+    display: inline-block;
+    padding: 10px;
     text-transform: uppercase;
     text-decoration: none;
     color: white;
@@ -41,8 +41,8 @@ nav a{
 
 .logo{
     float: left;
-    padding: 10px;
     width: 7rem;
+    padding-top: 4px;
     margin: 0 2rem;
 }
 
@@ -55,10 +55,6 @@ div.clear{
     clear: both;
 }
 
-.menuRight{
-    display: inline;
-    float: right;
-}
 
 .hamburger{
     display:none;
@@ -72,6 +68,10 @@ figure{
 input[type=checkbox]{
     display: none;
 }
+.menuRight{
+    display: inline;
+    float: right;
+}
 
 @media(max-width: 1060px){
     #logo{
@@ -82,7 +82,7 @@ input[type=checkbox]{
         display: flex;
         flex-direction: column-reverse;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-end;
     }
 
     .right-side{
@@ -121,5 +121,10 @@ input[type=checkbox]{
 
     #navbar a.nav-link {
         padding: 10px 20px;
+    }
+
+    .menuRight{
+        float: none;
+
     }
 }

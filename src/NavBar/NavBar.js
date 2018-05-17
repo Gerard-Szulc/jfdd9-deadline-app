@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './navBar.css';
 import logo from './logo-white.png';
 import hamburger from  './hamburger.png';
+import {withUser} from '../User/context/User'
 
 
 class NavBar extends Component {
@@ -29,11 +30,16 @@ class NavBar extends Component {
           <li className="right-side">
             <Link to="/shelters">Schroniska</Link>
           </li>
-          <div className="menuRight">
-            <li className="right-side">
-              <Link to="/profile">Twój Profil</Link>
+            <li className="right-side menuRight">
+            {
+              this.props.user !== null ? (
+                  <button onClick={this.props.signOut}>Wyloguj</button>
+              ) : (
+                  <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
+              )
+            }
             </li>
-          </div>
+
         </ul>
         <div className="clear"></div>
       </nav>
@@ -41,5 +47,5 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withUser(NavBar);
 
