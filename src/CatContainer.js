@@ -1,9 +1,11 @@
 import React, { Component }from 'react';
 import { Link } from "react-router-dom";
+import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class CatContainer extends Component{
   render() {
     return (
+      this.props.cats && (
       <div className="catContainer" >
         <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${this.props.cat.image})`}}>
 
@@ -17,9 +19,9 @@ class CatContainer extends Component{
 
         </div>
 
-      </div>
+      </div>)
     )
   }
 }
 
-export default CatContainer;
+export default withCatPage(CatContainer);

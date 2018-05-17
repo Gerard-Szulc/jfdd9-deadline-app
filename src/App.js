@@ -8,11 +8,12 @@ import Shelters from './Shelters'
 import Profile from './Profile'
 import CatPage from './CatPage/CatPageView'
 import {CatPageProvider} from "./CatPage/context/CatPageContext";
+import firebase from 'firebase'
+import config from './firebase/config'
 
-
+firebase.initializeApp(config);
 
 class App extends Component {
-
 
 
   render() {

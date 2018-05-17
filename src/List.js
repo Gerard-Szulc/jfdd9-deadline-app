@@ -5,7 +5,6 @@ import {withCatPage} from "./CatPage/context/CatPageContext";
 class List extends Component {
 
   state = {
-    cats: [],
     fetching: false,
     error: null,
   };
@@ -16,18 +15,6 @@ class List extends Component {
       error: null
     });
 
-    fetch(
-      process.env.PUBLIC_URL + '/cats.json'
-    ).then(
-      response => response.json()
-    ).then(
-      cats => this.setState({cats})
-    ).catch(
-      error => this.setState({
-        error,
-        fetching: false
-      })
-    )
   }
 
   render() {
@@ -45,17 +32,17 @@ class List extends Component {
 
 <div className="list">{
 
-  this.state.cats.filter(
+  this.props.cats ? this.props.cats.filter(
     cat => (
       (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
       (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
       (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
       (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
-      (!this.props.adopted.includes(cat.id))
+      (!this.props.adoptionRequests.some((adoptedCat)=> adoptedCat.catId === cat.id))
     )
   ).map(
     cat => (<CatContainer cat={cat} key={cat.id}/>)
-  )
+  ) : 'ŁADOWANIE KOTÓW'
 }</div>
     )
 

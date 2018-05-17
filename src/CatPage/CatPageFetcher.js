@@ -10,32 +10,24 @@ class CatPageFetcher extends Component {
     error: null,
   };
 
+  selectOneCat = cats => this.setState({
+      cat : cats.find(cat =>
+        cat.id.toString() === this.props.catId),
+      fetching: false
+    }
+  )
+
   componentDidMount() {
     this.setState({
       fetching: true,
       error: null
     });
-    fetch(
-      process.env.PUBLIC_URL + '/cats.json'
-    ).then(
-      response => response.json()
-    ).then(
-      cats => this.setState({
-        cat : cats.find(cat =>
-          cat.id.toString() === this.props.catId),
-        fetching: false
-      })
-    ).catch(
-      error => this.setState({
-        error,
-        fetching: false
-      })
-    )
+
+      this.selectOneCat(this.props.cats)
   }
 
   render() {
     return (
-
       this.state.cat !== null ? (
         <Fragment>
           <div className="CatPage">
@@ -45,7 +37,7 @@ class CatPageFetcher extends Component {
                 this.props.favourite.includes(this.state.cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
 
               <button className="catButtons" onClick={()=>this.props.toggleCatAdopted(this.state.cat)}>{
-                this.props.adopted.includes(this.state.cat.id) ? 'Adoptowałeś mnie' : 'Adoptuj mnie'}</button>
+                this.props.adoptionRequests.some((adoptedCat) => adoptedCat.catId === this.state.cat.id) ? '' : 'Adoptuj mnie'}</button>
               {
                 //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>
                 //<button onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>Już Cię nie lubię</button>

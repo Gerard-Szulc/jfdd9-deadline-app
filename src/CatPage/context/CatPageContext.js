@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
+
+
 const CatPageContext = React.createContext();
-
 export const CatPageConsumer = CatPageContext.Consumer;
-
-
 export class CatPageProvider extends Component {
 
 
   state = {
-    cats: null,
+    cats: [],
     fetching: false,
     error: null,
     favourite: [],
-    adopted: [],
-    adoptionRequests: {},
+    adoptionRequests: [],
     favButtonName: "Polub mnie",
     adoptButtonName: "Adoptuj mnie",
     toggleCatFavorite: (cat) => {
@@ -24,27 +22,57 @@ export class CatPageProvider extends Component {
     },
 
     toggleCatAdopted: (cat) => {
-      this.setState( {
-        adopted: this.state.adopted.includes(cat.id) ? this.state.adopted.filter(catId => catId !== cat.id) : this.state.adopted.concat(cat.id) }
+      this.setState({
 
-        );
+        adoptionRequests: this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
+          this.state.adoptionRequests.filter(catId => catId !== cat.id) :
+          firebase.database().ref('/adoptionRequests').push({
+            catId: cat.id,
+            accepted: false,
+            //user: currentUser
+          })
+
+      });
 
     },
 
   };
-  handleSnapshot = snapshot => {
+
+  handleCatsSnapshot = snapshot => {
     const cats = [];
     snapshot.forEach(
-      cat => {
-        cats.push(cat)
+      element => {
+        cats.push({
+          id: element.key,
+          ...element.val()
+        })
       }
     )
     this.setState({
       cats: cats
-    })
+    },console.log(cats))
   }
+
+  handleAdoptedSnapshot = snapshot => {
+    const adoptionRequests = [];
+    snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
+      ([id,value]) => {
+        adoptionRequests.push({
+          catId: value.catId,
+          accepted: value.accepted
+        })
+      }
+    )
+    console.log(adoptionRequests)
+    this.setState({
+      adoptionRequests: adoptionRequests
+    }
+  )
+  }
+
   componentDidMount() {
-    this.unsubscribe = firebase.database.ref('/cats/').on('value', this.handleSnapshot);
+    this.unsubscribeCats = firebase.database().ref('/cats').on('value', this.handleCatsSnapshot);
+    this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests').on('value',this.handleAdoptedSnapshot)
     this.setState({
       fetching: true,
       error: null
