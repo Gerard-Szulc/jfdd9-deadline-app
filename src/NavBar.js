@@ -12,6 +12,13 @@ class NavBar extends Component {
             <Link to="/"><img src={logo} alt="logo" /></Link>
           </div>
           <ul>
+            <label for="show-menu" class="show-menu">
+              <li id="hamburger" class="hamburger">
+                <figure><img src="./hamburger.png" alt="hamburger" /></figure>
+
+              </li>
+            </label>
+            <input type="checkbox" id="show-menu" role="button" />
             <li>
               <Link to="/">Wyszukiwanie</Link>
             </li>

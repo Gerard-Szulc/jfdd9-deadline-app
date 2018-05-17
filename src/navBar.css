@@ -59,3 +59,16 @@ div.clear{
     display: inline;
     float: right;
 }
+
+.hamburger{
+    display:none;
+}
+
+figure{
+    padding: 0px;
+    margin: 0px;
+
+}
+input[type=checkbox]{
+    display: none;
+}
