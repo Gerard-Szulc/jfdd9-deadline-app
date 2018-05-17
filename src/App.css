@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:400,700,900&subset=latin-ext');
+
 .App {
   text-align: center;
-  padding-top: 6rem;
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: 'Encode Sans Semi Condensed', sans-serif;
   margin: 0;
+  background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
@@ -30,5 +33,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 

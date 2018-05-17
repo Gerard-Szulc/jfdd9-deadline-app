@@ -1,5 +1,8 @@
 import React, { Component }from 'react';
 import { Link } from "react-router-dom";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faVenus from '@fortawesome/fontawesome-free-solid/faVenus'
+import faMars from '@fortawesome/fontawesome-free-solid/faMars'
 
 class CatContainer extends Component{
   render() {
@@ -9,11 +12,23 @@ class CatContainer extends Component{
 
         </div>
         <div className="catContainerDescription">
-            <div className="catContainerName"> <p><strong>{this.props.cat.name}</strong> <em>- {this.props.cat.sex.toLowerCase()}</em></p></div>
-          <div><p>{this.props.cat.description.split(' ').slice(0,25).join(' ')}...</p>
+          <div className="catContainerName">
+            <h3>{this.props.cat.name}</h3>
+            {console.log(this.props.cat.sex)}
+            {
+              this.props.cat.sex === 'Kotka' ?
+                <FontAwesomeIcon icon={faVenus} className="iconVenus"/>
+                : <FontAwesomeIcon icon={faMars} className="iconMars" />
+            }
+          </div>
+
+          <div className="description">
+            <p>{this.props.cat.description.split(' ').slice(0,25).join(' ')}...</p>
+
             <Link to={`/catpage/${this.props.cat.id}`}>
-             <button>Pokaż więcej</button>
-             </Link></div>
+              <button>Pokaż więcej</button>
+            </Link>
+          </div>
 
         </div>
 
