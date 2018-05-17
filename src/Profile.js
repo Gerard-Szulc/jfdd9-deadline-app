@@ -3,6 +3,9 @@ import {withCatPage} from "./CatPage/context/CatPageContext";
 import CatContainer from "./CatContainer";
 
 class Profile extends Component{
+  componentDidMount(){
+    window.scrollTo(0,0)
+  }
   render() {
     return(
       <div>
