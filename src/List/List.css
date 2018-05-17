@@ -3,21 +3,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color:#e46140;
+    /*background-color:#e46140;*/
     padding-top: 20px;
     padding-bottom: 20px;
-    border: 1px solid #dc5431;
-    border-radius: 8px;
-    box-shadow: 2px 3px 8px #aaa;
+    /*border: 1px solid #dc5431;*/
+    /*border-radius: 8px;*/
+    /*box-shadow: 2px 3px 8px #aaa;*/
 }
 .catContainer {
     width:60%;
-    margin:0;
-    background-color: #f1f1f1;
-    padding: 2rem;
+    margin: 0.5rem;
+    background-color: #ffffff;
+    padding: 0.5rem;
     display:flex;
     height:auto;
     box-shadow: 2px 3px 8px #aaa;
+    border-radius: 3px;
 }
 
 .catContainerDescription {
@@ -43,8 +44,11 @@
 }
 
 .catContainerImage {
-    min-width: 9rem;
-    height:6.5rem;
+    min-width: 16rem;
+    height:15rem;
+    margin: 20px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 7px #272727c7;
 
 }
 

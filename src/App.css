@@ -4,6 +4,8 @@
   min-height: 100vh;
   font-family: "Lato", sans-serif;
   margin: 0;
+  background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
