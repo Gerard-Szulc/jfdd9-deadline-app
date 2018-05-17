@@ -110,6 +110,21 @@
     align-items: center;
   }
 
+    .left side{
+        display: block;
+        padding: 0px;
+
+    }
+
+    .right-side{
+        transition: 50ms;
+        visibility: hidden;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
   /*Show menu when invisible checkbox is checked*/
   input[type=checkbox]:checked ~ .right-side{
     height: 2.75rem;
