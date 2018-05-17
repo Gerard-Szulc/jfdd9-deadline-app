@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import './navBar.css';
 import logo from './logo-white.png';
-import hamburger from './hamburger.png'
+import hamburger from  './hamburger.png';
 
 
 class NavBar extends Component {
@@ -13,7 +13,7 @@ class NavBar extends Component {
           <Link to="/"><img src={logo} alt="logo"/></Link>
         </div>
         <ul>
-          <label for="show-menu" className="show-menu">
+          <label htmlFor="show-menu" className="show-menu">
             <li id="hamburger" className="hamburger">
               <figure><img src={hamburger} alt="hamburger"/></figure>
 
@@ -26,7 +26,7 @@ class NavBar extends Component {
           <li className="right-side">
             <Link to="/favorite-cats">Ulubione Koty</Link>
           </li>
-          <li class="right-side">
+          <li className="right-side">
             <Link to="/shelters">Schroniska</Link>
           </li>
           <div className="menuRight">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from './Main'
 import FavoriteCats from './FavoriteCats'
