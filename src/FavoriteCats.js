@@ -8,7 +8,11 @@ class FavoriteCats extends Component{
       <div>
         <h1>Ulubione koty</h1>
 
-        {this.props.cats && this.props.cats.filter( cat => this.props.favourite.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}
+        {this.props.cats && this.props.cats
+          .filter( cat => this.props.favourite.includes(cat.id) )
+          .map(element=>
+            <CatContainer key={element.id} cat={element}/>
+          )}
 
         {this.props.favourite.length === 0 ? <p>Żaden kot nie został polubiony.</p> : <p> </p>}
 

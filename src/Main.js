@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SearchBox from "./SearchBox/SearchBox";
+import {withCatPage} from "./CatPage/context/CatPageContext";
 import List from "./List/List";
 
 const getSearchOptions = search =>
@@ -48,4 +49,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withCatPage(Main);

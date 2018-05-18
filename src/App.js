@@ -7,11 +7,11 @@ import Shelters from './Shelters'
 import {UserProvider} from "./User/context/User";
 import Profile from './User/UserProfile'
 import CatPage from './CatPage/CatPageView'
-import {CatPageProvider} from "./CatPage/context/CatPageContext";
-import Calendar from './Calendar'
-
-
+import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
+import firebase from 'firebase'
+import config from './firebase/config'
 import './App.css';
+
 
 class App extends Component {
   componentDidMount(){
@@ -30,7 +30,6 @@ class App extends Component {
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/catpage/:catId" component={CatPage}/>
-          <Route path="/calendar" component={Calendar} />
         </div>
       </Router>
       </CatPageProvider>
@@ -39,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCatPage(App);
