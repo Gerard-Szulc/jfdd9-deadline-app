@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import  Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
 import {withUser} from '../User/context/User'
+import firebase from 'firebase'
 
 class CatPageFetcher extends Component {
 
@@ -31,17 +32,20 @@ class CatPageFetcher extends Component {
               <img className="catImage" alt="cat" src={cat.image}/>
               <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(cat)}>{
                 this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
-              {(this.props.adoptionRequests.some((adoptedCat) =>
+
+              {firebase.auth().currentUser ?
+                (this.props.adoptionRequests.some((adoptedCat) =>
                 adoptedCat.catId ===cat.id) ?
                 '' :
                 (<button className="catButtons" onClick={
                   ()=>this.props.toggleCatAdopted(cat)}> Adoptuj mnie
               </button>))
-              }
-              {
+
+
                 (this.props.adoptionRequests.some((adoptedCat) =>
                   adoptedCat.catId ===cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')
-              }
+
+              : '' }
 
             </div>
 
