@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import {withUser} from "./context/User";
 
+const errorMessage = (code) => {
+  switch (code) {
+    case 'auth/invalid-email':
+      return 'Nieprawidłowy adres e-mail'
+    case 'auth/email-already-in-use':
+      return 'Adres e-mail jest już w użyciu'
+  }
+}
+
 class SignUpForm extends Component {
 
   state = {
@@ -26,28 +35,28 @@ class SignUpForm extends Component {
     return (
       <div className="form sigIn">
         <h2>Utwórz konto</h2>
-        {this.state.error && <p>{this.state.error.message}</p>}
+        <p className="MessageError">{this.state.error && errorMessage(this.state.error.code)}</p>
         <form onSubmit={this.handleSubmit}>
-          <input
-            value={this.state.username}
-            name="username"
-            type="text"
-            onChange={this.handleChange}
-            placeholder='E-mail'
-            aria-label="Adres e-mail"
-          />
+          <div>
+            <input
+              value={this.state.username}
+              name="username"
+              type="text"
+              onChange={this.handleChange}
+              placeholder='E-mail'
+              aria-label="Adres e-mail"
+            />
 
-          <br />
-          <input
-            value={this.state.password}
-            name="password"
-            type="password"
-            onChange={this.handleChange}
-            placeholder='E-mail'
-            aria-label="Adres e-mail"
-          />
-
-          <br />
+            <br />
+            <input
+              value={this.state.password}
+              name="password"
+              type="password"
+              onChange={this.handleChange}
+              placeholder='E-mail'
+              aria-label="Adres e-mail"
+            />
+            </div>
           <button>Utwórz konto</button>
         </form>
       </div>

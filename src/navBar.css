@@ -59,3 +59,20 @@ div.clear{
     display: inline;
     float: right;
 }
+
+
+.menuRight button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    /* border: 1px solid #fff; */
+    background: #f59379;
+    border: none;
+    border-radius: 7px;
+    color: #ef4730;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menuRight button:hover {
+    background: #fff;
+}
