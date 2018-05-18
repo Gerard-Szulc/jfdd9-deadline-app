@@ -53,11 +53,12 @@
 }
 
 .catContainerImage {
-    min-width: 16rem;
-    height:15rem;
+    min-width: 14rem;
+    height:12rem;
     margin: 20px;
     border-radius: 3px;
     box-shadow: 3px 3px 7px #272727c7;
+    background-position: center;
 
 }
 

@@ -5,8 +5,9 @@
   min-height: 100vh;
   font-family: 'Encode Sans Semi Condensed', sans-serif;
   margin: 0;
-  background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;
-  background-attachment: fixed;
+  /*background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;*/
+  /*background-attachment: fixed;*/
+  background: #fff2f2;
 }
 
 .App-logo {
@@ -32,5 +33,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.MessageError{
+    color: red;
+    margin: 0
 }
 
