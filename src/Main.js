@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SearchBox from "./SearchBox/SearchBox";
-import List from "./List";
+import List from "./List/List";
 
 const getSearchOptions = search =>
   Object.entries(search)

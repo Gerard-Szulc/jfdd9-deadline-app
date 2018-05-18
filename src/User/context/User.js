@@ -6,20 +6,17 @@ export const UserConsumer = UserContext.Consumer;
 
 export class UserProvider extends Component{
   state = {
-    signInError: null,
     user: null,
-    signIn: (username, password) => {
-      console.log(username)
-      firebase.auth().signInWithEmailAndPassword(username, password).catch(error=>this.setState({signInError: error}))
-    },
+    signIn: (username, password) =>
+      firebase.auth().signInWithEmailAndPassword(username, password)
+    ,
 
     signOut: () => {
       firebase.auth().signOut();
     },
 
-    signUp: (username, password) => {
+    signUp: (username, password) =>
       firebase.auth().createUserWithEmailAndPassword(username, password)
-    },
   }
 
   componentDidMount() {

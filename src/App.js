@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from './Main'
 import FavoriteCats from './FavoriteCats'
@@ -12,6 +11,7 @@ import {CatPageProvider} from "./CatPage/context/CatPageContext";
 import Calendar from './Calendar'
 
 
+import './App.css';
 
 class App extends Component {
   componentDidMount(){

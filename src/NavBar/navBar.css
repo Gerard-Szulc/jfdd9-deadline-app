@@ -1,0 +1,146 @@
+nav{
+    background-color: #e46140;
+    display:block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    font-family: "Lato Heavy", sans-serif;
+    font-size: 1.2rem;
+    color: antiquewhite;
+    z-index: 9999;
+    box-shadow: 0 3px 10px #000c;
+}
+
+nav li{
+    list-style: none;
+    display: inline-block;
+    margin: 5px 15px;
+}
+nav li:hover{
+    background: #f59379;
+    border-radius: 5px;
+}
+
+nav ul {
+    margin: 0 2rem;
+    padding: 0;
+    text-align: left;
+}
+
+nav a{
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px #5f5e5e;
+    transition: text-shadow 0.2s;
+}
+
+.logo{
+    float: left;
+    width: 7rem;
+    padding-top: 4px;
+    margin: 0 2rem;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+div.clear{
+    clear: both;
+}
+
+
+.hamburger{
+    display:none;
+}
+
+figure{
+    padding: 0px;
+    margin: 0px;
+
+}
+input[type=checkbox]{
+    display: none;
+}
+.menuRight{
+    display: inline;
+    float: right;
+}
+
+.menuRight button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    /* border: 1px solid #fff; */
+    background: #f59379;
+    border: none;
+    border-radius: 7px;
+    color: #ef4730;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menuRight button:hover {
+    background: #fff;
+}
+
+@media(max-width: 1060px){
+    #logo{
+        order: 1;
+    }
+    nav ul{
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .right-side{
+        transition: 50ms;
+        visibility: hidden;
+        height: 0px;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    /*Show menu when invisible checkbox is checked*/
+    input[type=checkbox]:checked ~ .right-side{
+        height: 2.75rem;
+        display: flex;
+        transition: 0.2s;
+        visibility: visible;
+        padding: 0px;
+    }
+
+    .hamburger{
+        display: flex;
+        padding: 0px;
+        margin: 0px;
+        order: -99;
+    }
+
+
+    ul li figure{
+        padding: 0px;
+        margin: 0px;
+    }
+    .hamburger img{
+        height: 40px;
+    }
+
+    #navbar a.nav-link {
+        padding: 10px 20px;
+    }
+
+    .menuRight{
+        float: none;
+
+    }
+}
