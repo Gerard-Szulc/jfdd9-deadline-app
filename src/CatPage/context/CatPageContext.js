@@ -56,7 +56,8 @@ export class CatPageProvider extends Component {
       ([id,value]) => {
         adopted.push({
           catId: id,
-          accepted: value.accepted
+          accepted: value.accepted,
+          user: value.user,
         })
       }
     )
