@@ -31,11 +31,7 @@ export class CatPageProvider extends Component {
             accepted: false,
             user: firebase.auth().currentUser.uid,
           })
-
       }
-
-
-
   };
 
   handleCatsSnapshot = snapshot => {
