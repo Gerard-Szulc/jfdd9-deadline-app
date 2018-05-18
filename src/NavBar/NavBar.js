@@ -22,7 +22,7 @@ class NavBar extends Component {
           </label>
           <input type="checkbox" id="show-menu" role="button"/>
           <li className="right-side">
-            <Link to="/">Wyszukiwanie</Link>
+            <Link to="/">Strona główna</Link>
           </li>
           <li className="right-side">
             <Link to="/favorite-cats">Ulubione Koty</Link>
@@ -30,16 +30,26 @@ class NavBar extends Component {
           <li className="right-side">
             <Link to="/shelters">Schroniska</Link>
           </li>
-            <li className="right-side menuRight">
+
+          <div className="menuRight right-side">
             {
               this.props.user !== null ? (
-                  <button onClick={this.props.signOut}>Wyloguj</button>
-              ) : (
-                  <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
-              )
+                <li>
+                  <Link to="/profile">Profil</Link>
+                </li>
+              ) : null
             }
-            </li>
 
+            <li>
+              {
+                this.props.user !== null ? (
+                  <button onClick={this.props.signOut}>Wyloguj</button>
+                ) : (
+                  <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
+                )
+              }
+            </li>
+          </div>
         </ul>
         <div className="clear"></div>
       </nav>

@@ -30,11 +30,7 @@ export class CatPageProvider extends Component {
             accepted: false,
             //user: currentUser
           })
-
       }
-
-
-
   };
 
   handleCatsSnapshot = snapshot => {
