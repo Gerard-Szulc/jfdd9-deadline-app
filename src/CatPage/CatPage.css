@@ -1,6 +1,7 @@
 .CatPage {
     background-color: antiquewhite;
     display: flex;
+    margin-top: 2rem;
 }
 .catDiv{
     display:flex;
@@ -21,6 +22,7 @@
     height: 17rem;
     max-width: 23rem;
     min-width: 5rem;
+    margin-top: 2rem;
 }
 
 .catButtons{

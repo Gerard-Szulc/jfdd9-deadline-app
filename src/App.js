@@ -10,9 +10,8 @@ import CatPage from './CatPage/CatPageView'
 import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
 import firebase from 'firebase'
 import config from './firebase/config'
-
-firebase.initializeApp(config);
 import './App.css';
+
 
 class App extends Component {
   componentDidMount(){
