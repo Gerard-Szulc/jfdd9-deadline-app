@@ -2,26 +2,12 @@ import React, { Component } from 'react'
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-const getMarkers = context => ({
-  'Promyk':  <Marker
-    key={'Promyk'}
-    title={'Promyk'}
-    name={'Promyk'}
-    onClick={context.onClick}
-    position={{lat: 54.374760, lng: 18.449328}} />,
-  'Ciapkowo': <Marker
-    key={'Ciapkowo'}
-    title={'Ciapkowo'}
-    name={'Ciapkowo'}
-    onClick={context.onClick}
-    position={{lat: 54.492730, lng: 18.527670}} />,
-  'Schronisko Sopot': <Marker
-    key={'Schronisko Sopot'}
-    title={'Schronisko Sopot'}
-    name={'Schronisko Sopot'}
-    onClick={context.onClick}
-    position={{lat: 54.443741, lng: 18.552334}} />
-})
+const shelters = [
+  {name: 'Promyk', lat: 54.374760, lng: 18.449328},
+  {name: 'Ciapkowo', lat: 54.492730, lng: 18.527670},
+  {name: 'Schronisko Sopot', lat: 54.443741, lng: 18.552334}
+
+]
 
 class Shelters extends Component {
 
@@ -39,22 +25,35 @@ class Shelters extends Component {
     });
   }
 
-  // // onClick = (props) => {
-  // //   if (this.state.showingInfoWindow) {
-  // //     this.setState({
-  // //       showingInfoWindow: false,
-  // //       activeMarker: null
-  // //     })
-  // //   }
-  // };
+  renderMarkers(shelters) {
+    return (
+      shelters.map(
+        shelter => (
+        <Marker
+          key={shelter.name}
+          title={shelter.name}
+          name={shelter.name}
+          onClick={this.onClick}
+          position={{lat: shelter.lat, lng: shelter.lng}} />
+        )
+      )
+    )
+  }
 
   render() {
+
+    const sheltersArray = this.props.shelter ?
+      shelters.filter( shelter => shelter.name === this.props.shelter) : shelters
+
+    const avgLat = sheltersArray.map(shelter => shelter.lat).reduce((total, next) => total + next, 0) / sheltersArray.length
+    const avgLng = sheltersArray.map(shelter => shelter.lng).reduce((total, next) => total + next, 0) / sheltersArray.length
+
     return (
       <div>
       <Map google={this.props.google}
            initialCenter={{
-             lat: 54.425545,
-             lng: 18.528039
+             lat: avgLat,
+             lng: avgLng
            }}
            gestureHandling={this.props.gestureHandling || 'greedy'}
            zoom={12}
@@ -63,16 +62,14 @@ class Shelters extends Component {
 
       >
 
-        {this.props.shelter ? getMarkers(this)[this.props.shelter] :
-          Object.values(getMarkers(this))
-        }
+        {this.renderMarkers(sheltersArray)}
 
         <InfoWindow onOpen={this.onInfoWindowOpen}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
           <div>
-            <h1>Tu znajdziesz kota dla siebie</h1>
+            <h1>Tu czeka kot dla Ciebie</h1>
           </div>
         </InfoWindow>
       </Map>
