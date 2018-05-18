@@ -21,8 +21,7 @@ class UserProfile extends Component {
 
           ) : (
             <div>
-              <h1>Twoje koty</h1>
-              {this.props.cats && this.props.cats.filter( cat => this.props.adopted.includes(cat.id) ).map(element=><CatContainer key={element.id} cat={element}/>)}
+              <h2>Twoje koty</h2>
             </div>
             )
         }
