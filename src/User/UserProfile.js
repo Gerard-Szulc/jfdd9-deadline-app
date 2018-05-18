@@ -3,11 +3,11 @@ import {withUser} from "./context/User";
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
 import {withCatPage} from "./../CatPage/context/CatPageContext";
-import CatContainer from "./../CatContainer";
+import CatContainer from "./../List/CatContainer";
 import styleCss from './css/style-form.css';
 
 
-class UserProfil extends Component {
+class UserProfile extends Component {
   render() {
     console.log(this.props)
     return (
@@ -31,4 +31,4 @@ class UserProfil extends Component {
   }
 }
 
-export default withUser(withCatPage(UserProfil));
+export default withUser(withCatPage(UserProfile));

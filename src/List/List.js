@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import CatContainer from "./CatContainer";
+import './List.css'
 
 class List extends Component {
 

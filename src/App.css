@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:400,700,900&subset=latin-ext');
+
 .App {
   text-align: center;
-  padding-top: 6rem;
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: 'Encode Sans Semi Condensed', sans-serif;
   margin: 0;
+  background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
@@ -32,74 +35,7 @@
 }
 
 .MessageError{
-  color: red;
-  margin: 0
-}
-
-.list{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color:#e46140;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border: 1px solid #dc5431;
-  border-radius: 8px;
-  box-shadow: 2px 3px 8px #aaa;
-}
-.catContainer {
-  width:60%;
-  margin:0;
-  background-color: #f1f1f1;
-  padding: 2rem;
-  display:flex;
-  height:6.5rem;
-  box-shadow: 2px 3px 8px #aaa;
-}
-
-.catContainerDescription {
-  justify-content: space-between;
-  flex-grow: 1;
-}
-
-.catContainer p{
-  display:inline-block;
-  margin:0;
-  width:70%;
-}
-
-.catContainer button{
-  display:inline-block;
-  height: 1.5rem;
-  background-color: red;
-  font-size: 1rem;
-  color: white;
-  border-radius: 5px;
-  justify-self:right;
-  cursor: pointer;
-}
-
-.catContainerImage {
-  min-width: 9rem;
-  height:6.5rem;
-
-}
-
-.catContainerName {
-  font-size:2rem;
-  justify-content: center;
-}
-
-#main {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  margin:0;
-}
-
-#root {
-  width: 100%;
-  margin:0;
+    color: red;
+    margin: 0
 }
 
