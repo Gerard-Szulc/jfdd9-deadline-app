@@ -11,7 +11,7 @@ class UserProfile extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
+      <div className="UserView">
         {
           this.props.user === null ? (
             <div className="if-no-user-container">
