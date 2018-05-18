@@ -33,6 +33,7 @@ class Shelters extends Component {
            gestureHandling={this.props.gestureHandling || 'greedy'}
            zoom={12}
            onClick={this.onMapClicked}
+
       >
 
         {this.props.shelter ? markers[this.props.shelter] :

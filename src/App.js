@@ -9,6 +9,8 @@ import {UserProvider} from "./User/context/User";
 import Profile from './User/UserProfile'
 import CatPage from './CatPage/CatPageView'
 import {CatPageProvider} from "./CatPage/context/CatPageContext";
+import Calendar from './Calendar'
+
 
 
 class App extends Component {
@@ -28,6 +30,7 @@ class App extends Component {
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/catpage/:catId" component={CatPage}/>
+          <Route path="/calendar" component={Calendar} />
         </div>
       </Router>
       </CatPageProvider>
