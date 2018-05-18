@@ -1,13 +1,14 @@
 import React, {Component, Fragment} from 'react';
-import  Shelters from "../Shelters";
+import Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
+import {withUser} from '../User/context/User'
+import firebase from 'firebase'
 
 class CatPageFetcher extends Component {
 
   state = {
     cat: null,
   };
-
 
 
   render() {
@@ -21,6 +22,9 @@ class CatPageFetcher extends Component {
       return <p>Loading cat</p>
     }
 
+    const adoptionRequest = this.props.adoptionRequests.find((adoptedCat) =>
+      adoptedCat.catId === cat.id)
+
 
     return (
       this.props.fetching === false && cat && (
@@ -28,19 +32,35 @@ class CatPageFetcher extends Component {
           <div className="CatPage">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={cat.image}/>
-              <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(cat)}>{
+              <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}>{
                 this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
-              {(this.props.adoptionRequests.some((adoptedCat) =>
-                adoptedCat.catId ===cat.id) ?
-                '' :
-                (<button className="catButtons" onClick={
-                  ()=>this.props.toggleCatAdopted(cat)}> Adoptuj mnie
-              </button>))
-              }
+
               {
-                (this.props.adoptionRequests.some((adoptedCat) =>
-                  adoptedCat.catId ===cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')
+                this.props.user !== null && !adoptionRequest ?
+                  <button className="catButtons" onClick={
+                    () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
+                  </button> : (
+                    adoptionRequest.accepted === false  ? 'Kot czeka na akceptację adopcji przez schronisko' : (
+                      adoptionRequest.user === this.props.user.uid ? 'Kota nima' : 'To twój kot'
+                    )
+                  )
               }
+
+
+              {/*{this.props.user*/}
+                {/*? (*/}
+                  {/*<Fragment>*/}
+                    {/*{*/}
+                      {/*adoptionRequest ?*/}
+                    {/*'' :*/}
+                    {/*())}*/}
+
+
+                    {/*{(this.props.adoptionRequests.some((adoptedCat) =>*/}
+                    {/*adoptedCat.catId === cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')}*/}
+                  {/*</Fragment>*/}
+                {/*)*/}
+                {/*: ''}*/}
 
             </div>
 
@@ -54,12 +74,12 @@ class CatPageFetcher extends Component {
             </div>
 
           </div>
-          <Shelters  gestureHandling={'cooperative'} shelter={cat.shelter}/>
+          <Shelters gestureHandling={'cooperative'} shelter={cat.shelter}/>
         </Fragment>
 
-        )
+      )
     )
   }
 }
 
-export default withCatPage(CatPageFetcher);
+export default withUser(withCatPage(CatPageFetcher));

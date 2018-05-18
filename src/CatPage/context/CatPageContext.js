@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import firebase from 'firebase'
 
 
+
 const CatPageContext = React.createContext();
 export const CatPageConsumer = CatPageContext.Consumer;
 export class CatPageProvider extends Component {
@@ -28,7 +29,7 @@ export class CatPageProvider extends Component {
           firebase.database().ref('/adoptionRequests').child(cat.id).set({
             catId: cat.id,
             accepted: false,
-            //user: currentUser
+            user: firebase.auth().currentUser.uid,
           })
       }
   };
