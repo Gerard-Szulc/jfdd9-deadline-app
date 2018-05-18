@@ -22,7 +22,7 @@ export class CatPageProvider extends Component {
     toggleCatAdopted: (cat) => {
       this.setState({
         fetching: true})
-
+      this.state.adoptionRequests &&
          this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
           firebase.database().ref('/adoptionRequests/'+cat.id).remove()  :
           firebase.database().ref('/adoptionRequests').child(cat.id).set({

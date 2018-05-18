@@ -8,31 +8,33 @@ class CatPageFetcher extends Component {
     cat: null,
   };
 
-  selectOneCat = cats => this.setState({
-      cat : cats.find(cat =>
-        cat.id === this.props.catId),
-    }
-  )
 
-  componentDidMount() {
-    this.selectOneCat(this.props.cats)
-    console.log('ten konkretny kot'+this.state.cat,this.state.cat)
-  }
 
   render() {
+    const cat = this.props.cats.find(cat => cat.id === this.props.catId)
+
+    if (this.props.fetching === false && cat === undefined) {
+      return <p>Cat not found</p>
+    }
+
+    if (this.props.fetching) {
+      return <p>Loading cat</p>
+    }
+
+
     return (
-      this.props.fetching === false && (this.state.cat !== null ? (
+      this.props.fetching === false && cat && (
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
-              <img className="catImage" alt="cat" src={this.state.cat.image}/>
-              <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>{
-                this.props.favourite.includes(this.state.cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
+              <img className="catImage" alt="cat" src={cat.image}/>
+              <button className="catButtons" onClick={()=>this.props.toggleCatFavorite(cat)}>{
+                this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
               {(this.props.adoptionRequests.some((adoptedCat) =>
-                adoptedCat.catId === this.state.cat.id) ?
+                adoptedCat.catId ===cat.id) ?
                 '' :
                 <button className="catButtons" onClick={
-                  ()=>this.props.toggleCatAdopted(this.state.cat)}>'Adoptuj mnie'
+                  ()=>this.props.toggleCatAdopted(cat)}>Adoptuj mnie
               </button>)
               }
 
@@ -43,20 +45,19 @@ class CatPageFetcher extends Component {
             </div>
 
             <div className="catDiv">
-              <h2>{this.state.cat.name}</h2>
-              <p><strong>Płeć:</strong> {this.state.cat.sex}. <strong>Wiek:</strong> {this.state.cat.age}</p>
+              <h2>{cat.name}</h2>
+              <p><strong>Płeć:</strong> {cat.sex}. <strong>Wiek:</strong> {cat.age}</p>
               <p className="catDescription">
-                {this.state.cat.description}
+                {cat.description}
               </p>
-              {//<button className="catButtons">adoptButton</button>
-                 }
+
             </div>
 
           </div>
-          <Shelters  gestureHandling={'cooperative'} shelter={this.state.cat.shelter}/>
+          <Shelters  gestureHandling={'cooperative'} shelter={cat.shelter}/>
         </Fragment>
 
-        ) : null)
+        )
     )
   }
 }
