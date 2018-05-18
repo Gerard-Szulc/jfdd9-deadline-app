@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import  Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
+import {withUser} from '../User/context/User'
 
 class CatPageFetcher extends Component {
 
@@ -62,4 +63,4 @@ class CatPageFetcher extends Component {
   }
 }
 
-export default withCatPage(CatPageFetcher);
+export default withUser(withCatPage(CatPageFetcher));
