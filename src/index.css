@@ -1,6 +1,21 @@
 body {
-  width: 90vw;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+#main {
+  padding-top: 6rem;
+  background: #ffffff52;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin:0;
+}
+
+#root {
+  width: 100%;
+  margin:0;
 }

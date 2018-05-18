@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CatContainer from "./CatContainer";
 import {withCatPage} from "./CatPage/context/CatPageContext";
+import './List.css'
 
 class List extends Component {
 

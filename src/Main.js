@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SearchBox from "./SearchBox/SearchBox";
-import List from "./List";
 import {withCatPage} from "./CatPage/context/CatPageContext";
+import List from "./List/List";
 
 const getSearchOptions = search =>
   Object.entries(search)
@@ -40,7 +40,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div id='main'>
         <SearchBox search={this.state.search} handleChange={this.handleChange}/>
         <List search={getSearchOptions(this.state.search)}/>
       </div>

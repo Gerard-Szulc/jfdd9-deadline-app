@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import './App.css';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from './Main'
 import FavoriteCats from './FavoriteCats'
 import Shelters from './Shelters'
-import Profile from './Profile'
+import {UserProvider} from "./User/context/User";
+import Profile from './User/UserProfile'
 import CatPage from './CatPage/CatPageView'
 import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
 import firebase from 'firebase'
 import config from './firebase/config'
 
 firebase.initializeApp(config);
+import './App.css';
 
 class App extends Component {
-
+  componentDidMount(){
+    window.scrollTo(0,-20)
+  };
 
   render() {
     return (
-
+      <UserProvider>
       <CatPageProvider>
       <Router>
         <div className="App">
@@ -31,8 +34,7 @@ class App extends Component {
         </div>
       </Router>
       </CatPageProvider>
-
-
+      </UserProvider>
     )
   }
 }

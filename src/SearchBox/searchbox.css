@@ -3,11 +3,10 @@
     box-sizing: border-box;
     margin: 0.5rem auto;
     width: fit-content;
-    max-width: 100vw;
+    max-width: 100%;
     padding: 25px 60px;
     border: 1px solid #dc5431;
     border-radius: 8px;
-    min-width: 600px;
     background: #e46140;
     box-shadow: 2px 3px 8px #aaa;
     text-align: left;
@@ -27,4 +26,18 @@
     font-size: 1.2em;
     font-weight: 700;
     color: #fff;
+}
+
+@media(max-width: 1010px) {
+
+    .searchBox {
+        width:100%;
+        padding: 25px 10px;
+        margin-left:0;
+        margin-right:0;
+    }
+    .searchBox .Select {
+        min-width: 100px;
+        width: 100%;
+    }
 }

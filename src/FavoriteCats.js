@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withCatPage} from "./CatPage/context/CatPageContext";
-import CatContainer from "./CatContainer";
+import CatContainer from "./List/CatContainer";
 
 class FavoriteCats extends Component{
   render() {
