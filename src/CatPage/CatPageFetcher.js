@@ -33,15 +33,15 @@ class CatPageFetcher extends Component {
               {(this.props.adoptionRequests.some((adoptedCat) =>
                 adoptedCat.catId ===cat.id) ?
                 '' :
-                <button className="catButtons" onClick={
-                  ()=>this.props.toggleCatAdopted(cat)}>Adoptuj mnie
-              </button>)
+                (<button className="catButtons" onClick={
+                  ()=>this.props.toggleCatAdopted(cat)}> Adoptuj mnie
+              </button>))
+              }
+              {
+                (this.props.adoptionRequests.some((adoptedCat) =>
+                  adoptedCat.catId ===cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')
               }
 
-              {
-                //<button onClick={()=>this.props.toggleCatAdopted(this.state.cat)}> Odadoptuj mnie </button>
-                //<button onClick={()=>this.props.toggleCatFavorite(this.state.cat)}>Już Cię nie lubię</button>
-              }
             </div>
 
             <div className="catDiv">
