@@ -7,9 +7,11 @@ import Shelters from './Shelters'
 import {UserProvider} from "./User/context/User";
 import Profile from './User/UserProfile'
 import CatPage from './CatPage/CatPageView'
-import {CatPageProvider} from "./CatPage/context/CatPageContext";
-
+import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
+import firebase from 'firebase'
+import config from './firebase/config'
 import './App.css';
+
 
 class App extends Component {
   componentDidMount(){
@@ -36,4 +38,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCatPage(App);
