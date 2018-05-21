@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {withCatPage} from "./CatPage/context/CatPageContext";
 import CatContainer from "./List/CatContainer";
+import './FavoriteCats/FavoriteCats.css'
 
 class FavoriteCats extends Component{
   render() {
     return(
-      <div>
+      <div className="favoriteCats">
         <h1>Ulubione koty</h1>
 
         {this.props.cats && this.props.cats
