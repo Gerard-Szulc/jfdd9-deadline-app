@@ -18,6 +18,15 @@ export class CatPageProvider extends Component {
       this.setState({
         favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
       })
+      this.setState({
+        fetching: true})
+      this.state.favourite &&
+      this.state.favourite.some((favouriteCat) => favouriteCat.catId === cat.id) ?
+        firebase.database().ref('/favourite/'+cat.id).remove()  :
+        firebase.database().ref('/favourite').child(cat.id).set({
+          catId: cat.id,
+          user: firebase.auth().currentUser.uid,
+        })
     },
 
     toggleCatAdopted: (cat) => {
@@ -50,6 +59,22 @@ export class CatPageProvider extends Component {
     },)
   }
 
+  handleFavoriteSnapshot = snapshot => {
+    const favourite = []
+    snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
+      ([id,value]) => {
+        favourite.push({
+          catId: id,
+          user: value.user,
+        })
+      }
+    )
+    this.setState({
+        favourite: favourite,
+        fetching: false
+      }
+    )
+  }
   handleAdoptedSnapshot = snapshot => {
     const adopted = []
     snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
@@ -74,6 +99,8 @@ export class CatPageProvider extends Component {
     this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests')
     this.unsubscribeCats.on('value', this.handleCatsSnapshot);
     this.unsubscribeAdoptionRequests.on('value',this.handleAdoptedSnapshot)
+    this.unsubscribeFavourite = firebase.database().ref('/favourite')
+    this.unsubscribeFavourite.on('value', this.handleFavoriteSnapshot)
 
     this.setState({
       fetching: true,
@@ -86,6 +113,7 @@ export class CatPageProvider extends Component {
   componentWillUnmount(){
     this.unsubscribeCats.off('value', this.handleCatsSnapshot)
     this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
+    this.unsubscribeFavourite.off('value', this.handleFavoriteSnapshot)
   }
 
   render() {
