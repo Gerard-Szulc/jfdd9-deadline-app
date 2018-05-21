@@ -25,6 +25,9 @@ class CatPageFetcher extends Component {
     const adoptionRequest = this.props.adoptionRequests.find((adoptedCat) =>
       adoptedCat.catId === cat.id)
 
+    const favourite = this.props.favourite.find((favouriteCat) =>
+      favouriteCat.catId === cat.id)
+
 
     return (
       this.props.fetching === false && cat && (
@@ -32,8 +35,18 @@ class CatPageFetcher extends Component {
           <div className="CatPage">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={cat.image}/>
-              <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}>{
-                this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
+
+              {this.props.user === null ? 'Zaloguj się!' :
+                (this.props.user !== null && !favourite ?
+                    <button className="catButtons" onClick={
+                      () => this.props.toggleCatFavorite(cat)}> Polub mnie
+                    </button> : (favourite.user === this.props.user.uid ? <button className="catButtons" onClick={
+                        () => this.props.toggleCatFavorite(cat)}> Odlub mnie
+                      </button> : 'Kota nie ma'
+
+                    )
+                )
+              }
 
 
               {this.props.user === null ? 'Zaloguj się!' :
