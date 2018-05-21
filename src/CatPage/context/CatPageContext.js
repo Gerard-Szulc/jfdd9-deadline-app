@@ -23,7 +23,7 @@ export class CatPageProvider extends Component {
       this.state.favourite &&
       this.state.favourite.some((favouriteCat) => favouriteCat.catId === cat.id && favouriteCat.user === firebase.auth().currentUser.uid) ?
         firebase.database().ref('/favourite/'+cat.id).remove()  :
-        firebase.database().ref('/favourite').child(cat.id).set({
+        firebase.database().ref('/favourite').push({
           catId: cat.id,
           user: firebase.auth().currentUser.uid,
         })
@@ -64,7 +64,8 @@ export class CatPageProvider extends Component {
     snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
       ([id,value]) => {
         favourite.push({
-          catId: id,
+          id: id,
+          catId: value.catId,
           user: value.user,
         })
       }
