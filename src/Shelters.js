@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
 
 const shelters = [
   {name: 'Promyk', address: 'Przyrodników 14, 80-298 Gdańsk', lat: 54.374760, lng: 18.449328},
