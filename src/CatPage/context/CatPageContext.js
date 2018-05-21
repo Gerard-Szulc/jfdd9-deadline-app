@@ -21,7 +21,7 @@ export class CatPageProvider extends Component {
       this.setState({
         fetching: true})
       this.state.favourite &&
-      this.state.favourite.some((favouriteCat) => favouriteCat.catId === cat.id) ?
+      this.state.favourite.some((favouriteCat) => favouriteCat.catId === cat.id && favouriteCat.user === firebase.auth().currentUser.uid) ?
         firebase.database().ref('/favourite/'+cat.id).remove()  :
         firebase.database().ref('/favourite').child(cat.id).set({
           catId: cat.id,

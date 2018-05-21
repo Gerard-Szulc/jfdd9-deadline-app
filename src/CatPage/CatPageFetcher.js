@@ -26,7 +26,7 @@ class CatPageFetcher extends Component {
       adoptedCat.catId === cat.id)
 
     const favourite = this.props.favourite.find((favouriteCat) =>
-      favouriteCat.catId === cat.id)
+      favouriteCat.catId === cat.id && favouriteCat.user === this.props.user.uid)
 
 
     return (
