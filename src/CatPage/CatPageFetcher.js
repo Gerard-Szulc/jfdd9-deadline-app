@@ -61,7 +61,9 @@ class CatPageFetcher extends Component {
             </div>
 
           </div>
+          <div style={{ position: 'relative', height: '60vh'}}>
           <Shelters gestureHandling={'cooperative'} shelter={cat.shelter}/>
+          </div>
         </Fragment>
 
       )
