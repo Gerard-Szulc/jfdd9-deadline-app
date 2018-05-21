@@ -15,9 +15,9 @@ export class CatPageProvider extends Component {
     favourite: [],
     adoptionRequests: [],
     toggleCatFavorite: (cat) => {
-      this.setState({
-        favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
-      })
+      // this.setState({
+      //   favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
+      // })
       this.setState({
         fetching: true})
       this.state.favourite &&
