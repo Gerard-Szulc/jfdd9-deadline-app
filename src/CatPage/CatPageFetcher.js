@@ -41,26 +41,11 @@ class CatPageFetcher extends Component {
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
                   </button> : (
                     adoptionRequest.accepted === false  ? 'Kot czeka na akceptację adopcji przez schronisko' : (
-                      adoptionRequest.user === this.props.user.uid ? 'Kota nima' : 'To twój kot'
+                      adoptionRequest.user === this.props.user.uid ? 'To twój kot' : 'Kota nie ma'
                     )
                   )
               }
 
-
-              {/*{this.props.user*/}
-                {/*? (*/}
-                  {/*<Fragment>*/}
-                    {/*{*/}
-                      {/*adoptionRequest ?*/}
-                    {/*'' :*/}
-                    {/*())}*/}
-
-
-                    {/*{(this.props.adoptionRequests.some((adoptedCat) =>*/}
-                    {/*adoptedCat.catId === cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')}*/}
-                  {/*</Fragment>*/}
-                {/*)*/}
-                {/*: ''}*/}
 
             </div>
 
