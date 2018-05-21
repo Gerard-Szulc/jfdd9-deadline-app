@@ -35,8 +35,9 @@ class CatPageFetcher extends Component {
               <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}>{
                 this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
 
-              {
-                this.props.user !== null && !adoptionRequest ?
+
+              {this.props.user === null ? 'Zaloguj się!' :
+                (this.props.user !== null && !adoptionRequest ?
                   <button className="catButtons" onClick={
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
                   </button> : (
@@ -44,6 +45,7 @@ class CatPageFetcher extends Component {
                       adoptionRequest.user === this.props.user.uid ? 'To twój kot' : 'Kota nie ma'
                     )
                   )
+                )
               }
 
 
