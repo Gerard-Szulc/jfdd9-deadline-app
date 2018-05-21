@@ -47,21 +47,6 @@ class CatPageFetcher extends Component {
               }
 
 
-              {/*{this.props.user*/}
-                {/*? (*/}
-                  {/*<Fragment>*/}
-                    {/*{*/}
-                      {/*adoptionRequest ?*/}
-                    {/*'' :*/}
-                    {/*())}*/}
-
-
-                    {/*{(this.props.adoptionRequests.some((adoptedCat) =>*/}
-                    {/*adoptedCat.catId === cat.id && adoptedCat.accepted === false) && 'Kot czeka na akceptację adopcji przez schronisko')}*/}
-                  {/*</Fragment>*/}
-                {/*)*/}
-                {/*: ''}*/}
-
             </div>
 
             <div className="catDiv">
