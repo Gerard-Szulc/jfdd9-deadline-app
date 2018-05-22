@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+
 const shelters = [
-  {name: 'Promyk', lat: 54.374760, lng: 18.449328},
-  {name: 'Ciapkowo', lat: 54.492730, lng: 18.527670},
-  {name: 'Schronisko Sopot', lat: 54.443741, lng: 18.552334}
+  {name: 'Promyk', address: 'Przyrodników 14, 80-298 Gdańsk', lat: 54.374760, lng: 18.449328},
+  {name: 'Ciapkowo', address: 'Małokacka 3A, 81-654 Gdynia', lat: 54.492730, lng: 18.527670},
+  {name: 'Schronisko Sopot', address: '1 Maja 32, 81-828 Sopot', lat: 54.443741, lng: 18.552334}
 
 ]
 
@@ -18,9 +18,11 @@ class Shelters extends Component {
   }
 
   onClick = (props, marker, e) => {
+    console.log(props, marker)
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
+      activeMarkerText: props.address,
       showingInfoWindow: true
     });
   }
@@ -33,6 +35,7 @@ class Shelters extends Component {
           key={shelter.name}
           title={shelter.name}
           name={shelter.name}
+          address={shelter.address}
           onClick={this.onClick}
           position={{lat: shelter.lat, lng: shelter.lng}} />
         )
@@ -57,7 +60,6 @@ class Shelters extends Component {
            }}
            gestureHandling={this.props.gestureHandling || 'greedy'}
            zoom={12}
-           onClick={this.onMapClicked}
            position={'centre'}
 
       >
@@ -69,7 +71,7 @@ class Shelters extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div>
-            <h1>Tu czeka kot dla Ciebie</h1>
+            <h1>{this.state.activeMarkerText}</h1>
           </div>
         </InfoWindow>
       </Map>
