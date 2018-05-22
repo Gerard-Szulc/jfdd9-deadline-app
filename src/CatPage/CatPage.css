@@ -32,6 +32,8 @@
     color: white;
     border-radius: 0.5rem;
     cursor: pointer;
+    text-decoration: none;
+
 }
 h2{
     font-size: 2rem

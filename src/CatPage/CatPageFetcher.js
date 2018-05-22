@@ -2,7 +2,8 @@ import React, {Component, Fragment} from 'react';
 import Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
 import {withUser} from '../User/context/User'
-import firebase from 'firebase'
+import { Link }from 'react-router-dom'
+
 
 class CatPageFetcher extends Component {
 
@@ -31,7 +32,7 @@ class CatPageFetcher extends Component {
             <div className="catDiv">
               <img className="catImage" alt="cat" src={cat.image}/>
 
-              {this.props.user === null ? 'Zaloguj się!' :
+              {this.props.user === null ?  <button className="catButtons"> <Link to="/profile" className='catButtons'>Zaloguj się</Link></button> :
                 ( isFavourite ?
                   <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
                   </button>
@@ -41,7 +42,10 @@ class CatPageFetcher extends Component {
                     </button>)}
 
 
-              {this.props.user === null ? 'Zaloguj się!' :
+
+
+
+              {this.props.user !== null &&
                 (!adoptionRequest ?
                   <button className="catButtons" onClick={
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
