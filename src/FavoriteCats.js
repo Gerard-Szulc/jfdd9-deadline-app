@@ -20,7 +20,7 @@ class FavoriteCats extends Component{
 
 
         {this.props.cats && this.props.cats.filter( cat =>
-          this.props.favourite.some(request => request.catId === cat.id && request.user === this.props.user.uid)
+         this.props.favourite !==null && this.props.favourite.some(request => request.catId === cat.id && request.user === this.props.user.uid)
         ).map(element=><CatContainer key={element.id} cat={element}/>)}
       </div>
     )

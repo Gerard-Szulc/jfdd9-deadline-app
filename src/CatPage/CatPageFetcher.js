@@ -25,8 +25,7 @@ class CatPageFetcher extends Component {
     const adoptionRequest = this.props.adoptionRequests.find((adoptedCat) =>
       adoptedCat.catId === cat.id)
 
-    const favourite = this.props.favourite.find((favouriteCat) =>
-      favouriteCat.catId === cat.id && favouriteCat.user === this.props.user.uid)
+    const favourite = this.props.favourite && Object.entries(this.props.favourite).find(([key,value]) =>value===true)
 
 
     return (
@@ -40,11 +39,11 @@ class CatPageFetcher extends Component {
                 (this.props.user !== null && !favourite ?
                     <button className="catButtons" onClick={
                       () => this.props.toggleCatFavorite(cat)}> Polub mnie
-                    </button> : (favourite.user === this.props.user.uid ? <button className="catButtons" onClick={
-                        () => this.props.toggleCatFavorite(cat)}> Odlub mnie
-                      </button> : 'Kota nie ma'
+                    </button> : '' //{(favourite.user === this.props.user.uid ? <button className="catButtons" onClick={}
+                      //  {() => this.props.toggleCatFavorite(cat)}> Odlub mnie}
+                      //{</button> : 'Kota nie ma'}
 
-                    )
+                   // )
                 )
               }
 

@@ -12,22 +12,25 @@ export class CatPageProvider extends Component {
     cats: [],
     fetching: false,
     error: null,
-    favourite: [],
+    favourite: null,
     adoptionRequests: [],
-    toggleCatFavorite: (cat) => {
+
+
+
+    toggleCatFavorite: (userFavs, cat) => {
       // this.setState({
       //   favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
       // })
       this.setState({
-        fetching: true})
+        fetching: true
+      })
       this.state.favourite &&
-      this.state.favourite.some((favouriteCat) => favouriteCat.catId === cat.id && favouriteCat.user!== firebase.auth().currentUser.uid) ?
-        firebase.database().ref('/favourite/'+cat.id).remove()  :
-        firebase.database().ref('/favourite').push({
-          catId: cat.id,
-          user: firebase.auth().currentUser.uid,
-        })
+      this.state.favourite.some((userFav) => Object.entries(userFav).map(([id,boolean])=>boolean === true))?
+        firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid+'/'+cat.id,).remove()  :
+        firebase.database().ref('/favourite').child(firebase.auth().currentUser.uid).child(cat.id).set(true)
     },
+
+
 
     toggleCatAdopted: (cat) => {
       this.setState({
@@ -60,18 +63,11 @@ export class CatPageProvider extends Component {
   }
 
   handleFavoriteSnapshot = snapshot => {
-    const favourite = []
-    snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
-      ([id,value]) => {
-        favourite.push({
-          id: id,
-          catId: value.catId,
-          user: value.user,
-        })
-      }
-    )
+    snapshot.val() !== null && this.setState({
+     favourite: snapshot.val()
+        }
+        );
     this.setState({
-        favourite: favourite,
         fetching: false
       }
     )
@@ -100,7 +96,7 @@ export class CatPageProvider extends Component {
     this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests')
     this.unsubscribeCats.on('value', this.handleCatsSnapshot);
     this.unsubscribeAdoptionRequests.on('value',this.handleAdoptedSnapshot)
-    this.unsubscribeFavourite = firebase.database().ref('/favourite')
+    this.unsubscribeFavourite = firebase.database().ref('/favourite/'+(firebase.auth().currentUser && firebase.auth().currentUser.uid))
     this.unsubscribeFavourite.on('value', this.handleFavoriteSnapshot)
 
     this.setState({
