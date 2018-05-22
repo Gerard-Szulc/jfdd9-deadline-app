@@ -27,12 +27,13 @@
 
 .catButtons{
     height: 3rem;
-    background-color: red;
-    font-size: 1.8rem;
-    color: white;
     border-radius: 0.5rem;
     cursor: pointer;
     text-decoration: none;
+    background: #e46140;
+    color: #fff;
+    font-size: 1.2em;
+    border: 1px solid #fb5b33;
 
 }
 h2{
