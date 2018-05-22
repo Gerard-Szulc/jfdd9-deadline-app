@@ -6,10 +6,6 @@ import firebase from 'firebase'
 
 class CatPageFetcher extends Component {
 
-  state = {
-    cat: null,
-  };
-
 
   render() {
     const cat = this.props.cats.find(cat => cat.id === this.props.catId)
@@ -25,7 +21,7 @@ class CatPageFetcher extends Component {
     const adoptionRequest = this.props.adoptionRequests.find((adoptedCat) =>
       adoptedCat.catId === cat.id)
 
-    const favourite = this.props.favourite && Object.entries(this.props.favourite).find(([key,value]) =>value===true)
+    const isFavourite = this.props.favourite && Object.entries(this.props.favourite).find(([key,value]) => key === cat.id && value === true)
 
 
     return (
@@ -36,18 +32,17 @@ class CatPageFetcher extends Component {
               <img className="catImage" alt="cat" src={cat.image}/>
 
               {this.props.user === null ? 'Zaloguj się!' :
-                (this.props.user !== null && !favourite ?
-                    <button className="catButtons" onClick={
+                ( isFavourite ?
+                  <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
+                  </button>
+                  :
+                  <button className="catButtons" onClick={
                       () => this.props.toggleCatFavorite(cat)}> Polub mnie
-                    </button> : favourite.user !== this.props.user.uid) ? <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
-                      </button> : 'Kota nie ma'}
-
-
-
+                    </button>)}
 
 
               {this.props.user === null ? 'Zaloguj się!' :
-                (this.props.user !== null && !adoptionRequest ?
+                (!adoptionRequest ?
                   <button className="catButtons" onClick={
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
                   </button> : (
