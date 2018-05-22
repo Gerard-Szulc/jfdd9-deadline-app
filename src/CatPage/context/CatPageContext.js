@@ -14,18 +14,28 @@ export class CatPageProvider extends Component {
     error: null,
     favourite: null,
     adoptionRequests: [],
+
+
+
+    // toggleCatFavorite: (userFavs, cat) => {
+    //   // this.setState({
+    //   //   favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
+    //   // })
+    //   this.setState({
+    //     fetching: true
+    //   })
+    //   this.state.favourite &&
+    //   this.state.favourite.some((userFavs) => userFavs[cat.id] === true && userFavs === firebase.auth().currentUser.uid) ?
+    //     firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid+'/'+cat.id,).remove()  :
+    //     firebase.database().ref('/favourite').child(firebase.auth().currentUser.uid).child(cat.id).set(true)
+    // },
+
     toggleCatFavorite: (cat) => {
-      // this.setState({
-      //   favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
-      // })
-      this.setState({
-        fetching: true
-      })
-      this.state.favourite &&
-      this.state.favourite.some((favouriteCat) => favouriteCat.user[cat.id] === true && favouriteCat.user === firebase.auth().currentUser.uid) ?
-        firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid).child(cat.id).set(false)  :
-        firebase.database().ref('/favourite').child(firebase.auth().currentUser.uid).child(cat.id).set(true)
-    },
+      let userFavs = firebase.auth().currentUser.uid,
+      this.setState({fetching: true})
+          this.state.favourite &&
+              this.state.favourite.includes(userFavs) ? this.state.favourite.filter((catId) => userFavs.catId === cat.id) : ''
+      }
 
     toggleCatAdopted: (cat) => {
       this.setState({
