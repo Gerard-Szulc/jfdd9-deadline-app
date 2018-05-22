@@ -63,13 +63,13 @@ export class CatPageProvider extends Component {
   }
 
   handleFavoriteSnapshot = snapshot => {
-
+    firebase.auth().currentUser ?
     snapshot.val() !== null &&
     this.setState({
         favourite: snapshot.val()[firebase.auth().currentUser.uid],
         fetching: false
       }
-    )
+    ) : this.setState({favourite: null})
   }
   handleAdoptedSnapshot = snapshot => {
     const adopted = [];
