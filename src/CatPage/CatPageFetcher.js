@@ -62,7 +62,7 @@ class CatPageFetcher extends Component {
 
             <div className="catDiv">
               <h2>{cat.name}</h2>
-              <p><strong>Płeć:</strong> {cat.sex}. <strong>Wiek:</strong> {cat.age}</p>
+              <p><strong>Płeć:</strong> {cat.sex} <strong>Wiek:</strong> {cat.age}</p>
               <p className="catDescription">
                 {cat.description}
               </p>
