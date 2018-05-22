@@ -12,13 +12,25 @@ export class CatPageProvider extends Component {
     cats: [],
     fetching: false,
     error: null,
-    favourite: [],
+    favourite: null,
     adoptionRequests: [],
+
+
+
     toggleCatFavorite: (cat) => {
+      // this.setState({
+      //   favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
+      // })
       this.setState({
-        favourite: this.state.favourite.includes(cat.id) ? this.state.favourite.filter(catId => catId !== cat.id) : this.state.favourite.concat(cat.id)
+        fetching: true
       })
+      this.state.favourite &&
+      this.state.favourite[cat.id] === true ?
+        firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid+'/'+cat.id,).remove()  :
+        firebase.database().ref('/favourite').child(firebase.auth().currentUser.uid).child(cat.id).set(true)
     },
+
+
 
     toggleCatAdopted: (cat) => {
       this.setState({
@@ -50,8 +62,17 @@ export class CatPageProvider extends Component {
     },)
   }
 
+  handleFavoriteSnapshot = snapshot => {
+    firebase.auth().currentUser ?
+    snapshot.val() !== null &&
+    this.setState({
+        favourite: snapshot.val()[firebase.auth().currentUser.uid],
+        fetching: false
+      }
+    ) : this.setState({favourite: null})
+  }
   handleAdoptedSnapshot = snapshot => {
-    const adopted = []
+    const adopted = [];
     snapshot.val() !== null && Object.entries(snapshot.val()).forEach(
       ([id,value]) => {
         adopted.push({
@@ -74,6 +95,8 @@ export class CatPageProvider extends Component {
     this.unsubscribeAdoptionRequests = firebase.database().ref('/adoptionRequests')
     this.unsubscribeCats.on('value', this.handleCatsSnapshot);
     this.unsubscribeAdoptionRequests.on('value',this.handleAdoptedSnapshot)
+    this.unsubscribeFavourite = firebase.database().ref('/favourite')
+    this.unsubscribeFavourite.on('value', this.handleFavoriteSnapshot)
 
     this.setState({
       fetching: true,
@@ -86,6 +109,7 @@ export class CatPageProvider extends Component {
   componentWillUnmount(){
     this.unsubscribeCats.off('value', this.handleCatsSnapshot)
     this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
+    // this.unsubscribeFavourite.off('value', this.handleFavoriteSnapshot)
   }
 
   render() {
