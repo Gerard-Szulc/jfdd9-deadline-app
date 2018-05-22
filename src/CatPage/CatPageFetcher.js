@@ -39,13 +39,11 @@ class CatPageFetcher extends Component {
                 (this.props.user !== null && !favourite ?
                     <button className="catButtons" onClick={
                       () => this.props.toggleCatFavorite(cat)}> Polub mnie
-                    </button> : '' //{(favourite.user === this.props.user.uid ? <button className="catButtons" onClick={}
-                      //  {() => this.props.toggleCatFavorite(cat)}> Odlub mnie}
-                      //{</button> : 'Kota nie ma'}
+                    </button> : favourite.user !== this.props.user.uid) ? <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
+                      </button> : 'Kota nie ma'}
 
-                   // )
-                )
-              }
+
+
 
 
               {this.props.user === null ? 'Zaloguj się!' :
