@@ -110,7 +110,7 @@ export class CatPageProvider extends Component {
   componentWillUnmount(){
     this.unsubscribeCats.off('value', this.handleCatsSnapshot)
     this.unsubscribeAdoptionRequests.off('value', this.handleAdoptedSnapshot)
-    // this.unsubscribeFavourite.off('value', this.handleFavoriteSnapshot)
+    this.unsubscribeFavourite.off('value', this.handleFavoriteSnapshot)
   }
 
   render() {
