@@ -5,7 +5,7 @@ import SignUpForm from './SignUpForm';
 import {withCatPage} from "./../CatPage/context/CatPageContext";
 import CatContainer from "./../List/CatContainer";
 import './css/style-form.css';
-import firebase from 'firebase'
+import '../FavoriteCats/FavoriteCats.css'
 
 
 class UserProfile extends Component {
@@ -23,10 +23,11 @@ class UserProfile extends Component {
           ) : (
             <div>
               <h2>Twoje koty</h2>
+              <div className={"list"}>
               {              this.props.cats && this.props.cats.filter( cat =>
                 this.props.adoptionRequests.some(request => request.catId === cat.id && request.user === this.props.user.uid)
               ).map(element=><CatContainer key={element.id} cat={element}/>)}
-
+              </div>
             </div>
             )
         }
