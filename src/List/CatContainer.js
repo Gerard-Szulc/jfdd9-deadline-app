@@ -27,6 +27,7 @@ class CatContainer extends Component{
 
             <Link to={`/catpage/${this.props.cat.id}`}>
               <button>Pokaż więcej</button>
+              <div className="clear"></div>
             </Link>
           </div>
 

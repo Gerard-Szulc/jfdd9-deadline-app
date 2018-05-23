@@ -11,6 +11,7 @@ import {CatPageProvider, withCatPage} from "./CatPage/context/CatPageContext";
 import firebase from 'firebase'
 import config from './firebase/config'
 import './App.css';
+import AddCat from './AddCat'
 
 
 class App extends Component {
@@ -30,6 +31,8 @@ class App extends Component {
           <Route exact path="/shelters" component={Shelters} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/catpage/:catId" component={CatPage}/>
+          <Route path="/add-cat" component={AddCat}/>
+
         </div>
       </Router>
       </CatPageProvider>
