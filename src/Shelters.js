@@ -71,9 +71,10 @@ class Shelters extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div>
-            <h1>{this.state.activeMarkerText}</h1>
+            <h3>{this.state.activeMarkerText}</h3>
           </div>
         </InfoWindow>
+
       </Map>
       </div>
     );
