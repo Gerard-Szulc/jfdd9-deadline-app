@@ -30,8 +30,6 @@ componentDidUpdate(){
   }
 
   render() {
-
-
     const search = this.props.search.reduce(
       (result, next) => {
         const key = Object.keys(next)[0];
@@ -39,6 +37,19 @@ componentDidUpdate(){
         return result
       },{}
     );
+
+    const resultSearch = this.props.cats && this.props.cats.filter(
+      cat => (
+        (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
+        (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
+        (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
+        (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
+        (this.props.fetching === false) &&
+        (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id && adoptedCat.accepted !== false ))
+      ))
+
+
+
 
     console.log(search);
     return (
@@ -49,23 +60,14 @@ componentDidUpdate(){
   <Pagination
     activePage={this.state.activePage}
     itemsCountPerPage={5}
-    totalItemsCount={this.props.cats.length}
+    totalItemsCount={resultSearch.length}
     pageRangeDisplayed={5}
     onChange={this.handlePageChange}
   />}
 
-{this.props.cats ? (this.props.cats.filter(
-  cat => (
-  (search.selectedSexOption.length !== 0 ? search.selectedSexOption.includes(cat.sex) : true) &&
-  (search.selectedRaceOption.length !== 0 ? search.selectedRaceOption.includes(cat.race) : true) &&
-  (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
-  (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
-  (this.props.fetching === false) &&
-  (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id && adoptedCat.accepted !== false ))
-  )
-  ).map(
+{this.props.cats ? (resultSearch).slice(this.state.activePage, this.state.activePage+5).map(
   cat => (<CatContainer cat={cat} key={cat.id}/>)
-  )) : 'ŁADOWANIE KOTÓW'}
+  ) : 'ŁADOWANIE KOTÓW'}
 
 </div>
     )
