@@ -25,7 +25,7 @@ componentDidUpdate(){
 
 }
 
-  handlePageChange(pageNumber) {
+  handlePageChange = (pageNumber) => {
     this.setState({activePage: pageNumber});
   }
 
