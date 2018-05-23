@@ -26,7 +26,7 @@ export class CatPageProvider extends Component {
       })
       this.state.favourite &&
       this.state.favourite[cat.id] === true ?
-        firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid+'/'+cat.id,).remove()  :
+        firebase.database().ref('/favourite/'+firebase.auth().currentUser.uid+'/'+cat.id,).remove() :
         firebase.database().ref('/favourite').child(firebase.auth().currentUser.uid).child(cat.id).set(true)
     },
 
@@ -59,17 +59,18 @@ export class CatPageProvider extends Component {
     this.setState({
       cats: cats,
       fetching: false
-    },)
+    })
   }
 
   handleFavoriteSnapshot = snapshot => {
-    firebase.auth().currentUser ?
-    snapshot.val() !== null &&
+    snapshot.val() !== null && firebase.auth().currentUser ?
     this.setState({
         favourite: snapshot.val()[firebase.auth().currentUser.uid],
         fetching: false
       }
-    ) : this.setState({favourite: null})
+    ) : this.setState({
+      favourite: null,
+      fetching: false})
   }
   handleAdoptedSnapshot = snapshot => {
     const adopted = [];
