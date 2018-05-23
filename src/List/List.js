@@ -21,9 +21,9 @@ class List extends Component {
 
   }
 
-componentDidUpdate(){
+  componentDidUpdate() {
 
-}
+  }
 
   handlePageChange = (pageNumber) => {
     this.setState({activePage: pageNumber});
@@ -35,7 +35,7 @@ componentDidUpdate(){
         const key = Object.keys(next)[0];
         result[key] = next[key];
         return result
-      },{}
+      }, {}
     );
 
     const resultSearch = this.props.cats && this.props.cats.filter(
@@ -45,32 +45,32 @@ componentDidUpdate(){
         (search.selectedAgeOption.length !== 0 ? search.selectedAgeOption.includes(cat.age) : true) &&
         (search.selectedColorOption.length !== 0 ? search.selectedColorOption.includes(cat.ointment) : true) &&
         (this.props.fetching === false) &&
-        (!this.props.adoptionRequests.some(adoptedCat=> adoptedCat.catId === cat.id && adoptedCat.accepted !== false ))
+        (!this.props.adoptionRequests.some(adoptedCat => adoptedCat.catId === cat.id && adoptedCat.accepted !== false))
       ))
-
-
 
 
     console.log(search);
     return (
 
-<div className={"list"}>{
+      <div className={"list"}>
 
 
-  <Pagination
-    hideDisabled
-    activePage={this.state.activePage}
-    itemsCountPerPage={5}
-    totalItemsCount={resultSearch.length}
-    pageRangeDisplayed={5}
-    onChange={this.handlePageChange}
-  />}
+        <div className='pagination>'>
+          <Pagination
+            hideDisabled
+            activePage={this.state.activePage}
+            itemsCountPerPage={5}
+            totalItemsCount={resultSearch.length}
+            pageRangeDisplayed={5}
+            onChange={this.handlePageChange}
+          />
+        </div>
 
-{this.props.cats ? (resultSearch).slice((this.state.activePage-1)*5, this.state.activePage*5).map(
-  cat => (<CatContainer cat={cat} key={cat.id}/>)
-  ) : 'ŁADOWANIE KOTÓW'}
+        {this.props.cats ? (resultSearch).slice((this.state.activePage - 1) * 5, this.state.activePage * 5).map(
+          cat => (<CatContainer cat={cat} key={cat.id}/>)
+        ) : 'ŁADOWANIE KOTÓW'}
 
-</div>
+      </div>
     )
 
   }
