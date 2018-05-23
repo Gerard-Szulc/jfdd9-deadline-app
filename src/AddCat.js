@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import firebase from 'firebase';
+import cscStyle from './addCat.css';
 
 class AddCat extends Component {
 
@@ -37,60 +38,68 @@ class AddCat extends Component {
 
   render() {
     return (
-      <div className="add-cat-form">
+      <div className="add-cat-container">
+        <div className="add-cat-form">
+          <h2>Dodaj kota do adopcji</h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>Imię kota </label>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <div>
-            <label>Płeć </label>
-            <input type="radio" name="sex" value="Kotka" onChange={this.handleChange} /> Kotka
-            <input type="radio" name="sex" value="Kocur" onChange={this.handleChange} /> Kocur
+          <form onSubmit={this.handleSubmit}>
+            <label>Imię kota: </label>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+              placeholder={"imię"}
+            />
 
+            <div>
+              <label>Płeć: </label>
+              <input type="radio" name="sex" value="Kotka" onChange={this.handleChange} /> Kotka
+              <input type="radio" name="sex" value="Kocur" onChange={this.handleChange} /> Kocur
+            </div>
 
-            <label>Wiek </label>
-            <input type="radio" name="age" value="poniżej" onChange={this.handleChange}/> poniżej 3 miesięcy
-            <input type="radio" name="age" value="poniżej roku" onChange={this.handleChange}/> poniżej roku
-            <input type="radio" name="age" value="powyżej roku" onChange={this.handleChange}/> powyżej roku
-          </div>
+            <div>
+              <label>Wiek </label>
+              <input type="radio" name="age" value="poniżej" onChange={this.handleChange}/> poniżej 3 miesięcy
+              <input type="radio" name="age" value="poniżej roku" onChange={this.handleChange}/> poniżej roku
+              <input type="radio" name="age" value="powyżej roku" onChange={this.handleChange}/> powyżej roku
+            </div>
 
-          <div>
-            <label>Rasa </label>
-            <input type="radio" name="race" value="Dachowiec" checked onChange={this.handleChange}/> Dachowiec
-            <input type="radio" name="race" value="Rasowy" onChange={this.handleChange} /> Rasowy
+            <div>
+              <label>Rasa </label>
+              <input type="radio" name="race" value="Dachowiec" checked onChange={this.handleChange}/> Dachowiec
+              <input type="radio" name="race" value="Rasowy" onChange={this.handleChange} /> Rasowy
+            </div>
 
-            <label>Umaszczenie </label>
-            <select name='ointment' multiple onChange={this.handleChange}>
-              <option value="Rudy">Rudy</option>
-              <option value="Czarny">Czarny</option>
-              <option value="Biały">Biały</option>
-              <option value="Pręgowany">Pręgowany</option>
-              <option value="Mieszany">Mieszany</option>
-            </select>
-          </div>
+            <div>
+              <label>Umaszczenie </label>
+              <select name='ointment' multiple onChange={this.handleChange}>
+                <option value="Rudy">Rudy</option>
+                <option value="Czarny">Czarny</option>
+                <option value="Biały">Biały</option>
+                <option value="Pręgowany">Pręgowany</option>
+                <option value="Mieszany">Mieszany</option>
+              </select>
+            </div>
 
-          <label>Adres url do zdjęcia </label>
-          <input
-            type="text"
-            name="image"
-            value={this.state.image}
-            onChange={this.handleChange}
-          />
+            <label>Adres url do zdjęcia </label>
+            <input
+              type="text"
+              name="image"
+              value={this.state.image}
+              onChange={this.handleChange}
+            />
 
-          <label>Opis</label>
-          <textarea
-            name="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
+            <label>Opis</label>
+            <textarea
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
 
-          <button type="submit">Dodaj</button>
-        </form>
+            <button type="submit">Dodaj</button>
+          </form>
+        </div>
       </div>
     )
   }
