@@ -58,6 +58,7 @@ componentDidUpdate(){
 
 
   <Pagination
+    hideDisabled
     activePage={this.state.activePage}
     itemsCountPerPage={5}
     totalItemsCount={resultSearch.length}
@@ -65,7 +66,7 @@ componentDidUpdate(){
     onChange={this.handlePageChange}
   />}
 
-{this.props.cats ? (resultSearch).slice(this.state.activePage, this.state.activePage+5).map(
+{this.props.cats ? (resultSearch).slice((this.state.activePage-1)*5, this.state.activePage*5).map(
   cat => (<CatContainer cat={cat} key={cat.id}/>)
   ) : 'ŁADOWANIE KOTÓW'}
 
