@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import firebase from 'firebase';
 import cscStyle from './addCat.css';
+import {withUser} from "./User/context/User";
 
 class AddCat extends Component {
 
@@ -12,7 +13,16 @@ class AddCat extends Component {
     ointment: '',
     race: '',
     sex: '',
-    formError: null
+    formError: null,
+
+    shelter: userId => {
+        return (
+          userId === 'YcFFJByZ6nUuxFfzbvO9jHYUMHJ3'? 'Promyk'
+          : userId === 'TFFiewHfyjZxcpo18nPAFb2HyRU2'? 'Ciapkowo'
+          : userId === '2nfC3GoY4TRw3v0NDNzctBFJAL02' ? 'Sopot'
+          : null
+        )
+    }
   }
 
   handleSubmit = (event) => {
@@ -26,6 +36,7 @@ class AddCat extends Component {
       ointment: this.state.ointment,
       race: this.state.race,
       sex: this.state.sex,
+      shelter: this.state.shelter(this.props.user.uid)
     })
   }
 
@@ -43,61 +54,71 @@ class AddCat extends Component {
           <h2>Dodaj kota do adopcji</h2>
 
           <form onSubmit={this.handleSubmit}>
-            <label>Imię kota: </label>
+            <label for="name">Imię kota: </label>
             <input
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
-              placeholder={"imię"}
+              placeholder={"Imię"}
+              required
             />
 
-            <div>
-              <label>Płeć: </label>
-              <input type="radio" name="sex" value="Kotka" onChange={this.handleChange} /> Kotka
-              <input type="radio" name="sex" value="Kocur" onChange={this.handleChange} /> Kocur
-            </div>
+            <label for="sex">Płeć: </label>
+            <input type="radio" name="sex" value="Kotka" onChange={this.handleChange} required /> Kotka
+            <input type="radio" name="sex" value="Kocur" onChange={this.handleChange} /> Kocur
 
-            <div>
-              <label>Wiek </label>
-              <input type="radio" name="age" value="poniżej" onChange={this.handleChange}/> poniżej 3 miesięcy
-              <input type="radio" name="age" value="poniżej roku" onChange={this.handleChange}/> poniżej roku
-              <input type="radio" name="age" value="powyżej roku" onChange={this.handleChange}/> powyżej roku
-            </div>
+            <label for="age">Wiek: </label>
+            <select name='age' onChange={this.handleChange} required>
+              <option value="poniżej 3 miesięcy">mniej niż 3 miesiące</option>
+              <option value="poniżej roku">mniej niż rok</option>
+              <option value="powyżej roku">więcej niż rok</option>
+            </select>
 
-            <div>
-              <label>Rasa </label>
-              <input type="radio" name="race" value="Dachowiec" checked onChange={this.handleChange}/> Dachowiec
-              <input type="radio" name="race" value="Rasowy" onChange={this.handleChange} /> Rasowy
-            </div>
+            <label for="race">Rasa: </label>
+            <input type="radio" name="race" value="Dachowiec" checked onChange={this.handleChange} required/> Dachowiec
+            <input type="radio" name="race" value="Rasowy" onChange={this.handleChange} /> Rasowy
+            {/*{
+               this.state.race === 'Rasowy'? (
+                 <input
+                   name="race"
+                   type="text"
+                   value={this.state.name}
+                   onChange={this.handleChange}
+                   placeholder={"rasa kota"}
+                   required
+                 />
+               ) : null
+             }*/}
 
-            <div>
-              <label>Umaszczenie </label>
-              <select name='ointment' multiple onChange={this.handleChange}>
+             <label for="ointment">Umaszczenie: </label>
+              <select name='ointment' onChange={this.handleChange} required>
                 <option value="Rudy">Rudy</option>
                 <option value="Czarny">Czarny</option>
                 <option value="Biały">Biały</option>
                 <option value="Pręgowany">Pręgowany</option>
                 <option value="Mieszany">Mieszany</option>
               </select>
-            </div>
 
-            <label>Adres url do zdjęcia </label>
+            <label for="image">Adres url do zdjęcia: </label>
             <input
               type="text"
               name="image"
               value={this.state.image}
               onChange={this.handleChange}
-            />
+              placeholder="http://..."
+            /><br/>
 
-            <label>Opis</label>
+            <label for="description">Opis: </label>
             <textarea
               name="description"
               value={this.state.description}
               onChange={this.handleChange}
-            />
+              placeholder="Któtki opis zwierzaka (max 500 znaków)"
+              maxlength="500"
+            /><br />
 
-            <button type="submit">Dodaj</button>
+            <button className="CTA" type="submit">Dodaj</button>
           </form>
         </div>
       </div>
@@ -105,4 +126,4 @@ class AddCat extends Component {
   }
 }
 
-export default AddCat;
+export default withUser(AddCat);

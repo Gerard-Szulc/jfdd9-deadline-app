@@ -26,7 +26,7 @@ class CatContainer extends Component{
             <p>{this.props.cat.description.split(' ').slice(0,25).join(' ')}...</p>
 
             <Link to={`/catpage/${this.props.cat.id}`}>
-              <button>Pokaż więcej</button>
+              <button className="CTA">Pokaż więcej</button>
               <div className="clear"></div>
             </Link>
           </div>

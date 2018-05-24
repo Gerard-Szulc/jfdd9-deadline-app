@@ -39,7 +39,7 @@
     color: #1e262c;
 }
 
-.catContainer button{
+button.CTA{
     float: right;
     cursor: pointer;
     margin: 1rem;
@@ -94,6 +94,12 @@
     }
     .catContainer button{
         float: none;
+    }
+    .catContainer .description{
+        text-align: center;
+    }
+    .description p{
+        text-align: justify;
     }
 }
 
