@@ -23,14 +23,14 @@ class CatPageFetcher extends Component {
       adoptedCat.catId === cat.id)
 
     const isFavourite = this.props.favourite && Object.entries(this.props.favourite).find(([key,value]) => key === cat.id && value === true)
-
+    const catImage = 'http://athomeintn.com/wp-content/uploads/drawn-feline-cute-kitty-pencil-and-in-color-drawn-feline-cute-kitty-cute-cat-drawing.jpg'
 
     return (
       this.props.fetching === false && cat && (
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
-              <img className="catImage" alt="cat" src={cat.image}/>
+              <img className="catImage" alt="cat" src={cat.image === "" ? catImage : cat.image}/>
 
               {this.props.user === null ?  <button className="catButtons"> <Link to="/profile" className='catButtons'>Zaloguj się</Link></button> :
                 ( isFavourite ?

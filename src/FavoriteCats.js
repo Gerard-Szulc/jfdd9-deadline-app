@@ -19,9 +19,9 @@ class FavoriteCats extends Component{
         {/*{this.props.favourite.length === 0 ? <p>Nie polubiłeś jeszcze żadnego kota. </p> : <p> </p>}*/}
 
 
-        {this.props.cats && this.props.cats.filter( cat =>
-         this.props.favourite !==null && Object.entries(this.props.favourite).some(([id,request]) => id === cat.id)
-        ).map(element=><CatContainer key={element.id} cat={element}/>)}
+        {this.props.cats && this.props.favourite ? this.props.cats.filter( cat =>
+          Object.entries(this.props.favourite).some(([id,request]) => id === cat.id)
+        ).map(element=><CatContainer key={element.id} cat={element}/>) : <p>Nie polubiłeś jeszcze żadnego kota. </p>}
       </div>
     )
   }
