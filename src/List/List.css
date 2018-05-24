@@ -120,6 +120,7 @@
     height: 100%;
     width: 2rem;
     background-color: #e46140;
+    text-align: center;
 
 }
 
@@ -131,9 +132,9 @@
 }
 .pagination li.active {
     background-color: #5f5e5e;
-    border-radius:10px 10px 10px 10px;
+    border-radius:5px;
 }
 
 ul.pagination{
-border-radius:10px 10px 10px 10px;
+border-radius:5px;
 }
