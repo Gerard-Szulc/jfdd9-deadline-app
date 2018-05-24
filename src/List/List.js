@@ -55,6 +55,10 @@ class List extends Component {
       <div className={"list"}>
 
 
+        {this.props.cats ? (resultSearch).slice((this.state.activePage - 1) * 5, this.state.activePage * 5).map(
+          cat => (<CatContainer cat={cat} key={cat.id}/>)
+        ) : 'ŁADOWANIE KOTÓW'}
+
         <div className='pagination>'>
           <Pagination
             hideDisabled
@@ -66,9 +70,6 @@ class List extends Component {
           />
         </div>
 
-        {this.props.cats ? (resultSearch).slice((this.state.activePage - 1) * 5, this.state.activePage * 5).map(
-          cat => (<CatContainer cat={cat} key={cat.id}/>)
-        ) : 'ŁADOWANIE KOTÓW'}
 
       </div>
     )
