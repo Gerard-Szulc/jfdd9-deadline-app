@@ -19,6 +19,7 @@ const isShelter = userId => {
 
 class UserProfile extends Component {
   render() {
+    console.log(this.props.adoptionRequests)
     return (
       <div className="UserView">
 
@@ -31,9 +32,10 @@ class UserProfile extends Component {
         {
           this.props.user === null ? (
             <div className="if-no-user-container">
-              <SignInForm/>
-              <SignUpForm/>
+              <SignInForm />
+              <SignUpForm />
             </div>
+
           ) : (
             <div>
               <h2>Twoje koty</h2>
@@ -53,4 +55,5 @@ class UserProfile extends Component {
     )
   }
 }
+
 export default withUser(withCatPage(UserProfile));

@@ -2,13 +2,10 @@ import React, {Component, Fragment} from 'react';
 import Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
 import {withUser} from '../User/context/User'
-import firebase from 'firebase'
+import { Link }from 'react-router-dom'
+
 
 class CatPageFetcher extends Component {
-
-  state = {
-    cat: null,
-  };
 
 
   render() {
@@ -25,19 +22,31 @@ class CatPageFetcher extends Component {
     const adoptionRequest = this.props.adoptionRequests.find((adoptedCat) =>
       adoptedCat.catId === cat.id)
 
+    const isFavourite = this.props.favourite && Object.entries(this.props.favourite).find(([key,value]) => key === cat.id && value === true)
+    const catImage = 'http://athomeintn.com/wp-content/uploads/drawn-feline-cute-kitty-pencil-and-in-color-drawn-feline-cute-kitty-cute-cat-drawing.jpg'
 
     return (
       this.props.fetching === false && cat && (
         <Fragment>
           <div className="CatPage">
             <div className="catDiv">
-              <img className="catImage" alt="cat" src={cat.image}/>
-              <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}>{
-                this.props.favourite.includes(cat.id) ? 'Polubiłeś mnie' : 'Polub mnie'}</button>
+              <img className="catImage" alt="cat" src={cat.image === "" ? catImage : cat.image}/>
+
+              {this.props.user === null ?  <button className="catButtons"> <Link to="/profile" className='catButtons'>Zaloguj się</Link></button> :
+                ( isFavourite ?
+                  <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
+                  </button>
+                  :
+                  <button className="catButtons" onClick={
+                      () => this.props.toggleCatFavorite(cat)}> Polub mnie
+                    </button>)}
 
 
-              {this.props.user === null ? 'Zaloguj się!' :
-                (this.props.user !== null && !adoptionRequest ?
+
+
+
+              {this.props.user !== null &&
+                (!adoptionRequest ?
                   <button className="catButtons" onClick={
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
                   </button> : (
@@ -53,7 +62,7 @@ class CatPageFetcher extends Component {
 
             <div className="catDiv">
               <h2>{cat.name}</h2>
-              <p><strong>Płeć:</strong> {cat.sex}. <strong>Wiek:</strong> {cat.age}</p>
+              <p><strong>Płeć:</strong> {cat.sex} <strong>Wiek:</strong> {cat.age}</p>
               <p className="catDescription">
                 {cat.description}
               </p>

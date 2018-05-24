@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class CatContainer extends Component{
+
+
   render() {
+    const defaultImage = 'http://athomeintn.com/wp-content/uploads/drawn-feline-cute-kitty-pencil-and-in-color-drawn-feline-cute-kitty-cute-cat-drawing.jpg'
+    const catImage = this.props.cat.image ? defaultImage : this.props.cat.image
+
     return (
       this.props.cats && (
       <div className="catContainer" >
-        <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${this.props.cat.image})`}}>
+        <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${catImage})`}}>
 
         </div>
         <div className="catContainerDescription">
