@@ -90,15 +90,15 @@ input[type=checkbox]{
 }
 
 @media(max-width: 1060px){
-    #logo{
-        order: 1;
+    .logo{
+        order: 999;
     }
     nav ul{
         padding: 0;
         display: flex;
         flex-direction: column-reverse;
         flex-wrap: wrap;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .right-side{

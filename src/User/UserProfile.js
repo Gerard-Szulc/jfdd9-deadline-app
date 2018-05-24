@@ -9,6 +9,11 @@ import '../FavoriteCats/FavoriteCats.css'
 
 
 class UserProfile extends Component {
+
+  componentDidMount(){
+    window.scrollTo(0,-20)
+  };
+
   render() {
     console.log(this.props.adoptionRequests)
     return (

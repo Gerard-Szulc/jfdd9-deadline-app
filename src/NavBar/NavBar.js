@@ -10,10 +10,11 @@ class NavBar extends Component {
   render() {
     return (
       <nav>
-        <div className="logo">
-          <Link to="/"><img src={logo} alt="logo"/></Link>
-        </div>
+
         <ul>
+          <li className="logo">
+            <Link to="/"><img src={logo} alt="logo"/></Link>
+          </li>
           <label htmlFor="show-menu" className="show-menu">
             <li id="hamburger" className="hamburger">
               <figure><img src={hamburger} alt="hamburger"/></figure>
@@ -31,16 +32,15 @@ class NavBar extends Component {
             <Link to="/shelters">Schroniska</Link>
           </li>
 
-          <div className="menuRight right-side">
             {
               this.props.user !== null ? (
-                <li>
+                <li className={'right-side'}>
                   <Link to="/profile">Profil</Link>
                 </li>
               ) : null
             }
 
-            <li>
+            <li className={'menuRight right-side'}>
               {
                 this.props.user !== null ? (
                   <button onClick={this.props.signOut}>Wyloguj</button>
@@ -49,7 +49,6 @@ class NavBar extends Component {
                 )
               }
             </li>
-          </div>
         </ul>
         <div className="clear"></div>
       </nav>
