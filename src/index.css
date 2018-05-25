@@ -14,9 +14,17 @@ body {
   flex-direction: column;
   align-items:center;
   margin:0;
+  background: url("https://preview.ibb.co/kTyEQo/hero_background.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #root {
   width: 100%;
   margin:0;
+}
+
+.container {
+  margin-top: 6rem;
+  padding: 0 1rem 1rem;
 }

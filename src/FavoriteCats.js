@@ -8,7 +8,7 @@ import {withUser} from "./User/context/User";
 class FavoriteCats extends Component{
   render() {
     return(
-      <div className="favoriteCats">
+      <div className="favoriteCats container">
         <h1>Twoje ulubione koty</h1>
         {/*{ this.props.fetching === false ? (this.props.cats && this.props.cats*/}
           {/*.filter( cat =>  this.props.favourite.some((favouriteCat)=> favouriteCat.catId === cat.id))*/}
