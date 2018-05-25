@@ -28,7 +28,7 @@ class CatPageFetcher extends Component {
     return (
       this.props.fetching === false && cat && (
         <Fragment>
-          <div className="CatPage">
+          <div className="CatPage container">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={cat.image === "" ? catImage : cat.image}/>
 

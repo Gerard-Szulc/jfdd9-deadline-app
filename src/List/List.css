@@ -11,23 +11,26 @@
     /*box-shadow: 2px 3px 8px #aaa;*/
 }
 .catContainer {
+    display:flex;
     width:60%;
     margin: 0.5rem;
-    background-color: #ffffff;
     padding: 0.5rem;
-    display:flex;
-    height:auto;
-    box-shadow: 2px 3px 8px #aaa;
     border-radius: 3px;
+    justify-content: center;
+    background-color: #ffffffcf;
+    box-shadow: 2px 3px 8px #aaa;
 }
 
 .catContainerDescription {
-    justify-content: space-between;
     flex-grow: 1;
 }
 
 .catContainer .description{
-    padding-right: 20px
+    /*padding-right: 20px;*/
+    text-align: justify;
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: justify;
 }
 
 .catContainer h3 {
@@ -36,7 +39,8 @@
     color: #1e262c;
 }
 
-.catContainer button{
+button.CTA{
+    float: right;
     cursor: pointer;
     margin: 1rem;
     border: 1px solid #e46140;
@@ -68,28 +72,34 @@
 }
 
 
-@media (max-width: 1010px){
-
-
-    .catContainerName {
-
-    }
-    .catContainerDescription {
-        width:100%;
-    }
-    .catContainer p{
-        width:90%;
-        text-align: justify;
-    }
+@media (max-width: 910px){
     .catContainer{
-        width: 90%;
+        width: 100%;
         padding: 0.5rem 0 0.25rem 0;
-        flex-wrap: wrap;
-        height: auto;
-        justify-content:center;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #ddd;
     }
     .list {
         width: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .catContainer{
+        flex-wrap: wrap;
+    }
+    .catContainerName{
+        text-align: center;
+    }
+    .catContainer button{
+        float: none;
+    }
+    .catContainer .description{
+        text-align: center;
+    }
+    .description p{
+        text-align: justify;
     }
 }
 
@@ -99,6 +109,10 @@
 }
 .iconMars{
     color: dodgerblue;
+}
+
+.clear{
+    clear: both;
 }
 
 .pagination {

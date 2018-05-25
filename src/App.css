@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:400,700,900&subset=latin-ext');
 
 .App {
-  text-align: center;
+  /*text-align: center;*/
   min-height: 100vh;
   font-family: 'Encode Sans Semi Condensed', sans-serif;
   margin: 0;
-  /*background: url('https://preview.ibb.co/mQvBdy/cat_pattern3.jpg') repeat;*/
-  /*background-attachment: fixed;*/
-  background: #fff2f2;
 }
 
 h1, h2, h3, h4{

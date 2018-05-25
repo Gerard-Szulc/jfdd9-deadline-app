@@ -12,6 +12,7 @@ import firebase from 'firebase'
 import config from './firebase/config'
 import './App.css';
 import AddCat from './AddCat'
+import ShelterPanel from './User/SheleterPanel'
 
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
           <Route exact path="/profile" component={Profile} />
           <Route path="/catpage/:catId" component={CatPage}/>
           <Route path="/add-cat" component={AddCat}/>
+          <Route path="/shelter-panel" component={ShelterPanel}/>
         </div>
       </Router>
       </CatPageProvider>

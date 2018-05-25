@@ -5,33 +5,50 @@ div.add-cat-container {
 .add-cat-form {
     margin: 0 auto;
     width: fit-content;
+    min-width: 50%;
     background: #ffffffcf ;
     border-radius: 5px;
     box-shadow: 2px 3px 8px #747474;
 }
 
-h2 {
+.add-cat-container h2 {
     border-bottom: 1px solid #ddd;
     margin: 0;
     margin-bottom: 1.5rem;
     padding: 1.6rem 1.5rem 0.5rem;
 }
 
-form {
+.add-cat-container form {
     padding: 0 1.5rem 2rem;
 }
 
-label {
-    margin-right: 1rem;
+.add-cat-container label {
+    display: block;
+    margin: 1rem 0 0.1rem;
 }
 
-input[type="text"] {
+.add-cat-container input[type="text"] {
     padding: 6px 8px;
     border: 1px solid #ccc;
     border-radius: 2px;
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-form > div{
+.add-cat-container form > div{
     padding: 0.5rem 0;
+}
+
+.add-cat-container textarea{
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+.add-cat-container button {
+    float: none;
+    margin-left: 0;
 }
