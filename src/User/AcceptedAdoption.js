@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {withUser} from "./context/User";
 import {withCatPage} from "./../CatPage/context/CatPageContext";
 import CatContainer from "./../List/CatContainer";
-import UserProfile from './UserProfile';
 
 
 const isShelter = userId => {
@@ -18,7 +17,7 @@ const isShelter = userId => {
 class AcceptedAdoption extends Component {
   render() {
     return (
-      <div className="UserView container">
+      <div className="shelterPanel">
             <div>
               <h3></h3>
               {
