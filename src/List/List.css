@@ -114,3 +114,41 @@ button.CTA{
 .clear{
     clear: both;
 }
+
+.pagination {
+
+    min-width: 40%;
+    justify-content: center;
+    display:inline-flex;
+    align-items: center;
+    margin-right:auto;
+    margin-left:auto;
+    padding:10px;
+    background-color: #e46140;
+}
+
+
+.pagination li{
+    list-style: none;
+    border: 1px solid #e46140;
+    height: 100%;
+    width: 2rem;
+    background-color: #e46140;
+    text-align: center;
+
+}
+
+.pagination a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+
+}
+.pagination li.active {
+    background-color: #5f5e5e;
+    border-radius:5px;
+}
+
+ul.pagination{
+border-radius:5px;
+}

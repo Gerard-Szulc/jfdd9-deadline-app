@@ -28,7 +28,21 @@
     color: #fff;
 }
 
-@media(max-width: 1010px) {
+@media(max-width: 1321px) {
+
+    .searchBox {
+        width:100%;
+        padding: 25px 10px;
+        margin-left:0;
+        margin-right:0;
+    }
+    .searchBox .Select {
+        min-width: 100px;
+        width: 50%;
+    }
+}
+
+@media(max-width: 700px) {
 
     .searchBox {
         width:100%;
