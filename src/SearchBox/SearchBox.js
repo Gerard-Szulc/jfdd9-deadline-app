@@ -2,11 +2,18 @@ import React, {Component} from 'react'
 import Race from "./Race";
 import {ageOptions,colorOptions,sexOptions,raceOptions} from '../CatsBase'
 import './searchbox.css';
+import {withCatPage} from "../CatPage/context/CatPageContext";
 
 
 class SearchBox extends Component{
 
-  mapOptions = (options) => Object.entries(options).map((element)=>({value: element[1], label: element[1]}));
+   mapOptions = (option) => this.props.cats && this.props.cats.map(
+    (element)=> element[option]
+   ).reduce((result,nextItem) => result.includes(nextItem) ? result : result.concat(nextItem), []).map(
+     item => ({ label: item, value: item })
+   )
+
+
 
 
 
@@ -19,26 +26,26 @@ class SearchBox extends Component{
         <div className="options">
           <Race name="selectedRaceOption"
                 title="rasa"
-                options={this.mapOptions(raceOptions)}
+                options={this.mapOptions('race')}
                 handleChange={this.props.handleChange}
                 selectedOption={this.props.search.selectedRaceOption}
           />
 
           <Race name="selectedSexOption"
                 title="płeć"
-                options={this.mapOptions(sexOptions)}
+                options={this.mapOptions('sex')}
                 handleChange={this.props.handleChange}
                 selectedOption={this.props.search.selectedSexOption}/>
 
           <Race name="selectedColorOption"
                 title="umaszczenie"
-                options={this.mapOptions(colorOptions)}
+                options={this.mapOptions('ointment')}
                 handleChange={this.props.handleChange}
                 selectedOption={this.props.search.selectedColorOption}/>
 
           <Race name="selectedAgeOption"
                 title="wiek"
-                options={this.mapOptions(ageOptions)}
+                options={this.mapOptions('age')}
                 handleChange={this.props.handleChange}
                 selectedOption={this.props.search.selectedAgeOption}/>
         </div>
@@ -47,4 +54,4 @@ class SearchBox extends Component{
   }
 
 }
-export default SearchBox
+export default withCatPage(SearchBox)
