@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withUser} from "./context/User";
 import { Link } from 'react-router-dom'
 import AcceptedAdoption from './AcceptedAdoption'
+import CatsFromShelter from './CatsFromShelter'
 class ShelterPanel extends Component{
   state = {
     shelter: userId => {
@@ -19,9 +20,9 @@ class ShelterPanel extends Component{
         <h2>Shelter Panel</h2>
         {
           this.props.user && (
-            <p>
+            <p><h2>
               {this.state.shelter(this.props.user.uid)}
-            </p>
+            </h2></p>
           )
         }
 
@@ -34,7 +35,8 @@ class ShelterPanel extends Component{
           </div>
           <div>
             <h3>Oczekują na adopcje:</h3>
-            <p>Wciaż nie adoptowane.</p>
+            <p>Niezaadoptowane.</p>
+            <CatsFromShelter shelter={this.props.user && this.state.shelter(this.props.user.uid)}/>
           </div>
         </div>
       </div>
