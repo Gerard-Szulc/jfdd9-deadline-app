@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {withUser} from "./context/User";
 import { Link } from 'react-router-dom'
-
+import AcceptedAdoption from './AcceptedAdoption'
 class ShelterPanel extends Component{
   state = {
     shelter: userId => {
@@ -30,6 +30,7 @@ class ShelterPanel extends Component{
           <div>
             <h3>Trwające adopcje:</h3>
             <p>Adopcje które czekają na Twoją akceptację.</p>
+            <AcceptedAdoption shelter={this.props.user && this.state.shelter(this.props.user.uid)}/>
           </div>
           <div>
             <h3>Oczekują na adopcje:</h3>
