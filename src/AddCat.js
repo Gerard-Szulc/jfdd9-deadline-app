@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import firebase from 'firebase';
 import adoptionRequestList from './adoptionRequestList'
+import {withCatPage} from "./CatPage/context/CatPageContext";
 
 class AddCat extends Component {
 
@@ -37,6 +38,7 @@ class AddCat extends Component {
   }
 
   render() {
+    console.log(this.props.adoptionRequests)
     return (
       <div className="add-cat-form">
 
@@ -94,6 +96,7 @@ class AddCat extends Component {
         </form>
 
         <div>
+
           <adoptionRequestList />
         </div>
       </div>
@@ -101,4 +104,4 @@ class AddCat extends Component {
   }
 }
 
-export default AddCat;
+export default withCatPage(AddCat);

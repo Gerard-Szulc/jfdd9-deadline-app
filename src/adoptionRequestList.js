@@ -4,7 +4,9 @@ import CatContainer from './List/CatContainer'
 
 
 class adoptionRequestList extends Component {
+
   render () {
+    console.log(this.props.adoptionRequests)
     return (
       <div>
         <h2>Koty oczekujące na akceptacje</h2>
