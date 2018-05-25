@@ -12,7 +12,8 @@ import firebase from 'firebase'
 import config from './firebase/config'
 import './App.css';
 import AddCat from './AddCat'
-import ShelterPanel from './User/SheleterPanel'
+import ShelterPanel from './User/ShelterPanel'
+import AcceptedAdoption from './User/AcceptedAdoption'
 
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/catpage/:catId" component={CatPage}/>
           <Route path="/add-cat" component={AddCat}/>
           <Route path="/shelter-panel" component={ShelterPanel}/>
+          <Route path="/accepted-adoption" component={AcceptedAdoption}/>
         </div>
       </Router>
       </CatPageProvider>
