@@ -54,6 +54,15 @@ export class CatPageProvider extends Component {
           accepted: true,
         })
         : ''
+    },
+    updateShelterRejection: (cat) => {
+      this.setState({
+        fetching: true
+      })
+      this.state.adoptionRequests &&
+      this.state.adoptionRequests.some((adoptedCat) => adoptedCat.catId === cat.id) ?
+        firebase.database().ref('/adoptionRequests/' + cat.id).remove()
+        : ''
     }
   };
 
