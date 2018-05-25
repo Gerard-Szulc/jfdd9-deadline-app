@@ -1,3 +1,9 @@
+.UserView{
+    padding-top: 4rem;
+    min-height: 100vh;
+    background: #ffffff52;
+}
+
 .if-no-user-container {
     display: flex;
     flex-wrap: wrap;
@@ -48,4 +54,13 @@
 
 form > div {
     padding: 30px 10px 10px;
+}
+
+@media(max-width: 1060px){
+    .UserView{
+        padding-top: 6rem;
+        min-height: 100vh;
+        background: #ffffff52;
+    }
+
 }

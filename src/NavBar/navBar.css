@@ -89,16 +89,16 @@ input[type=checkbox]{
     background: #fff;
 }
 
-@media(max-width: 1060px){
-    #logo{
-        order: 1;
+@media(max-width: 1150px){
+    .logo{
+        order: 999;
     }
     nav ul{
         padding: 0;
         display: flex;
         flex-direction: column-reverse;
         flex-wrap: wrap;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .right-side{
@@ -107,17 +107,16 @@ input[type=checkbox]{
         height: 0px;
         padding: 0px;
         margin: 0px;
-
     }
 
     /*Show menu when invisible checkbox is checked*/
-    input[type=checkbox]:checked ~ .right-side{
+  /*  input[type=checkbox]:checked ~ .right-side{
         height: 2.75rem;
         display: flex;
         transition: 0.2s;
         visibility: visible;
         padding: 0px;
-    }
+    }*/
 
     .hamburger{
         display: flex;
