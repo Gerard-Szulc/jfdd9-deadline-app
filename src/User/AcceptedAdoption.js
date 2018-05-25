@@ -20,7 +20,7 @@ class AcceptedAdoption extends Component {
     return (
       <div className="UserView container">
             <div>
-              <h2>Twoje koty</h2>
+              <h3></h3>
               {
                 this.props.cats && this.props.cats.filter(
                   cat => this.props.adoptionRequests.some(

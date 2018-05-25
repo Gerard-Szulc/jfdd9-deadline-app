@@ -36,7 +36,7 @@ class CatContainer extends Component{
             </Link>
           </div>
 
-          {this.props.shelterModeOn && <button className="catButtons" onClick={() => this.props.updateShelterAdoption(this.props.cat)}>Zgoda</button>}
+          {this.props.shelterModeOn && <button className="CTA" onClick={() => this.props.updateShelterAdoption(this.props.cat)}>Zgoda</button>}
 
         </div>
 
