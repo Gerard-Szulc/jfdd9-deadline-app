@@ -5,6 +5,15 @@ import logo from './logo-white.png';
 import hamburger from  './hamburger.png';
 import {withUser} from '../User/context/User'
 
+ const shelter = userId => {
+  return (
+    userId === 'YcFFJByZ6nUuxFfzbvO9jHYUMHJ3' ||
+    userId === 'TFFiewHfyjZxcpo18nPAFb2HyRU2' ||
+    userId === '2nfC3GoY4TRw3v0NDNzctBFJAL02' ?
+      true
+      : false
+  )
+ }
 
 class NavBar extends Component {
   state = {
@@ -57,15 +66,19 @@ class NavBar extends Component {
             <Link to="/shelters">Schroniska</Link>
           </li>
 
+          <div className='menuRight'>
             {
               this.props.user !== null ? (
                 <li className={'right-side'} style={this.state.style}>
-                  <Link to="/profile">Profil</Link>
+
+                  {shelter(this.props.user.uid)? (
+                    <Link to="/shelter-panel">Panel schroniska</Link>)
+                  :(<Link to="/profile">Profil</Link>)}
                 </li>
               ) : null
             }
 
-            <li className={'menuRight right-side'} style={this.state.style}>
+            <li className={' right-side'} style={this.state.style}>
               {
                 this.props.user !== null ? (
                   <button onClick={this.props.signOut}>Wyloguj</button>
@@ -74,6 +87,8 @@ class NavBar extends Component {
                 )
               }
             </li >
+
+          </div>
         </ul>
         <div className="clear"></div>
       </nav>
