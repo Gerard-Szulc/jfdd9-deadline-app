@@ -17,7 +17,6 @@ class ShelterPanel extends Component{
   render(){
     return(
       <div className="container">
-        <h2>Shelter Panel</h2>
         {
           this.props.user && (
             <p><h2>
