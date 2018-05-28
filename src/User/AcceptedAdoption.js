@@ -8,9 +8,7 @@ const isShelter = userId => {
   return (
     userId === 'YcFFJByZ6nUuxFfzbvO9jHYUMHJ3' ||
     userId === 'TFFiewHfyjZxcpo18nPAFb2HyRU2' ||
-    userId === '2nfC3GoY4TRw3v0NDNzctBFJAL02' ?
-      true
-      : false
+    userId === '2nfC3GoY4TRw3v0NDNzctBFJAL02'
   )
 }
 
@@ -19,7 +17,6 @@ class AcceptedAdoption extends Component {
     return (
       <div className="shelterPanel">
             <div>
-              <h3></h3>
               {
                 this.props.cats && this.props.cats.filter(
                   cat => this.props.adoptionRequests.some(
