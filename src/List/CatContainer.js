@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faVenus from '@fortawesome/fontawesome-free-solid/faVenus'
 import faMars from '@fortawesome/fontawesome-free-solid/faMars'
+import {withCatPage} from "../CatPage/context/CatPageContext";
 
 class CatContainer extends Component{
   render() {
+
     const defaultImage = 'http://athomeintn.com/wp-content/uploads/drawn-feline-cute-kitty-pencil-and-in-color-drawn-feline-cute-kitty-cute-cat-drawing.jpg'
     const catImage = this.props.cat.image === "" ? defaultImage : this.props.cat.image
 
@@ -34,6 +36,9 @@ class CatContainer extends Component{
             </Link>
           </div>
 
+          {this.props.shelterModeOn && <button className="CTA" onClick={() => this.props.updateShelterAdoption(this.props.cat)}>Zgoda</button>}
+          {this.props.shelterModeOn && <button className="CTA" onClick={() => this.props.updateShelterRejection(this.props.cat)}>Odrzucenie</button>}
+
         </div>
 
       </div>
@@ -41,4 +46,4 @@ class CatContainer extends Component{
   }
 }
 
-export default CatContainer;
+export default withCatPage(CatContainer);
