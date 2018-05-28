@@ -28,7 +28,7 @@ class ShelterPanel extends Component{
         }
 
         <div className="shelterPanel">
-          <Link to="/add-cat"><button className="CTA add-new-cat">Dodaj nowego kota</button></Link>
+          <Link to="/add-cat"><button className="CTA CTA-blue">Dodaj nowego kota</button></Link>
           <div className="shelterPanel-cats adoption-requests">
             <h3>Trwające adopcje:</h3>
             <p>Adopcje które czekają na Twoją akceptację.</p>

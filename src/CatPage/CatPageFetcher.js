@@ -3,7 +3,9 @@ import Shelters from "../Shelters";
 import {withCatPage} from "./context/CatPageContext";
 import {withUser} from '../User/context/User'
 import { Link }from 'react-router-dom'
-
+import faMars from "@fortawesome/fontawesome-free-solid/faMars";
+import faVenus from "@fortawesome/fontawesome-free-solid/faVenus";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class CatPageFetcher extends Component {
 
@@ -31,47 +33,50 @@ class CatPageFetcher extends Component {
           <div className="CatPage container">
             <div className="catDiv">
               <img className="catImage" alt="cat" src={cat.image === "" ? catImage : cat.image}/>
+            </div>
 
-              {this.props.user === null ?  <button className="catButtons"> <Link to="/profile" className='catButtons'>Zaloguj się</Link></button> :
+            <div className="catDiv catDescription">
+              <h2>{cat.name}</h2>
+              {
+                cat.sex === 'Kotka' ?
+                  <FontAwesomeIcon icon={faVenus} className="iconVenus"/>
+                  : <FontAwesomeIcon icon={faMars} className="iconMars" />
+              }
+              <p><strong>Płeć:</strong> {cat.sex} <strong>Wiek:</strong> {cat.age}</p>
+              <p className="catDescription">
+                {cat.description}
+              </p>
+
+              {this.props.user === null ?  <button className="CTA CTA-blue"> <Link to="/profile" className='catButtons'>Zaloguj się</Link></button> :
                 ( isFavourite ?
-                  <button className="catButtons" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
+                  <button className="CTA" onClick={() => this.props.toggleCatFavorite(cat)}> Odlub mnie
                   </button>
                   :
-                  <button className="catButtons" onClick={
-                      () => this.props.toggleCatFavorite(cat)}> Polub mnie
-                    </button>)}
+                  <button className="CTA" onClick={
+                    () => this.props.toggleCatFavorite(cat)}> Polub mnie
+                  </button>)}
 
 
 
 
 
               {this.props.user !== null &&
-                (!adoptionRequest ?
-                  <button className="catButtons" onClick={
+              (!adoptionRequest ?
+                  <button className="CTA CTA-blue" onClick={
                     () => this.props.toggleCatAdopted(cat)}> Adoptuj mnie
                   </button> : (
                     adoptionRequest.accepted === false  ? 'Kot czeka na akceptację adopcji przez schronisko' : (
                       adoptionRequest.user === this.props.user.uid ? 'To twój kot' : 'Kota nie ma'
                     )
                   )
-                )
+              )
               }
-
-
-            </div>
-
-            <div className="catDiv">
-              <h2>{cat.name}</h2>
-              <p><strong>Płeć:</strong> {cat.sex} <strong>Wiek:</strong> {cat.age}</p>
-              <p className="catDescription">
-                {cat.description}
-              </p>
 
             </div>
 
           </div>
-          <div style={{ position: 'relative', height: '60vh'}}>
-          <Shelters gestureHandling={'cooperative'} shelter={cat.shelter}/>
+          <div className="map-cat-location">
+            <Shelters gestureHandling={'cooperative'} shelter={cat.shelter}/>
           </div>
         </Fragment>
 
