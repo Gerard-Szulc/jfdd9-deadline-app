@@ -80,7 +80,7 @@ export class CatPageProvider extends Component {
     this.setState({
       cats: cats,
       fetching: false
-    },console.log(this.state.cats))
+    })
   }
 
   handleFavoriteSnapshot = snapshot => {
@@ -105,7 +105,6 @@ export class CatPageProvider extends Component {
         })
       }
     )
-    console.log('koty adoptowane po updejcie stanu', this.state.adoptionRequests)
     this.setState({
         adoptionRequests: adopted,
         fetching: false
@@ -128,7 +127,6 @@ export class CatPageProvider extends Component {
   }
 
   componentWillUpdate() {
-    console.log('komponent będzie się updejtował', this.state)
   }
 
   componentWillUnmount() {
