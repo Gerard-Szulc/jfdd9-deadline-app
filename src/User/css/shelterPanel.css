@@ -25,10 +25,10 @@
     justify-content: center;
 }
 
-.shelterPanel .add-new-cat {
+.shelterPanel .CTA-blue {
     background: #3792e3;
     border: #3792e3;
-}.shelterPanel .add-new-cat:hover{
+}.shelterPanel .CTA-blue:hover{
     background: #107bda;
     border: #107bda;
 }

@@ -1,44 +1,59 @@
 .CatPage {
-    background-color: antiquewhite;
     display: flex;
-    margin-top: 2rem;
-}
-.catDiv{
-    display:flex;
-    margin:0;
-    padding:0.5rem;
+    flex-direction: row;
     justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-    width:48%;
+}
+.CatPage .catDiv{
+    width: 48.8%;
+    padding: 10px;
 }
 
-.catDescription {
+.CatPage .catDiv img {
+    width: 91%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px #ccc;
+    border: 1.5rem solid #fff;
+}
+
+.catDiv .catDescription {
     display: inline-block;
     width: 100%;
+    text-align: justify;
 }
 
-.catImage {
-    height: 17rem;
-    min-width: 5rem;
-    margin-top: 2rem;
+.catDiv.catDescription h2{
+    margin-bottom: 9px;
+    display: inline-block;
 }
 
-.catButtons {
-    height: 3rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    background: #e46140;
-    color: #fff;
-    font-size: 1.2em;
-    border: 1px solid #fb5b33;
-    margin-top: 0.5rem;
+.catDiv.catDescription svg{
+    font-size: 3rem;
+    position: relative;
+    left: 10px;
+    top: 2px;
+}
 
+.catDiv.catDescription h2 + svg + p{
+    margin-top: 0;
 }
 h2{
     font-size: 2rem
 }
+
+.CatPage .CTA{
+    float: none;
+    margin-left: 0;
+}
+
+.CatPage .CTA-blue {
+    background: #3792e3;
+    border: #3792e3;
+}
+.CatPage .CTA-blue:hover{
+     background: #107bda;
+     border: #107bda;
+ }
 
 @media(max-width: 1060px){
     .CatPage {
@@ -70,4 +85,13 @@ h2{
         width:90%;
     }
 
+}
+
+.map-cat-location{
+    position: relative;
+    height: 60vh;
+    width: 97%;
+    margin: 0 auto;
+    box-shadow: 1px 2px 2px #ccc;
+    margin-bottom: 30px;
 }
