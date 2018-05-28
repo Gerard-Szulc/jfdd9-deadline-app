@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {withUser} from "./context/User";
-import { Link } from 'react-router-dom'
-import AcceptedAdoption from './AcceptedAdoption'
-import CatsFromShelter from './CatsFromShelter'
+import { Link } from 'react-router-dom';
+import AcceptedAdoption from './AcceptedAdoption';
+import CatsFromShelter from './CatsFromShelter';
+import style from './css/shelterPanel.css';
+
 class ShelterPanel extends Component{
   state = {
     shelter: userId => {
@@ -17,7 +19,6 @@ class ShelterPanel extends Component{
   render(){
     return(
       <div className="container">
-        <h2>Shelter Panel</h2>
         {
           this.props.user && (
             <p><h2>
@@ -27,13 +28,13 @@ class ShelterPanel extends Component{
         }
 
         <div className="shelterPanel">
-          <Link to="/add-cat"><button className="CTA">Dodaj nowego kota</button></Link>
-          <div>
+          <Link to="/add-cat"><button className="CTA add-new-cat">Dodaj nowego kota</button></Link>
+          <div className="shelterPanel-cats adoption-requests">
             <h3>Trwające adopcje:</h3>
             <p>Adopcje które czekają na Twoją akceptację.</p>
             <AcceptedAdoption shelter={this.props.user && this.state.shelter(this.props.user.uid)}/>
           </div>
-          <div>
+          <div className="shelterPanel-cats">
             <h3>Oczekują na adopcje:</h3>
             <p>Niezaadoptowane.</p>
             <CatsFromShelter shelter={this.props.user && this.state.shelter(this.props.user.uid)}/>

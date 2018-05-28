@@ -16,7 +16,7 @@ class AcceptedAdoption extends Component {
   render() {
     return (
       <div className="shelterPanel">
-            <div>
+            <div className="flex">
               {
                 this.props.cats && this.props.cats.filter(
                   cat => this.props.adoptionRequests.some(

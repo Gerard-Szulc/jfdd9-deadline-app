@@ -3,7 +3,7 @@ import {withUser} from "./context/User";
 
 const errorMessage = (code) => {
   switch (code) {
-    case 'auth/invalid-email':
+    case 'auth/user-not-found':
       return 'Nie ma takiego użytkownika.'
     case 'auth/wrong-password':
       return 'Niepoprawne hasło.'

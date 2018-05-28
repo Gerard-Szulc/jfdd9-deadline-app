@@ -1,0 +1,42 @@
+.shelterPanel-cats{
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.shelterPanel-cats.adoption-requests button.CTA.show-more {
+    display: none;
+}
+
+.shelterPanel-cats .list{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shelterPanel-cats .catContainer{
+    width: 46%;
+}
+
+.shelterPanel .flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shelterPanel .add-new-cat {
+    background: #3792e3;
+    border: #3792e3;
+}.shelterPanel .add-new-cat:hover{
+    background: #107bda;
+    border: #107bda;
+}
+
+.shelterPanel h3 + p{
+    margin-top: 0;
+    color: #434343;
+}
+.shelterPanel h3{
+    margin-bottom: 6px;
+}
+
