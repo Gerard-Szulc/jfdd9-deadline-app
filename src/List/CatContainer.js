@@ -19,7 +19,7 @@ class CatContainer extends Component{
         <div className="catContainerDescription">
           <div className="catContainerName">
             <h3>{this.props.cat.name}</h3>
-            {console.log(this.props.cat.sex)}
+
             {
               this.props.cat.sex === 'Kotka' ?
                 <FontAwesomeIcon icon={faVenus} className="iconVenus"/>

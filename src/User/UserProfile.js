@@ -25,7 +25,6 @@ class UserProfile extends Component {
   };
 
   render() {
-    console.log(this.props.adoptionRequests)
     return (
       <div className="UserView container">
 
