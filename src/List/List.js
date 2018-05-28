@@ -49,8 +49,10 @@ class List extends Component {
       ))
 
 
-    console.log(search);
+
     return (
+
+
 
       <div className={"list"}>
 

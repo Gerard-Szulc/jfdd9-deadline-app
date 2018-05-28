@@ -6,15 +6,12 @@ import 'react-select/dist/react-select.css';
 class Race extends Component{
 
   handleChange = (selectedOption) => {
-    //console.log(selectedOption);
-
     return this.props.handleChange(this.props.name,selectedOption);
 
 
   }
 
   render() {
-    //console.log(this.props.selectedOption)
     return (
       <Select
         multi={true}

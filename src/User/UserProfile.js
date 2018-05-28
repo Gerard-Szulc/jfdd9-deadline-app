@@ -47,6 +47,7 @@ class UserProfile extends Component {
               <h2>Twoje koty</h2>
 
               <div className={"list"}>
+
               {              this.props.cats && this.props.cats.filter( cat =>
                 this.props.adoptionRequests.some(request => request.catId === cat.id && request.user === this.props.user.uid)
               ).map(element=><CatContainer key={element.id} cat={element}/>)}
