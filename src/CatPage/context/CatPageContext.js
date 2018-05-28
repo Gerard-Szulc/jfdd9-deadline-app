@@ -80,7 +80,7 @@ export class CatPageProvider extends Component {
     this.setState({
       cats: cats,
       fetching: false
-    })
+    },console.log(this.state.cats))
   }
 
   handleFavoriteSnapshot = snapshot => {
