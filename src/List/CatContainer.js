@@ -13,32 +13,33 @@ class CatContainer extends Component{
 
     return (
       <div className="catContainer" >
-        <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${catImage})`}}>
+        <div>
+          <div className="catContainerImage" style={{backgroundSize:'cover' ,backgroundImage: `url(${catImage})`}}></div>
 
+          <div className="catContainerDescription">
+            <div className="catContainerName">
+              <h3>{this.props.cat.name}</h3>
+              {
+                this.props.cat.sex === 'Kotka' ?
+                  <FontAwesomeIcon icon={faVenus} className="iconVenus"/>
+                  : <FontAwesomeIcon icon={faMars} className="iconMars" />
+              }
+            </div>
+
+            <div className="description">
+              <p>{this.props.cat.description.split(' ').slice(0,25).join(' ')}...</p>
+
+              <Link to={`/catpage/${this.props.cat.id}`}>
+                <button className="CTA show-more">Pokaż więcej</button>
+                <div className="clear"></div>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="catContainerDescription">
-          <div className="catContainerName">
-            <h3>{this.props.cat.name}</h3>
 
-            {
-              this.props.cat.sex === 'Kotka' ?
-                <FontAwesomeIcon icon={faVenus} className="iconVenus"/>
-                : <FontAwesomeIcon icon={faMars} className="iconMars" />
-            }
-          </div>
-
-          <div className="description">
-            <p>{this.props.cat.description.split(' ').slice(0,25).join(' ')}...</p>
-
-            <Link to={`/catpage/${this.props.cat.id}`}>
-              <button className="CTA show-more">Pokaż więcej</button>
-              <div className="clear"></div>
-            </Link>
-          </div>
-
+        <div className="shelter-buttons">
           {this.props.shelterModeOn && <button className="CTA" onClick={() => this.props.updateShelterAdoption(this.props.cat)}>Zgoda</button>}
-          {this.props.shelterModeOn && <button className="CTA" onClick={() => this.props.updateShelterRejection(this.props.cat)}>Odrzucenie</button>}
-
+          {this.props.shelterModeOn && <button className="CTA CTA-discord" onClick={() => this.props.updateShelterRejection(this.props.cat)}>Odrzucenie</button>}
         </div>
 
       </div>
