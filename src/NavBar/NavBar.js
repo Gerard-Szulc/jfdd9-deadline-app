@@ -21,7 +21,6 @@ class NavBar extends Component {
     style: {},
   }
   toggleNavHeight = (event) =>{
-    console.log(event)
     event.nativeEvent.stopPropagation()
     event.nativeEvent.stopImmediatePropagation();
 

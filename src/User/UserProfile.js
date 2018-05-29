@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className="UserView container">
+      <div className="UserView">
 
         {this.props.user && isShelter(this.props.user.uid) === true? (
           <div className="shelter-panel">
@@ -44,11 +44,14 @@ class UserProfile extends Component {
           ) : (
             <div>
               <h2>Twoje koty</h2>
-
+              <h3>Żeby adoptować kota, po odnalezieniu go w wyszukiwarce, wejdź na jego stronę i kliknij adoptuj, by wysłać zapytanie do schroniska.</h3>
+              <h4>Koty, które już adoptowałeś i te, których adopcja jeszcze nie została potwierdzona.</h4>
               <div className={"list"}>
               {              this.props.cats && this.props.cats.filter( cat =>
                 this.props.adoptionRequests.some(request => request.catId === cat.id && request.user === this.props.user.uid)
               ).map(element=><CatContainer key={element.id} cat={element}/>)}
+
+
               </div>
             </div>
           )
