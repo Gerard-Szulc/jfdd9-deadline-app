@@ -17,6 +17,7 @@ body {
   background: url("https://preview.ibb.co/kTyEQo/hero_background.jpg") no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  min-height: 86.7vh;
 }
 
 #root {
