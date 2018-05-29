@@ -22,8 +22,24 @@
 
 .catContainer > div{
     display:flex;
-    flex-wrap: wrap;
     justify-content: center
+}
+
+@media(max-width: 990px){
+    .catContainer{
+        width: auto !important;
+    }
+}
+
+@media(max-width: 600px){
+    .catContainer > div{
+        flex-wrap: wrap;
+        width: auto !important;
+    }
+
+    .catContainer{
+        width: auto !important;
+    }
 }
 
 .catContainerDescription {
