@@ -9,7 +9,7 @@ import './User/css/style-form.css';
 class FavoriteCats extends Component{
   render() {
     return(
-      <div className="UserView container">
+      <div className="UserView">
         <h2>Twoje ulubione koty</h2>
         {/*{ this.props.fetching === false ? (this.props.cats && this.props.cats*/}
           {/*.filter( cat =>  this.props.favourite.some((favouriteCat)=> favouriteCat.catId === cat.id))*/}

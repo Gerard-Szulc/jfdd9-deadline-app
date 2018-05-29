@@ -26,7 +26,7 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className="UserView container">
+      <div className="UserView">
 
         {this.props.user && isShelter(this.props.user.uid) === true? (
           <div className="shelter-panel">
