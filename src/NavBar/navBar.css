@@ -68,10 +68,7 @@ figure{
 input[type=checkbox]{
     display: none;
 }
-.menuRight{
-    display: inline;
-    float: right;
-}
+
 
 .menuRight button {
     padding: 10px 20px;
@@ -84,7 +81,10 @@ input[type=checkbox]{
     font-weight: 700;
     cursor: pointer;
 }
-
+.menuRight{
+    display: inline;
+    float: right;
+}
 .menuRight button:hover {
     background: #fff;
 }
@@ -141,5 +141,8 @@ input[type=checkbox]{
     .menuRight{
         float: none;
 
+    }
+    .signOutButton{
+        order: 998;
     }
 }
