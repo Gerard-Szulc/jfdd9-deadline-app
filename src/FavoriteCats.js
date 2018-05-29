@@ -22,7 +22,7 @@ class FavoriteCats extends Component{
       <div className={"list"}>
         {this.props.cats && this.props.favourite ? this.props.cats.filter( cat =>
           Object.entries(this.props.favourite).some(([id,request]) => id === cat.id)
-        ).map(element=><CatContainer key={element.id} cat={element}/>) : <p>Nie polubiłeś jeszcze żadnego kota. </p>}
+        ).map(element=><CatContainer key={element.id} cat={element}/>) : <p>Nie polubiłeś jeszcze żadnego kota. Przejdź do wyszukiwarki, wybierz kota, który Cię zainteresował i kliknij: 'Polub mnie'. </p>}
       </div>
         </div>
       </div>
