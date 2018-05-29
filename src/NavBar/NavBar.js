@@ -64,11 +64,19 @@ class NavBar extends Component {
           <li className="right-side" style={this.state.style}>
             <Link to="/shelters">Schroniska</Link>
           </li>
-
-          <div className='menuRight'>
+          <li className={' right-side menuRight signOutButton'} style={this.state.style}>
             {
               this.props.user !== null ? (
-                <li className={'right-side'} style={this.state.style}>
+                <button onClick={this.props.signOut}>Wyloguj</button>
+              ) : (
+                <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
+              )
+            }
+          </li >
+
+            {
+              this.props.user !== null ? (
+                <li className={'right-side menuRight'} style={this.state.style}>
 
                   {shelter(this.props.user.uid)? (
                     <Link to="/shelter-panel">Panel schroniska</Link>)
@@ -77,17 +85,8 @@ class NavBar extends Component {
               ) : null
             }
 
-            <li className={' right-side'} style={this.state.style}>
-              {
-                this.props.user !== null ? (
-                  <button onClick={this.props.signOut}>Wyloguj</button>
-                ) : (
-                  <Link to="/profile">{this.props.user === null ? 'Zaloguj się' : 'Profil'}</Link>
-                )
-              }
-            </li >
 
-          </div>
+
         </ul>
         <div className="clear"></div>
       </nav>
