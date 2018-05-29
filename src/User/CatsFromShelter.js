@@ -25,7 +25,6 @@ class CatsFromShelter extends Component {
                 cat=> cat.shelter === this.props.shelter
               ).filter(
                 cat => {
-                  console.log(this.props.adoptionRequests, cat)
                   return !this.props.adoptionRequests.some(
                     request => request.catId === cat.id && request.accepted === true
                   )
