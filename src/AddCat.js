@@ -49,6 +49,8 @@ class AddCat extends Component {
 
   render() {
     return (
+
+      this.props.user && (
       <div className="add-cat-container">
         <div className="add-cat-form">
           <h2>Dodaj kota do adopcji</h2>
@@ -122,6 +124,7 @@ class AddCat extends Component {
           </form>
         </div>
       </div>
+      )
     )
   }
 }
