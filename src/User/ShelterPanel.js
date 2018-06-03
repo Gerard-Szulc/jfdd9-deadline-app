@@ -18,14 +18,15 @@ class ShelterPanel extends Component{
   }
   render(){
     return(
+      this.props.user && (
       <div className="container">
-        {
-          this.props.user && (
+
+
             <p><h2>
               {this.state.shelter(this.props.user.uid)}
             </h2></p>
-          )
-        }
+
+
 
         <div className="shelterPanel">
           <Link to="/add-cat"><button className="CTA CTA-blue">Dodaj nowego kota</button></Link>
@@ -40,7 +41,11 @@ class ShelterPanel extends Component{
             <CatsFromShelter shelter={this.props.user && this.state.shelter(this.props.user.uid)}/>
           </div>
         </div>
+
       </div>
+      )
+
+
     )
   }
 }
