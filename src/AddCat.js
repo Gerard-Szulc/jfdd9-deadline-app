@@ -9,10 +9,10 @@ class AddCat extends Component {
     name: '',
     description: '',
     image: '',
-    age: '',
-    ointment: '',
-    race: '',
-    sex: '',
+    age: 'poniżej 3 miesięcy',
+    ointment: 'Rudy',
+    race: 'Dachowiec',
+    sex: 'Kotka',
     formError: null,
 
     shelter: userId => {
@@ -54,7 +54,7 @@ class AddCat extends Component {
           <h2>Dodaj kota do adopcji</h2>
 
           <form onSubmit={this.handleSubmit}>
-            <label for="name">Imię kota: </label>
+            <label htmlFor="name">Imię kota: </label>
             <input
               type="text"
               name="name"
@@ -64,18 +64,18 @@ class AddCat extends Component {
               required
             />
 
-            <label for="sex">Płeć: </label>
+            <label htmlFor="sex">Płeć: </label>
             <input type="radio" name="sex" value="Kotka" onChange={this.handleChange} required /> Kotka
             <input type="radio" name="sex" value="Kocur" onChange={this.handleChange} /> Kocur
 
-            <label for="age">Wiek: </label>
-            <select name='age' onChange={this.handleChange} required>
+            <label htmlFor="age">Wiek: </label>
+            <select name='age' onChange={this.handleChange} required defaultValue="poniżej 3 miesięcy">
               <option value="poniżej 3 miesięcy">mniej niż 3 miesiące</option>
               <option value="poniżej roku">mniej niż rok</option>
               <option value="powyżej roku">więcej niż rok</option>
             </select>
 
-            <label for="race">Rasa: </label>
+            <label htmlFor="race">Rasa: </label>
             <input type="radio" name="race" value="Dachowiec" checked onChange={this.handleChange} required/> Dachowiec
             <input type="radio" name="race" value="Rasowy" onChange={this.handleChange} /> Rasowy
             {/*{
@@ -91,7 +91,7 @@ class AddCat extends Component {
                ) : null
              }*/}
 
-             <label for="ointment">Umaszczenie: </label>
+             <label htmlFor="ointment">Umaszczenie: </label>
               <select name='ointment' onChange={this.handleChange} required>
                 <option value="Rudy">Rudy</option>
                 <option value="Czarny">Czarny</option>
@@ -100,7 +100,7 @@ class AddCat extends Component {
                 <option value="Mieszany">Mieszany</option>
               </select>
 
-            <label for="image">Adres url do zdjęcia: </label>
+            <label htmlFor="image">Adres url do zdjęcia: </label>
             <input
               type="text"
               name="image"
@@ -109,13 +109,13 @@ class AddCat extends Component {
               placeholder="http://..."
             /><br/>
 
-            <label for="description">Opis: </label>
+            <label htmlFor="description">Opis: </label>
             <textarea
               name="description"
               value={this.state.description}
               onChange={this.handleChange}
               placeholder="Któtki opis zwierzaka (max 500 znaków)"
-              maxlength="500"
+              maxLength="500"
             /><br />
 
             <button className="CTA" type="submit">Dodaj</button>
